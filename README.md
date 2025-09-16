@@ -22,7 +22,7 @@ Vue、Spring Cloud Alibaba 2023、Spring Cloud 2023、Nacos、Sentinel、 Mybati
 
 ### 后端
 ```lua
-koi  -- https://e.coding.net/honghuzl/koi/koi.git
+koi  -- https://github.com/leepandar/koi.git
 ├
 ├── doc -- 文档
      ├── db -- 数据库脚本
