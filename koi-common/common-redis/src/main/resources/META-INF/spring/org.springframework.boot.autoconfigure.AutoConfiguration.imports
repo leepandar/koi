@@ -1,0 +1,3 @@
+com.koi.common.redis.RedisPlusAutoConfiguration
+com.koi.common.redis.cache.RedisCacheAutoConfiguration
+com.koi.common.redis.listener.RedisListenerAutoConfiguration

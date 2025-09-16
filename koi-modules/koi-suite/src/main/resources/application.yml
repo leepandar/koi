@@ -1,0 +1,27 @@
+server:
+  port: 8002
+spring:
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 20MB
+  application:
+    name: koi-suite
+  config:
+    import:
+      - optional:nacos:${spring.application.name}.yaml
+      - optional:nacos:cloud-default.yaml
+      - optional:nacos:security.yaml
+      - optional:nacos:redis.yaml
+      - optional:nacos:mybatis-plus.yaml
+  cloud:
+    nacos:
+      server-addr: 127.0.0.1:8848
+      username: nacos
+      password: nacos
+      discovery:
+        server-addr: ${spring.cloud.nacos.server-addr}
+        namespace: public
+      config:
+        server-addr: ${spring.cloud.nacos.server-addr}
+        namespace: public

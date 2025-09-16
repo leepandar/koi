@@ -1,0 +1,4 @@
+com.koi.common.db.configuration.BaseMybatisConfiguration
+com.koi.common.db.encode.EncryptHikariDataSourceConfiguration
+com.koi.common.db.dynamic.DynamicDataSourceEventBusAutoConfiguration
+com.koi.common.db.dynamic.DynamicDatasourceWebAutoConfigurer

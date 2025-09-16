@@ -1,0 +1,262 @@
+version: '3.5'
+services:
+  koi-mysql:
+    build:
+      context: doc/db
+    environment:
+      MYSQL_ROOT_HOST: "%"
+      MYSQL_ROOT_PASSWORD: root
+    restart: always
+    container_name: koi-mysql
+    image: koi-mysql
+    command: --lower_case_table_names=1
+    ports:
+      - 3306:3306
+    networks:
+      - koi
+
+  koi-redis:
+    container_name: koi-redis
+    image: registry.cn-hangzhou.aliyuncs.com/dockerhub_mirror/redis
+    restart: always
+    ports:
+      - 6379:6379
+    networks:
+      - koi
+
+  koi-nacos:
+    build:
+      context: ./koi-nacos
+    restart: always
+    container_name: koi-nacos
+    image: koi-nacos
+    ports:
+      - 8848:8848
+    networks:
+      - koi
+
+  koi-gateway:
+    build:
+      context: ./koi-gateway
+    restart: always
+    container_name: koi-gateway
+    image: koi-gateway
+    ports:
+      - 8888:8888
+    networks:
+      - koi
+
+  koi-iam:
+    build:
+      context: ./koi-modules/koi-iam
+    restart: always
+    container_name: koi-iam
+    image: koi-iam
+    ports:
+      - 8001:8001
+    networks:
+      - koi
+
+  koi-suite:
+    build:
+      context: ./koi-modules/koi-suite
+    restart: always
+    container_name: koi-suite
+    image: koi-suite
+    ports:
+      - 8002:8002
+    networks:
+      - koi
+
+  koi-bpm:
+    build:
+      context: ./koi-modules/koi-bpm
+    restart: always
+    container_name: koi-bpm
+    image: koi-bpm
+    ports:
+      - 8003:8003
+    networks:
+      - koi
+
+  koi-monitor:
+    build:
+      context: ./koi-visual/koi-monitor
+    restart: always
+    image: koi-monitor
+    container_name: koi-monitor
+    ports:
+      - 7001:7001
+    networks:
+      - koi
+
+  koi-job-server:
+    build:
+      context: ./koi-visual/koi-job-server
+    restart: always
+    image: koi-job-server
+    container_name: koi-job-server
+    ports:
+      - 7002:7002
+    networks:
+      - koi
+
+  koi-job-client:
+    build:
+      context: ./koi-visual/koi-job-client
+    restart: always
+    image: koi-job-client
+    container_name: koi-job-client
+    ports:
+      - 7003:7003
+    networks:
+      - koi
+
+  koi-rabbitmq:
+    image: docker.io/macintoshplus/rabbitmq-management
+    container_name: koi-rabbitmq
+    restart: always
+    ports:
+      - 5671:5671
+      - 5672:5672
+      - 15672:15672
+      - 25672:25672
+    networks:
+      - koi
+
+  koi-prometheus:
+    image: prom/prometheus:v2.40.1
+    container_name: koi-prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - /koi-prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+    networks:
+      - koi
+
+  koi-grafana:
+    image: grafana/grafana:9.2.4
+    container_name: koi-grafana
+    environment:
+      TZ: Asia/Shanghai
+      # 服务地址 用于指定外网ip或域名
+      GF_SERVER_ROOT_URL: ""
+      # admin 管理员密码
+      GF_SECURITY_ADMIN_PASSWORD: 123456
+    ports:
+      - "3000:3000"
+    volumes:
+      - /koi-grafana/grafana.ini:/etc/grafana/grafana.ini
+      - /koi-grafana:/var/lib/grafana
+    networks:
+      - koi
+
+  koi-kafka:
+    image: 'bitnami/kafka:3.6.2'
+    container_name: koi-kafka
+    ports:
+      - "9092:9092"
+    environment:
+      TZ: Asia/Shanghai
+      # 更多变量 查看文档 https://github.com/bitnami/bitnami-docker-kafka/blob/master/README.md
+      KAFKA_BROKER_ID: 1
+      # 监听端口
+      KAFKA_CFG_LISTENERS: PLAINTEXT://:9092
+      # 实际访问ip 本地用 127 内网用 192 外网用 外网ip
+      KAFKA_CFG_ADVERTISED_LISTENERS: PLAINTEXT://192.168.31.165:9092
+      KAFKA_CFG_ZOOKEEPER_CONNECT: 127.0.0.1:2181
+      ALLOW_PLAINTEXT_LISTENER: "yes"
+    volumes:
+      - /koi-kafka/data:/bitnami/kafka/data
+    depends_on:
+      - zookeeper
+    networks:
+      - koi
+
+  koi-kafka-manager:
+    image: sheepkiller/kafka-manager:latest
+    container_name: koi-kafka-manager
+    ports:
+      - "19092:19092"
+    environment:
+      ZK_HOSTS: 127.0.0.1:2181
+      APPLICATION_SECRET: letmein
+      KAFKA_MANAGER_USERNAME: root
+      KAFKA_MANAGER_PASSWORD: 123456
+      KM_ARGS: -Dhttp.port=19092
+    depends_on:
+      - kafka
+    networks:
+      - koi
+
+  koi-zookeeper:
+    image: 'bitnami/zookeeper:3.8.0'
+    container_name: koi-zookeeper
+    ports:
+      - "2181:2181"
+    environment:
+      TZ: Asia/Shanghai
+      ALLOW_ANONYMOUS_LOGIN: "yes"
+      ZOO_SERVER_ID: 1
+      ZOO_PORT_NUMBER: 2181
+      # 自带的控制台 一般用不上可自行开启
+      ZOO_ENABLE_ADMIN_SERVER: "no"
+      # 自带控制台的端口
+      ZOO_ADMIN_SERVER_PORT_NUMBER: 8080
+    networks:
+      - koi
+
+  koi-elasticsearch:
+    image: elasticsearch:7.17.6
+    container_name: koi-elasticsearch
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    environment:
+      # 设置集群名称
+      cluster.name: koi-elasticsearch
+      # 以单一节点模式启动
+      discovery.type: single-node
+      ES_JAVA_OPTS: "-Xms512m -Xmx512m"
+    volumes:
+      - /koi-elk/elasticsearch/plugins:/usr/share/elasticsearch/plugins
+      - /koi-elk/elasticsearch/data:/usr/share/elasticsearch/data
+      - /koi-elk/elasticsearch/logs:/usr/share/elasticsearch/logs
+    networks:
+      - koi
+
+  koi-kibana:
+    image: kibana:7.17.6
+    container_name: koi-kibana
+    ports:
+      - "5601:5601"
+    depends_on:
+      # kibana在elasticsearch启动之后再启动
+      - koi-elasticsearch
+    environment:
+      #设置系统语言文中文
+      I18N_LOCALE: zh-CN
+      # 访问域名
+      # SERVER_PUBLICBASEURL: https://kibana.cloud.com
+    volumes:
+      - /koi-elk/kibana/config/kibana.yml:/usr/share/kibana/config/kibana.yml
+    networks:
+      - koi
+
+  koi-logstash:
+    image: logstash:7.17.6
+    container_name: koi-logstash
+    ports:
+      - "4560:4560"
+    volumes:
+      - /koi-elk/logstash/pipeline/logstash.conf:/usr/share/logstash/pipeline/logstash.conf
+      - /koi-elk/logstash/config/logstash.yml:/usr/share/logstash/config/logstash.yml
+    depends_on:
+      - koi-elasticsearch
+    networks:
+      - koi
+
+networks:
+  spring_cloud_default:
+    name: koi
+    driver: bridge

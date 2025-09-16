@@ -1,0 +1,4 @@
+com.koi.common.security.configuration.OAuth2AutoConfiguration
+com.koi.common.security.configuration.OAuth2ExceptionHandler
+com.koi.common.security.configuration.StpInterfaceRedisImpl
+com.koi.common.security.configuration.feign.AutoSaSameConfiguration

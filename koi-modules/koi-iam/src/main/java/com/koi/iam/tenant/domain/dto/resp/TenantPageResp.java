@@ -1,0 +1,63 @@
+package com.koi.iam.tenant.domain.dto.resp;
+
+import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.Data;
+
+import java.time.Instant;
+
+/**
+ * @author lida
+ */
+@Data
+public class TenantPageResp {
+
+    private Long id;
+    @Schema(description = "编码")
+    private String code;
+    @Schema(description = "名称")
+    private String name;
+    @Schema(description = "类型")
+    private Integer type;
+    @Schema(description = "状态")
+    private Boolean status;
+    @Schema(description = "别名")
+    private String alias;
+
+    @Schema(description = "LOGO")
+    private String logo;
+    @Schema(description = "邮箱")
+    private String email;
+    @Schema(description = "联系人")
+    private String contactPerson;
+    @Schema(description = "联系方式")
+    private String contactPhone;
+    @Schema(description = "行业")
+    private String industry;
+
+    @Schema(description = "省")
+    private Long provinceId;
+    @Schema(description = "省")
+    private String provinceName;
+    @Schema(description = "市")
+    private Long cityId;
+    @Schema(description = "市")
+    private String cityName;
+    @Schema(description = "区")
+    private Long districtId;
+    @Schema(description = "区")
+    private String districtName;
+
+    private String address;
+    @Schema(description = "统一信用代码")
+    private String creditCode;
+    @Schema(description = "法人")
+    private String legalPersonName;
+    @Schema(description = "描述")
+    private String description;
+
+    @Schema(description = "创建人")
+    private String createdName;
+    @Schema(description = "创建时间")
+    private Instant createdTime;
+
+}

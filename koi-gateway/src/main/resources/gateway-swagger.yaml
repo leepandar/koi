@@ -1,0 +1,20 @@
+knife4j:
+  gateway:
+    enabled: true
+    strategy: manual
+    routes:
+      - name: Iam
+        url: /iam/api-docs?group=default
+        context-path: /iam
+        service-name: koi-iam
+        order: 1
+      - name: Suite
+        url: /suite/api-docs?group=default
+        context-path: /suite
+        service-name: koi-suite
+        order: 2
+      - name: Bpm
+        url: /Bpm/api-docs?group=default
+        context-path: /Bpm
+        service-name: koi-Bpm
+        order: 3

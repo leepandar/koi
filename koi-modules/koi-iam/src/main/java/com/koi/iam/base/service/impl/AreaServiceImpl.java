@@ -1,0 +1,35 @@
+package com.koi.iam.base.service.impl;
+
+import com.koi.common.db.mybatisplus.ext.SuperServiceImpl;
+import com.koi.common.db.mybatisplus.wrap.Wraps;
+import com.koi.iam.base.domain.entity.AreaEntity;
+import com.koi.iam.base.mapper.AreaMapper;
+import com.koi.iam.base.service.AreaService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+/**
+ * @author lida
+ */
+@Service
+@RequiredArgsConstructor
+public class AreaServiceImpl extends SuperServiceImpl<AreaMapper, AreaEntity> implements AreaService {
+
+    @Override
+    public List<AreaEntity> listArea(Integer parentId) {
+        return baseMapper.listArea(parentId);
+    }
+
+    @Override
+    public void saveOrUpdateArea(AreaEntity area) {
+        final long count = count(Wraps.<AreaEntity>lbQ().eq(AreaEntity::getId, area.getId()));
+        if (count == 0) {
+            baseMapper.insert(area);
+        } else {
+            baseMapper.updateById(area);
+        }
+    }
+
+}

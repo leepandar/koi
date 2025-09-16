@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.koi</groupId>
+        <artifactId>koi</artifactId>
+        <version>${revision}</version>
+    </parent>
+
+    <artifactId>koi-common</artifactId>
+    <packaging>pom</packaging>
+    <description>公共聚合模块</description>
+
+    <modules>
+        <module>common-core</module>
+        <module>common-db</module>
+        <module>common-excel</module>
+        <module>common-feign</module>
+        <module>common-i18n</module>
+        <module>common-idempotent</module>
+        <module>common-log</module>
+        <module>common-redis</module>
+        <module>common-security</module>
+        <module>common-spring-boot</module>
+        <module>common-websocket</module>
+        <module>common-robot</module>
+        <module>common-job</module>
+    </modules>
+
+</project>

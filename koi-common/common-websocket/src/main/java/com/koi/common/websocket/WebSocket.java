@@ -1,0 +1,34 @@
+package com.koi.common.websocket;
+
+import jakarta.websocket.Session;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.util.Date;
+
+/**
+ * @author lida
+ */
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+public class WebSocket implements java.io.Serializable {
+
+    /**
+     * 代表一个连接
+     */
+    private Session session;
+
+    /**
+     * 唯一标识
+     */
+    private String identifier;
+    /**
+     * 最后心跳时间
+     */
+    private Date lastHeart;
+
+}

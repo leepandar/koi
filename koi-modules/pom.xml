@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.koi</groupId>
+        <artifactId>koi</artifactId>
+        <version>${revision}</version>
+    </parent>
+
+    <artifactId>koi-modules</artifactId>
+    <packaging>pom</packaging>
+    <description>业务模块</description>
+
+    <modules>
+        <module>koi-bpm</module>
+        <module>koi-iam</module>
+        <module>koi-suite</module>
+    </modules>
+</project>

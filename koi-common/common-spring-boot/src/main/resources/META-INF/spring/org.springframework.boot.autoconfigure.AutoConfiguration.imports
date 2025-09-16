@@ -1,0 +1,11 @@
+com.koi.common.springboot.base.GlobalExceptionHandler
+com.koi.common.springboot.base.configuration.DefaultWebMvcConfiguration
+com.koi.common.springboot.log.configuration.AccessLogAutoConfiguration
+com.koi.common.springboot.remote.configuration.RemoteAutoConfiguration
+com.koi.common.springboot.undertow.UndertowPoolCustomizer
+com.koi.common.springboot.response.GlobalResponseBodyAdvice
+com.koi.common.springboot.security.AuthenticationContextConfiguration
+com.koi.common.springboot.async.AsyncConfiguration
+com.baomidou.dynamic.datasource.spring.boot.autoconfigure.DynamicDataSourceAutoConfiguration
+com.koi.common.springboot.response.GlobalJsonDeserializer
+com.koi.common.springboot.remote.configuration.RemoteAloneRedisAutoConfiguration

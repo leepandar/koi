@@ -1,0 +1,73 @@
+server:
+  port: 7003
+
+spring:
+  application:
+    name: koi-job-client
+  config:
+    import:
+      - optional:nacos:${spring.application.name}.yml
+  cloud:
+    nacos:
+      server-addr: 127.0.0.1:8848
+      discovery:
+        server-addr: ${spring.cloud.nacos.server-addr}
+        namespace: public
+        username: nacos
+        password: nacos
+
+  servlet:
+    context-path: /koi-job-client
+  main:
+    banner-mode: off
+  web:
+    resources:
+      static-locations: classpath:admin/
+  datasource:
+    name: koi_job
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.01:3306/koi_job?useUnicode=true&characterEncoding=utf8&allowMultiQueries=true&serverTimezone=GMT%2B8&useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true
+    username: root
+    password: root
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+      connection-timeout: 30000
+      minimum-idle: 5
+      maximum-pool-size: 100
+      auto-commit: true
+      idle-timeout: 30000
+      pool-name: koi_job
+      max-lifetime: 1800000
+
+mybatis-plus:
+  typeAliasesPackage: com.aizuda.snailjob.template.datasource.persistence.po
+  global-config:
+    db-config:
+      where-strategy: NOT_EMPTY
+      capital-mode: false
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: true
+
+logging:
+  config: classpath:logback-spring.xml
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: ALWAYS
+    logfile:
+      external-file: ./logs/${spring.application.name}/console.log
+
+snail-job:
+  retry-pull-page-size: 1000 # 拉取重试数据的每批次的大小
+  job-pull-page-size: 1000 # 拉取重试数据的每批次的大小
+  server-port: 17888  # 服务器端口
+  log-storage: 7 # 日志保存时间(单位: day)
+  rpc-type: grpc

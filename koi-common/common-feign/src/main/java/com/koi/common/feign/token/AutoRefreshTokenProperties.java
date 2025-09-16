@@ -1,0 +1,57 @@
+package com.koi.common.feign.token;
+
+import lombok.Data;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+
+/**
+ * 自动生成 token 请求内部服务(对动态数据源支持不一定好)
+ *
+ * @author lida
+ */
+@SuppressWarnings("ALL")
+@Data
+@ConfigurationProperties(prefix = AutoRefreshTokenProperties.TOKEN_PREFIX)
+public class AutoRefreshTokenProperties {
+
+    public static final String TOKEN_PREFIX = "extend.feign.plugin.token";
+    public static final String X_AUTO_TOKEN = "X-Auto-Token=true";
+    public static final String X_AUTO_TOKEN_KEYWORD = "X-Auto-Token";
+    public static final String AUTHORIZATION = "Authorization";
+
+    private boolean enabled;
+    private String includeTokenHeader = X_AUTO_TOKEN_KEYWORD;
+    private String serverTokenHeader = AUTHORIZATION;
+    private Login login;
+    private String uri;
+
+    /**
+     * true 走feign 否则普通 http 请求
+     */
+    private boolean loadBalance;
+    private Cache cache = new Cache();
+
+    @Data
+    public static class Login {
+
+        private String username;
+        private String password;
+        private String clientId = "koi";
+        private String clientSecret = "koi";
+        private String tenantCode;
+        private String loginType = "password";
+    }
+
+    @Data
+    public static class Cache {
+
+        /**
+         * 过期时间-秒
+         * 默认 1小时
+         */
+        private long expire = 60 * 60;
+        private int initialCapacity = 30;
+        private long maximumSize = 100;
+
+    }
+
+}
