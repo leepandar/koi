@@ -7,4 +7,7 @@ create database `koi_nacos` default character set utf8mb4 collate utf8mb4_genera
 -- koi_job定时任务
 create database `koi_job` default character set utf8mb4 collate utf8mb4_general_ci;
 
+-- koi_bpm工作流
+create database `koi_bpm` default character set utf8mb4 collate utf8mb4_general_ci;
+
 

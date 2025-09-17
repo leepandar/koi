@@ -20,15 +20,14 @@ Vue、Spring Cloud Alibaba 2023、Spring Cloud 2023、Nacos、Sentinel、 Mybati
 
 ## 三、模块说明
 
-### 后端
 ```lua
 koi  -- https://github.com/leepandar/koi.git
 ├
-├── doc -- 文档
+└── doc -- 文档
      ├── db -- 数据库脚本
      ├── nacos -- nacos配置文件与启动包
      ├── nginx -- nginx发布配置文件
-├── koi-api -- 系统公共模块   
+└──  koi-api -- 系统公共模块   
      ├── koi-bpm-api -- 工作流服务接口  
      ├── koi-iam-api -- 身份访问管理服务接口  
      ├── koi-suit-api -- 开发工具套件接口  
@@ -47,7 +46,7 @@ koi  -- https://github.com/leepandar/koi.git
      ├── common-spring-boot -- 启动类
      ├── common-websocket -- websocket
 ├── koi-gateway --网关[8888]
-├── koi-modules --业务模块
+└──  koi-modules --业务模块
      ├── koi-bpm -- 工作流模块 [8003]
      ├── koi-iam -- 身份访问管理服务 [8001]
      ├── koi-suite -- 开发工具套件服务 [8002]
@@ -60,53 +59,41 @@ koi  -- https://github.com/leepandar/koi.git
 
 
 ## 四、环境安装
+### 1.Mysql
+执行脚本`doc/db/schema.sql`创建数据库`koi`、`koi_nacos`、`koi_job`、`koi_bpm`
+>`koi`：系统数据库(必须)
 
-> 必要环境
+>`koi_nacos`：nacos配置数据库(必须)
 
-``` shell script
-docker pull redis:latest
-docker run -itd --name redis -p 6379:6379 redis
+>`koi_job`：定时任务数据库(非必须)
 
-安装 Mysql 
-docker pull mysql:latest
-docker run -itd --name mysql-test -p 3306:3306 -e MYSQL_ROOT_PASSWORD=123456 mysql
+>`koi_bpm`：工作流数据库(非必须)
+
+### 2.Redis
+本地安装`Redis`或者使用`Docker`启动,可直接在`docker-compose`中运行
+```azure
+docker-compose up -d koi-redis
 ```
 
-> 可选环境
+### 3.Node.js
+`node`版本>20.9.0
 
-``` shell script
-## Sentinel 
-docker pull bladex/sentinel-dashboard
-docker run -i -t -d -p 8858:8858 -p 8719:8719  bladex/sentinel-dashboard
-
-## skywalking
-docker pull elasticsearch:7.9.3
-docker pull apache/skywalking-oap-server:8.5.0-es7
-docker pull apache/skywalking-ui:8.5.0
-
-## 安装 Nacos
-docker pull nacos/nacos-server
-docker run --name nacos -itd -p 8848:8848 -p 9848:9848 -p 9849:9849 --restart=always -e MODE=standalone nacos/nacos-server
-
-## 安装 RabbitMQ
-docker pull docker.io/macintoshplus/rabbitmq-management
-docker run -d  -p 5671:5671 -p 5672:5672  -p 15672:15672 -p 15671:15671  -p 25672:25672  rabbitmq_image_id
-
-# 如果要后台运行 请加 -d
-docker network create koi
-docker run --name elasticsearch --net koi -p 9200:9200 -p 9300:9300 -d -e "discovery.type=single-node" elasticsearch:7.9.3
-docker run --name oap --net koi --restart always -p 1234:1234 -p 12800:12800 -p 11800:11800 -d -e SW_STORAGE=elasticsearch7 -e SW_STORAGE_ES_CLUSTER_NODES=elasticsearch:9200 apache/skywalking-oap-server:8.5.0-es7
-docker run --name oap-ui --net koi --restart always -p 10086:8080 -d -e TZ=Asia/Shanghai -e SW_OAP_ADDRESS=oap:12800 apache/skywalking-ui:8.5.0
-
-# IDEA 配置
-VmOption -javaagent:/Users/lida/Documnet/tool/apache-skywalking-apm-bin/agent/skywalking-agent.jar
-Environment variables SW_AGENT_NAME=koi-gateway
-Environment variables SW_AGENT_NAME=koi-iam
-
-# 启动命令
-nohup java -javaagent:/opt/koi/skywalking/agent/skywalking-agent.jar -Dskywalking.agent.service_name=koi-gateway -Dskywalking.collector.backend_service=127.0.0.1:11800 -jar koi-gateway.jar -d > logs/start_gateway.log &
-nohup java -javaagent:/opt/koi/skywalking/agent/skywalking-agent.jar -Dskywalking.agent.service_name=koi-iam -Dskywalking.collector.backend_service=127.0.0.1:11800 -jar koi-iam.jar -d --spring.profiles.active=demo > logs/start_iam.log &
+### 4.pnpm
+```azure
+npm install -g pnpm
 ```
+
+### 5.启动服务
+启动顺序
+- koi-nacos [8848]
+- koi-gateway [8888]
+- koi-iam [8001]
+- koi-suite [8002] 非必须
+- koi-bpm [8003] 非必须
+- koi-monitor [7001] 非必须
+- koi-job-server [7002] 非必须
+- koi-job-client [7003] 非必须
+
 
 ## 五、帐号
 
