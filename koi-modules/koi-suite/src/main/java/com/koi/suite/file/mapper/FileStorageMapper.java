@@ -4,9 +4,6 @@ import com.koi.common.db.mybatisplus.ext.SuperMapper;
 import com.koi.suite.file.domain.entity.FileStorage;
 import org.springframework.stereotype.Repository;
 
-/**
- * @author lida
- */
 @Repository
 public interface FileStorageMapper extends SuperMapper<FileStorage> {
 

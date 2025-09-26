@@ -5,14 +5,11 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-/**
- * @author lida
- */
 @Data
 @EqualsAndHashCode(callSuper = true)
-@Schema(name = "GenerateTableReq")
+@Schema(name = "GenerateTableReq", description = "表分页请求")
 public class GenerateTablePageReq extends PageRequest {
 
-    @Schema(name = "name", description = "表名")
+    @Schema(description = "表名")
     private String name;
 }

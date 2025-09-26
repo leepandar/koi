@@ -5,11 +5,6 @@ import com.koi.suite.gen.domain.entity.TemplateGroupRelation;
 import org.apache.ibatis.annotations.Delete;
 import org.springframework.stereotype.Repository;
 
-/**
- * 代码生成模板组
- *
- * @author lida
- */
 @Repository
 public interface TemplateGroupRelationMapper extends SuperMapper<TemplateGroupRelation> {
 

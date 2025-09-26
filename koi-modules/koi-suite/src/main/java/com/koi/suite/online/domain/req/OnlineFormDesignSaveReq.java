@@ -6,7 +6,7 @@ import jakarta.validation.constraints.NotEmpty;
 import lombok.Data;
 
 @Data
-@Schema(name = "OnlineFormDesignSaveReq")
+@Schema(name = "OnlineFormDesignSaveReq", description = "表单保存请求参数")
 public class OnlineFormDesignSaveReq {
 
     @Schema(defaultValue = "脚本")

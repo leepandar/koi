@@ -6,14 +6,7 @@ import com.koi.suite.file.domain.dto.req.FileStorageSettingPageReq;
 import com.koi.suite.file.domain.dto.req.FileStorageSettingSaveReq;
 import com.koi.suite.file.domain.dto.resp.FileStorageSettingPageResp;
 import com.koi.suite.file.domain.entity.FileStorageSetting;
-import com.koi.suite.file.domain.dto.req.FileStorageSettingPageReq;
-import com.koi.suite.file.domain.dto.req.FileStorageSettingSaveReq;
-import com.koi.suite.file.domain.dto.resp.FileStorageSettingPageResp;
-import com.koi.suite.file.domain.entity.FileStorageSetting;
 
-/**
- * @author lida
- */
 public interface FileStorageSettingService extends SuperService<FileStorageSetting> {
 
     /**
@@ -25,10 +18,24 @@ public interface FileStorageSettingService extends SuperService<FileStorageSetti
 
     /**
      * 删除配置
+     *
+     * @param id
      */
     void delete(Long id);
 
+    /**
+     * 修改配置
+     *
+     * @param id
+     * @param req
+     */
     void modify(Long id, FileStorageSettingSaveReq req);
 
+    /**
+     * 分页查询
+     *
+     * @param req
+     * @return
+     */
     IPage<FileStorageSettingPageResp> pageList(FileStorageSettingPageReq req);
 }

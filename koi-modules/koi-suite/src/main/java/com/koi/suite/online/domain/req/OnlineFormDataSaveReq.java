@@ -7,6 +7,7 @@ import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
 @Data
+@Schema(name = "OnlineFormDataSaveReq", description = "表单数据保存请求参数")
 public class OnlineFormDataSaveReq {
 
     @NotBlank(message = "定义KEY不能为空")

@@ -10,44 +10,27 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
-/**
- * @author lida
- * 模板组别
- */
-
 @EqualsAndHashCode(callSuper = true)
 @Data
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
 @TableName("c_generate_template_group")
+@Schema(name = "GenerateTemplateGroup", description = "模板组别")
 public class GenerateTemplateGroup extends SuperEntity<Long> {
 
-
-    /**
-     * 分组名称
-     */
     @Schema(description = "分组名称")
     @NotBlank(message = "分组名称不能为空")
     private String name;
 
-
-    /**
-     * 分组描述
-     */
     @Schema(description = "分组描述")
     @NotBlank(message = "分组描述不能为空")
     private String desciption;
 
-    /**
-     * 是否作为默认分组
-     */
     @Schema(description = "是否作为默认分组")
     private Boolean isDefault;
 
-
     @Schema(description = "租户ID")
     private Long tenantId;
-
 
 }

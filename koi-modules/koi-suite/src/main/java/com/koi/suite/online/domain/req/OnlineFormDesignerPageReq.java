@@ -7,7 +7,7 @@ import lombok.EqualsAndHashCode;
 
 @Data
 @EqualsAndHashCode(callSuper = true)
-@Schema(name = "OnlineFormDesignerPageReq")
+@Schema(name = "OnlineFormDesignerPageReq", description = "表单分页请求参数")
 public class OnlineFormDesignerPageReq extends PageRequest {
 
     @Schema(description = "定义KEY")

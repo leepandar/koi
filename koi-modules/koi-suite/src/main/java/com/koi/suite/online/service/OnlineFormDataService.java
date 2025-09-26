@@ -7,11 +7,6 @@ import com.koi.suite.online.domain.entity.OnlineFormData;
 import com.koi.suite.online.domain.req.OnlineFormDataSaveReq;
 import com.koi.suite.online.domain.req.OnlineFormDesignerPageReq;
 
-/**
- * 表单数据接口
- *
- * @author lida
- */
 public interface OnlineFormDataService extends SuperService<OnlineFormData> {
 
     /**

@@ -7,7 +7,7 @@ import com.koi.common.db.mybatisplus.ext.SuperServiceImpl;
 import com.koi.suite.gen.domain.dto.req.GenerateTemplateGroupSaveReq;
 import com.koi.suite.gen.domain.entity.GenerateTemplateGroup;
 import com.koi.suite.gen.domain.entity.TemplateGroupRelation;
-import com.koi.suite.gen.domain.dto.rep.GenerateTemplateGroupPageRep;
+import com.koi.suite.gen.domain.dto.resp.GenerateTemplateGroupPageRep;
 import com.koi.suite.gen.domain.dto.req.GenerateTemplateGroupPageReq;
 import com.koi.suite.gen.mapper.GenerateTableMapper;
 import com.koi.suite.gen.mapper.GenerateTemplateGroupMapper;
@@ -20,11 +20,6 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 import java.util.stream.Collectors;
 
-/**
- * 代码生成模板组实现类
- *
- * @author lida
- */
 @RequiredArgsConstructor
 @Service
 @Transactional

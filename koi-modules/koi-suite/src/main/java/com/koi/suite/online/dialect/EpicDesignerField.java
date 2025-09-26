@@ -8,15 +8,11 @@ import lombok.NoArgsConstructor;
 
 import java.util.List;
 
-/**
- * 表单设计
- *
- * @author lida
- */
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@Schema(name = "EpicDesignerField", description = "表单设计")
 public class EpicDesignerField {
 
     @Schema(description = "字段ID")
@@ -53,6 +49,7 @@ public class EpicDesignerField {
 
         @Schema(description = "字典标题")
         private String label;
+
         @Schema(description = "字典值")
         private String value;
     }

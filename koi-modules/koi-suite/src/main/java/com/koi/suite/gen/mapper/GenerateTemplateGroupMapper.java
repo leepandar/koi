@@ -4,17 +4,13 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.koi.common.db.mybatisplus.ext.SuperMapper;
 import com.koi.suite.gen.domain.entity.GenerateTemplateGroup;
-import com.koi.suite.gen.domain.dto.rep.GenerateTemplateGroupPageRep;
+import com.koi.suite.gen.domain.dto.resp.GenerateTemplateGroupPageRep;
 import com.koi.suite.gen.domain.dto.req.GenerateTemplateGroupPageReq;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 import org.springframework.stereotype.Repository;
 
-/**
- * @author lida
- * @since 2024-12
- */
 @Repository
 public interface GenerateTemplateGroupMapper extends SuperMapper<GenerateTemplateGroup> {
 

@@ -8,11 +8,6 @@ import com.koi.suite.online.domain.req.OnlineFormDesignerPageReq;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
-/**
- * 表单数据持久层
- *
- * @author lida
- */
 @Repository
 public interface OnlineFormDataMapper extends SuperMapper<OnlineFormData> {
 

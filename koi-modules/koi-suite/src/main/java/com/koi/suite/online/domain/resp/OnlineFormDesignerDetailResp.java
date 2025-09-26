@@ -7,7 +7,7 @@ import lombok.EqualsAndHashCode;
 
 @Data
 @EqualsAndHashCode(callSuper = true)
-@Schema(name = "OnlineFormDesignerDetailResp")
+@Schema(name = "OnlineFormDesignerDetailResp", description = "表单详情返回参数")
 public class OnlineFormDesignerDetailResp extends OnlineFormDesignerPageResp {
 
     @Schema(defaultValue = "脚本")

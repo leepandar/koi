@@ -21,9 +21,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
-/**
- * @author lida
- */
 @Slf4j
 @Service
 @AllArgsConstructor
@@ -32,6 +29,11 @@ public class FileStorageSettingServiceImpl extends SuperServiceImpl<FileStorageS
     private final AuthenticationContext context;
     private final StorageSettingTemplate storageSettingTemplate;
 
+    /**
+     * 添加存储配置
+     *
+     * @param req 存储配置保存对象，包含要添加的存储配置信息
+     */
     @Override
     public void create(FileStorageSettingSaveReq req) {
         // 获取当前租户ID
@@ -55,6 +57,11 @@ public class FileStorageSettingServiceImpl extends SuperServiceImpl<FileStorageS
         this.storageSettingTemplate.publish(setting, 1);
     }
 
+    /**
+     * 删除配置
+     *
+     * @param id
+     */
     @Override
     public void delete(Long id) {
         FileStorageSetting setting = Optional.ofNullable(this.baseMapper.selectById(id)).orElseThrow(() -> CheckedException.notFound("配置不存在"));
@@ -66,6 +73,12 @@ public class FileStorageSettingServiceImpl extends SuperServiceImpl<FileStorageS
         this.storageSettingTemplate.publish(setting, 3);
     }
 
+    /**
+     * 修改配置
+     *
+     * @param id
+     * @param req
+     */
     @Override
     public void modify(Long id, FileStorageSettingSaveReq req) {
         Optional.ofNullable(baseMapper.selectById(id)).orElseThrow(() -> CheckedException.notFound("配置不存在"));
@@ -90,6 +103,12 @@ public class FileStorageSettingServiceImpl extends SuperServiceImpl<FileStorageS
         this.storageSettingTemplate.publish(bean, 2);
     }
 
+    /**
+     * 分页查询
+     *
+     * @param req
+     * @return
+     */
     @Override
     public IPage<FileStorageSettingPageResp> pageList(FileStorageSettingPageReq req) {
         return this.baseMapper.selectPage(req.buildPage(), Wraps.<FileStorageSetting>lbQ()

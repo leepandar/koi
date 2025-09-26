@@ -5,9 +5,6 @@ import org.springframework.stereotype.Component;
 
 import java.util.Map;
 
-/**
- * @author lida
- */
 @Component
 @ConfigurationProperties(prefix = "myapp.mappings")
 public class MappingProperties {

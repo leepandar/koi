@@ -5,14 +5,11 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-/**
- * @author lida
- */
 @Data
 @EqualsAndHashCode(callSuper = true)
-@Schema(name = "GenerateTemplatePageReq")
+@Schema(name = "GenerateTemplatePageReq", description = "模板分页请求")
 public class GenerateTemplatePageReq extends PageRequest {
 
-    @Schema(name = "name", description = "模板名称")
+    @Schema(description = "模板名称")
     private String name;
 }

@@ -1,23 +1,15 @@
-package com.koi.suite.gen.domain.dto.rep;
+package com.koi.suite.gen.domain.dto.resp;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
-/**
- * @author lida
- */
 @Data
+@Schema(name = "GenerateTemplateGroupListRep", description = "模版分组返回")
 public class GenerateTemplateGroupListRep {
 
-    /*
-        id
-     */
+    @Schema(description = "ID")
     private Long id;
 
-
-    /**
-     * 模板名称
-     */
     @Schema(description = "模板名称")
     private String name;
 

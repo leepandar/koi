@@ -1,27 +1,26 @@
-package com.koi.suite.gen.domain.dto.req;
+package com.koi.suite.gen.domain.dto.resp;
 
 import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 
 import java.util.List;
 
 @Data
-@Schema(name = "GenerateTemplateGroupPageReq", description = "生成模板请求")
-public class GenerateTemplateGroupSaveReq {
+@Schema(name = "GenerateTemplateGroupPageRep", description = "模版分组分页返回")
+public class GenerateTemplateGroupPageRep {
+
+    @Schema(description = "ID")
+    private Long id;
 
     @Schema(description = "分组名称")
-    @NotBlank(message = "分组名称不能为空")
     private String name;
 
     @Schema(description = "分组描述")
-    @NotBlank(message = "分组描述不能为空")
     private String desciption;
 
     @Schema(description = "是否作为默认分组")
     private Boolean isDefault;
 
-    @Schema(description = "关联的模板ids")
+    @Schema(description = "模板ID集合")
     private List<Long> templateIds;
-
 }

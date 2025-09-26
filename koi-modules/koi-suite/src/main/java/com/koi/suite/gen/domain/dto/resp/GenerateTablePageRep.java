@@ -1,66 +1,51 @@
-package com.koi.suite.gen.domain.dto.rep;
+package com.koi.suite.gen.domain.dto.resp;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
-/**
- * @author lida
- */
 @Data
+@Schema(name = "GenerateTablePageRep", description = "表分页返回")
 public class GenerateTablePageRep {
 
     @Schema(description = "ID")
     private Long id;
 
-
-    /**
-     * 表名称
-     */
+    @Schema(description = "表名称")
     private String name;
 
-    /**
-     * 表描述
-     */
+    @Schema(description = "表描述")
     private String comment;
 
-
-    /**
-     * 实体类名称(首字母大写)
-     */
+    @Schema(description = "实体类名称(首字母大写)")
     private String className;
 
     /**
-     * 生成包路径
      * com.koi.platform 对应的packagePath = com/koi/platform
      */
+    @Schema(description = "生成包路径")
     private String packageName;
 
     /**
-     * 生成模块名
      * 前端请求路径 '/${moduleName}/${businessName}/list'
      */
+    @Schema(description = "生成模块名")
     private String moduleName;
 
-    /**
-     * 是否去掉前缀
-     */
+    @Schema(description = "是否去掉前缀")
     private Boolean removePrefix;
-    /**
-     * 前缀
-     */
+
+    @Schema(description = "前缀")
     private String prefix;
 
-    /*
+    /**
      * 业务名称 [英文，用于api路径命名] businessName = "user" => users/list, users/add
      */
+    @Schema(description = "业务名称")
     private String businessName;
 
-    /**
-     * 作者
-     */
+    @Schema(description = "作者")
     private String author;
-    /**
-     * 模板组id
-     */
+
+    @Schema(description = "模板组id")
     private Long templateGroupId;
 }

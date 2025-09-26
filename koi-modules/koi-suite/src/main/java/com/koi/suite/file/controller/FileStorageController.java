@@ -16,11 +16,6 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-/**
- * 文件存储
- *
- * @author lida
- */
 @Slf4j
 @Validated
 @RestController

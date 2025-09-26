@@ -10,17 +10,13 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
-/**
- * 表单模型
- *
- * @author lida
- */
 @Data
 @EqualsAndHashCode(callSuper = true)
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
 @TableName("t_online_model")
+@Schema(name = "EpicDesignerField", description = "表单模型")
 public class OnlineModel extends SuperEntity<Long> {
 
     @Schema(description = "标题")

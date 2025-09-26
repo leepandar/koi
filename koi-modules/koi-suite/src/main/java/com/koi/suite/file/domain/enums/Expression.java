@@ -29,8 +29,7 @@ public enum Expression implements DictEnum<String> {
     LE("<="),
     IS_NULL("IS NULL"),
     LIKE("LIKE"),
-    IS_NOT_NULL("IS NOT NULL"),
-    ;
+    IS_NOT_NULL("IS NOT NULL");
 
     public final String value;
 

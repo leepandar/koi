@@ -13,11 +13,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-/**
- * 存储配置
- *
- * @author lida
- */
 @Slf4j
 @Validated
 @RestController

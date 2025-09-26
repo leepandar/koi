@@ -6,6 +6,7 @@ import lombok.Data;
 import java.time.Instant;
 
 @Data
+@Schema(name = "OnlineFormDesignerPageResp", description = "表单分页返回参数")
 public class OnlineFormDesignerPageResp {
 
     @Schema(description = "ID")

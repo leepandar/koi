@@ -9,11 +9,6 @@ import com.koi.suite.online.domain.req.OnlineFormDesignerSaveReq;
 import com.koi.suite.online.domain.resp.OnlineFormDesignerDetailResp;
 import com.koi.suite.online.domain.resp.OnlineFormDesignerPageResp;
 
-/**
- * 表单模型接口
- *
- * @author lida
- */
 public interface OnlineModelService extends SuperService<OnlineModel> {
 
     /**

@@ -3,18 +3,13 @@ package com.koi.suite.gen.service;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.koi.common.db.mybatisplus.ext.SuperService;
 import com.koi.suite.gen.domain.entity.GenerateTemplate;
-import com.koi.suite.gen.domain.dto.rep.GenerateTemplateDetailRep;
-import com.koi.suite.gen.domain.dto.rep.GenerateTemplatePageRep;
+import com.koi.suite.gen.domain.dto.resp.GenerateTemplateDetailRep;
+import com.koi.suite.gen.domain.dto.resp.GenerateTemplatePageRep;
 import com.koi.suite.gen.domain.dto.req.GenerateTemplatePageReq;
 import com.koi.suite.gen.domain.dto.req.GenerateTemplateSaveReq;
 
 import java.util.List;
 
-/**
- * 代码生成模板
- *
- * @author lida
- */
 public interface GenerateTemplateService extends SuperService<GenerateTemplate> {
 
     /**

@@ -16,8 +16,8 @@ import com.koi.suite.gen.domain.entity.GenerateTemplate;
 import com.koi.suite.gen.domain.entity.GenerateTemplateGroup;
 import com.koi.suite.gen.service.GenerateTableService;
 import com.koi.suite.gen.service.GenerateTemplateService;
-import com.koi.suite.gen.domain.dto.rep.GenerateTableDetailRep;
-import com.koi.suite.gen.domain.dto.rep.GenerateTablePageRep;
+import com.koi.suite.gen.domain.dto.resp.GenerateTableDetailRep;
+import com.koi.suite.gen.domain.dto.resp.GenerateTablePageRep;
 import com.koi.suite.gen.domain.dto.req.GenerateTablePageReq;
 import com.koi.suite.gen.domain.dto.req.GenerateTableSaveReq;
 import com.koi.suite.gen.mapper.GenerateTableMapper;
@@ -71,7 +71,13 @@ public class GenerateTableServiceImpl extends SuperServiceImpl<GenerateTableMapp
 
     private Configuration configuration = new Configuration(Configuration.VERSION_2_3_31);
 
-
+    /**
+     * 根据表名查询表信息
+     *
+     * @param tableName
+     * @return
+     * @throws Exception
+     */
     @Override
     public List<GenerateTable> getGenTableListFromDs(String tableName) throws Exception {
         LinkedHashMap<String, Table<?>> tablesMap = ServiceProxy.metadata().tables();
@@ -105,6 +111,11 @@ public class GenerateTableServiceImpl extends SuperServiceImpl<GenerateTableMapp
                 }).toList();
     }
 
+    /**
+     * 导入表
+     *
+     * @param tableNames
+     */
     @Transactional
     @Override
     public void importToGenTable(List<String> tableNames) {
@@ -149,6 +160,12 @@ public class GenerateTableServiceImpl extends SuperServiceImpl<GenerateTableMapp
 
     }
 
+    /**
+     * 分页查询
+     *
+     * @param req
+     * @return
+     */
     @Override
     public IPage<GenerateTablePageRep> pageList(GenerateTablePageReq req) {
         return this.baseMapper.selectPage(req.buildPage(), Wraps.<GenerateTable>lbQ()
@@ -156,6 +173,12 @@ public class GenerateTableServiceImpl extends SuperServiceImpl<GenerateTableMapp
                 .convert(x -> BeanUtil.toBean(x, GenerateTablePageRep.class));
     }
 
+    /**
+     * 详情
+     *
+     * @param id
+     * @return
+     */
     @Override
     public GenerateTableDetailRep detail(Long id) {
         GenerateTable generateTable = this.getById(id);
@@ -163,6 +186,12 @@ public class GenerateTableServiceImpl extends SuperServiceImpl<GenerateTableMapp
 
     }
 
+    /**
+     * 修改
+     *
+     * @param id
+     * @param req
+     */
     @Override
     public void modify(Long id, GenerateTableSaveReq req) {
         Optional.ofNullable(this.baseMapper.selectById(id))
@@ -179,6 +208,11 @@ public class GenerateTableServiceImpl extends SuperServiceImpl<GenerateTableMapp
         this.baseMapper.updateById(generateTable);
     }
 
+    /**
+     * 删除
+     *
+     * @param id
+     */
     @Transactional
     @Override
     public void removeGen(Long id) {
@@ -190,12 +224,26 @@ public class GenerateTableServiceImpl extends SuperServiceImpl<GenerateTableMapp
         this.baseMapper.deleteById(generateTable);
     }
 
+    /**
+     * 预览代码
+     *
+     * @param id
+     * @return
+     */
     @Override
     public Map<String, String> previewCode(Long id) {
         List<Long> ids = ListUtil.toList(id);
         return getPathCodeMap(ids);
     }
 
+    /**
+     * 生成代码
+     *
+     * @param id
+     * @param request
+     * @param response
+     * @throws IOException
+     */
     @Override
     public void generate(Long id, HttpServletRequest request, HttpServletResponse response) throws IOException {
         List<Long> ids = ListUtil.toList(id);

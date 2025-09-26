@@ -21,6 +21,8 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 /**
+ * 存储配置模板
+ *
  * @author lida
  */
 @Slf4j

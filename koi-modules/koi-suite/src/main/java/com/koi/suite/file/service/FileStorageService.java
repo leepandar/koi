@@ -5,14 +5,8 @@ import com.koi.common.db.mybatisplus.ext.SuperService;
 import com.koi.suite.file.domain.dto.req.FileStoragePageReq;
 import com.koi.suite.file.domain.dto.resp.FileStoragePageResp;
 import com.koi.suite.file.domain.entity.FileStorage;
-import com.koi.suite.file.domain.dto.req.FileStoragePageReq;
-import com.koi.suite.file.domain.dto.resp.FileStoragePageResp;
-import com.koi.suite.file.domain.entity.FileStorage;
 import org.springframework.web.multipart.MultipartFile;
 
-/**
- * @author lida
- */
 public interface FileStorageService extends SuperService<FileStorage> {
 
     /**
@@ -33,11 +27,25 @@ public interface FileStorageService extends SuperService<FileStorage> {
 
     /**
      * 文件删除
+     *
+     * @param id
      */
     void delete(Long id);
 
+    /**
+     * 重命名
+     *
+     * @param id
+     * @param originName
+     */
     void rename(Long id, String originName);
 
+    /**
+     * 分页查询
+     *
+     * @param req
+     * @return
+     */
     IPage<FileStoragePageResp> pageList(FileStoragePageReq req);
 
 }

@@ -6,6 +6,7 @@ import lombok.Data;
 import java.time.Instant;
 
 @Data
+@Schema(name = "FileStorageSettingPageResp", description = "文件存储配置分页返回")
 public class FileStorageSettingPageResp {
 
     @Schema(description = "ID")

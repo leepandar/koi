@@ -6,9 +6,6 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-/**
- * @author lida
- */
 @Repository
 public interface GenerateTemplateMapper extends SuperMapper<GenerateTemplate> {
     List<GenerateTemplate> getTemplateDetailByGroupId(Long templateGroupId);

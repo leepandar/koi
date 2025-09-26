@@ -9,17 +9,13 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
-/**
- * 文件存储配置
- *
- * @author lida
- */
 @Data
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @TableName("t_file_storage_setting")
+@Schema(name = "FileStorageSetting", description = "文件存储配置")
 public class FileStorageSetting extends SuperEntity<Long> {
 
     @Schema(description = "存储类型")
@@ -32,34 +28,28 @@ public class FileStorageSetting extends SuperEntity<Long> {
      * 是否启用存储 [true:启用;false:禁用]
      * 同个租户下只能开启一个配置
      */
+    @Schema(description = "存储类型")
     private Boolean status;
-    /**
-     * 访问key
-     */
+
+    @Schema(description = "访问key")
     private String accessKey;
-    /**
-     * 密钥
-     */
+
+    @Schema(description = "密钥")
     private String secretKey;
-    /**
-     * 区域
-     */
+
+    @Schema(description = "区域")
     private String region;
-    /**
-     * 访问域名
-     */
+
     @Schema(description = "访问域名")
     private String domain;
 
     @Schema(description = "存储桶名称")
     private String bucketName;
-    /**
-     * 基础路径
-     */
+
+    @Schema(description = "基础路径")
     private String basePath;
-    /**
-     * 连接地址
-     */
+
+    @Schema(description = "连接地址")
     private String endPoint;
 
     @Schema(description = "租户ID")

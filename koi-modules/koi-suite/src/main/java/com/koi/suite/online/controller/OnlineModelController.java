@@ -11,14 +11,6 @@ import com.koi.suite.online.domain.req.OnlineFormDesignerSaveReq;
 import com.koi.suite.online.domain.resp.OnlineFormDesignerDetailResp;
 import com.koi.suite.online.domain.resp.OnlineFormDesignerPageResp;
 import com.koi.suite.online.service.OnlineModelService;
-import com.koi.suite.online.dialect.FastCrudDialect;
-import com.koi.suite.online.domain.entity.OnlineModel;
-import com.koi.suite.online.domain.req.OnlineFormDesignSaveReq;
-import com.koi.suite.online.domain.req.OnlineFormDesignerPageReq;
-import com.koi.suite.online.domain.req.OnlineFormDesignerSaveReq;
-import com.koi.suite.online.domain.resp.OnlineFormDesignerDetailResp;
-import com.koi.suite.online.domain.resp.OnlineFormDesignerPageResp;
-import com.koi.suite.online.service.OnlineModelService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
@@ -26,11 +18,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-/**
- * 表单设计
- *
- * @author lida
- */
 @Slf4j
 @Validated
 @RestController

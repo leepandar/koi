@@ -6,16 +6,13 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson2.JSONArray;
 import com.alibaba.fastjson2.JSONObject;
 import com.alibaba.fastjson2.JSONPath;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
 import java.util.List;
 
-/**
- * 暂未优化,没考虑好如何优雅设计
- *
- * @author lida
- */
 @Data
+@Schema(name = "FastCrudDialect", description = "表单设计CRUD")
 public class FastCrudDialect {
 
     public static JSONObject toFastCrud(String text) {
@@ -29,16 +26,13 @@ public class FastCrudDialect {
             throw new RuntimeException("Field 不能为空");
         }
         JSONObject item = new JSONObject() {
-
             {
                 put("search", new JSONObject() {
-
                     {
                         put("show", true);
                     }
                 });
                 put("column", new JSONObject() {
-
                     {
                         put("show", true);
                         put("width", 200);

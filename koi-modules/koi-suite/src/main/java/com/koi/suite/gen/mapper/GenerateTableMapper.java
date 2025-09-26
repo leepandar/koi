@@ -5,10 +5,6 @@ import com.koi.suite.gen.domain.entity.GenerateTable;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
 
-/**
- * @author lida
- * @since 2024-12
- */
 @Repository
 public interface GenerateTableMapper extends SuperMapper<GenerateTable> {
 

@@ -1,58 +1,45 @@
 package com.koi.suite.file.domain.dto.resp;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
 import java.time.Instant;
 
 @Data
+@Schema(name = "FileStoragePageResp", description = "文件分页返回")
 public class FileStoragePageResp {
 
+    @Schema(description = "ID")
     private Long id;
 
-    /**
-     * 文件访问地址
-     */
+    @Schema(description = "文件访问地址")
     private String url;
 
-    /**
-     * 文件大小，单位字节
-     */
+    @Schema(description = "文件大小，单位字节")
     private String formatSize;
 
-    /**
-     * 原始文件名
-     */
+    @Schema(description = "原始文件名")
     private String originalFilename;
 
-    /**
-     * 基础存储路径
-     */
+    @Schema(description = "基础存储路径")
     private String basePath;
 
-    /**
-     * 存储路径
-     */
+    @Schema(description = "存储路径")
     private String path;
 
-    /**
-     * 文件扩展名
-     */
+    @Schema(description = "文件扩展名")
     private String ext;
-    /**
-     * 存储平台
-     */
+
+    @Schema(description = "存储平台")
     private String platform;
-    /**
-     * 文件类型
-     */
+
+    @Schema(description = "文件类型")
     private String category;
-    /**
-     * 上传者
-     */
+
+    @Schema(description = "上传者")
     private String createdName;
-    /**
-     * 上传时间
-     */
+
+    @Schema(description = "上传时间")
     private Instant createdTime;
 
 }

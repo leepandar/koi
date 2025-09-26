@@ -1,14 +1,12 @@
-package com.koi.suite.gen.domain.dto.rep;
+package com.koi.suite.gen.domain.dto.resp;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
 import java.time.Instant;
 
-/**
- * @author lida
- */
 @Data
+@Schema(name = "GenerateTemplatePageRep", description = "模版分页返回")
 public class GenerateTemplatePageRep {
 
     @Schema(description = "ID")
@@ -18,7 +16,6 @@ public class GenerateTemplatePageRep {
     private String name;
 
     /**
-     * 文件路径模板
      * 用于文件生成路径
      * wp/src/main/java/${packagePath}/${moduleName}/controller/${ClassName}Controller.java
      */

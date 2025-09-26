@@ -9,100 +9,64 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
-/**
- * @author lida
- */
 @EqualsAndHashCode(callSuper = true)
 @Data
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
 @TableName("c_generate_table_column")
+@Schema(name = "GenerateTableColumn", description = "表字段信息")
 public class GenerateTableColumn extends SuperEntity<Long> {
 
-    /**
-     * 表名称 [ alipan 是用表名称进行关联的 ]
-     */
+    @Schema(description = "表名")
     private String tableName;
 
-    /**
-     * 字段名称
-     */
+    @Schema(description = "字段名称")
     private String name;
 
-    /**
-     * 排序
-     */
+    @Schema(description = "排序")
     private Integer sort;
 
-    /**
-     * 字段类型
-     */
+    @Schema(description = "字段类型")
     private String type;
 
-    /**
-     * 注释
-     */
+    @Schema(description = "注释")
     private String comment;
-    /**
-     * 属性类型
-     */
+
+    @Schema(description = "属性类型")
     private String propertyType;
-    /**
-     * 属性名
-     */
+
+    @Schema(description = "属性名")
     private String propertyName;
-    /**
-     * 属性包
-     */
+
+    @Schema(description = "属性包")
     private String propertyPackage;
 
-    /**
-     * 是否主键
-     */
+    @Schema(description = "是否主键")
     private Boolean pk;
 
-    /**
-     * 是否自增
-     */
+    @Schema(description = "是否自增")
     private Boolean increment;
 
-    /**
-     * 是否必填
-     */
+    @Schema(description = "是否必填")
     private Boolean required;
 
-    /**
-     * 是否为新增
-     */
+    @Schema(description = "是否为新增")
     private Boolean inserted;
 
-    /**
-     * 是否编辑
-     */
+    @Schema(description = "是否编辑")
     private Boolean edit;
 
-    /**
-     * 是否列表展示
-     */
+    @Schema(description = "是否列表展示")
     private Boolean list;
 
-    /**
-     * 是否查询
-     */
+    @Schema(description = "是否查询")
     private Boolean search;
 
-    /**
-     * 查询条件
-     */
+    @Schema(description = "查询条件")
     private String searchCondition;
 
-
-    /**
-     * 针对entity。
-     * 是否需要生成;默认设置1：是
-     * 【因为本系统模板继承superEntity，所以superEntity的字段无需生成】
-     */
+    @Schema(description = "是否需要生成;默认设置1：是")
     private Boolean generate;
 
 

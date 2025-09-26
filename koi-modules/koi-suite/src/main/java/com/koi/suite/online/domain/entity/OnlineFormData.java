@@ -12,17 +12,13 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
-/**
- * 表单数据
- *
- * @author lida
- */
 @Data
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
 @TableName("t_online_form_data")
 @EqualsAndHashCode(callSuper = true)
+@Schema(name = "EpicDesignerField", description = "表单数据")
 public class OnlineFormData extends SuperEntity<Long> {
 
     @Schema(defaultValue = "定义KEY")

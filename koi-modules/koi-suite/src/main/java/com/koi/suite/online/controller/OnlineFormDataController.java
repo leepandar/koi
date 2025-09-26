@@ -12,11 +12,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-/**
- * 表单数据
- *
- * @author lida
- */
 @Slf4j
 @Validated
 @RestController

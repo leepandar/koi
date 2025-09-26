@@ -2,8 +2,8 @@ package com.koi.suite.gen.controller;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.koi.suite.gen.domain.dto.req.GenerateTemplateGroupSaveReq;
-import com.koi.suite.gen.domain.dto.rep.GenerateTemplateGroupListRep;
-import com.koi.suite.gen.domain.dto.rep.GenerateTemplateGroupPageRep;
+import com.koi.suite.gen.domain.dto.resp.GenerateTemplateGroupListRep;
+import com.koi.suite.gen.domain.dto.resp.GenerateTemplateGroupPageRep;
 import com.koi.suite.gen.domain.dto.req.GenerateTemplateGroupPageReq;
 import com.koi.suite.gen.service.GenerateTemplateGroupService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -15,11 +15,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-/**
- * 代码生成模板组
- *
- * @author lida
- */
 @Slf4j
 @Validated
 @RestController
@@ -30,45 +25,30 @@ public class GenerateTemplateGroupController {
 
     private final GenerateTemplateGroupService generateTemplateGroupService;
 
-    /**
-     * 分页查询模板
-     */
     @Operation(summary = "分页查询分组")
     @GetMapping("/page")
     public IPage<GenerateTemplateGroupPageRep> pageList(GenerateTemplateGroupPageReq req) {
         return generateTemplateGroupService.pageList(req);
     }
 
-    /**
-     * 新增模板
-     */
     @Operation(summary = "新增分组")
     @PostMapping("/create")
     public void create(@Validated @RequestBody GenerateTemplateGroupSaveReq req) {
         generateTemplateGroupService.create(req);
     }
 
-    /**
-     * 编辑模板
-     */
     @Operation(summary = "编辑分组")
     @PutMapping("/{id}/modify")
     public void modify(@PathVariable("id") Long id, @Validated @RequestBody GenerateTemplateGroupSaveReq req) {
         generateTemplateGroupService.modify(id, req);
     }
 
-    /**
-     * 删除模板
-     */
     @Operation(summary = "删除分组")
     @DeleteMapping("/{id}")
     public void remove(@PathVariable("id") Long id) {
         generateTemplateGroupService.removeGroup(id);
     }
 
-    /**
-     * 获取所有的模板分组
-     */
     @Operation(summary = "获取所有的模板分组")
     @GetMapping("/list-all")
     public List<GenerateTemplateGroupListRep> listAll() {

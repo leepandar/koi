@@ -4,14 +4,9 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.koi.common.db.mybatisplus.ext.SuperService;
 import com.koi.suite.gen.domain.dto.req.GenerateTemplateGroupSaveReq;
 import com.koi.suite.gen.domain.entity.GenerateTemplateGroup;
-import com.koi.suite.gen.domain.dto.rep.GenerateTemplateGroupPageRep;
+import com.koi.suite.gen.domain.dto.resp.GenerateTemplateGroupPageRep;
 import com.koi.suite.gen.domain.dto.req.GenerateTemplateGroupPageReq;
 
-/**
- * 代码生成模板组接口
- *
- * @author lida
- */
 public interface GenerateTemplateGroupService extends SuperService<GenerateTemplateGroup> {
 
     /**

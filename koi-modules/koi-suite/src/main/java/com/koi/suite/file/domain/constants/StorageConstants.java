@@ -1,7 +1,7 @@
 package com.koi.suite.file.domain.constants;
 
 /**
- * @author lida
+ * 存储常量
  */
 public class StorageConstants {
 

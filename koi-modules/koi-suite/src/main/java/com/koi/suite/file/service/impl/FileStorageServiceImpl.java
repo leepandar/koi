@@ -27,9 +27,6 @@ import org.springframework.web.multipart.MultipartFile;
 import java.util.Map;
 import java.util.Optional;
 
-/**
- * @author lida
- */
 @Slf4j
 @Service
 @RequiredArgsConstructor
@@ -43,6 +40,12 @@ public class FileStorageServiceImpl extends SuperServiceImpl<FileStorageMapper, 
     private static final long GB = MB * 1024;
     private static final long TB = GB * 1024;
 
+    /**
+     * 文件上传
+     *
+     * @param file file
+     * @return
+     */
     @Override
     public FileStorage upload(MultipartFile file) {
         FileStorageSetting setting = storageSettingTemplate.getDefaultStorageSetting();
@@ -58,6 +61,12 @@ public class FileStorageServiceImpl extends SuperServiceImpl<FileStorageMapper, 
         return storage;
     }
 
+    /**
+     * 图片上传
+     *
+     * @param file 文件
+     * @return
+     */
     @Override
     public FileStorage uploadImage(MultipartFile file) {
         FileInfo info = fileStorageService
@@ -72,6 +81,11 @@ public class FileStorageServiceImpl extends SuperServiceImpl<FileStorageMapper, 
         return toFileInfoRecord(info);
     }
 
+    /**
+     * delete
+     *
+     * @param id
+     */
     @Override
     public void delete(Long id) {
         FileStorage storage = Optional.ofNullable(this.baseMapper.selectById(id)).orElseThrow(() -> CheckedException.notFound("文件不存在"));
@@ -85,11 +99,23 @@ public class FileStorageServiceImpl extends SuperServiceImpl<FileStorageMapper, 
         }
     }
 
+    /**
+     * 重命名
+     *
+     * @param id
+     * @param originName
+     */
     @Override
     public void rename(Long id, String originName) {
         this.baseMapper.updateById(FileStorage.builder().id(id).originalFilename(originName).build());
     }
 
+    /**
+     * 分页查询
+     *
+     * @param req
+     * @return
+     */
     @Override
     public IPage<FileStoragePageResp> pageList(FileStoragePageReq req) {
         return this.baseMapper.selectPage(req.buildPage(), Wraps.<FileStorage>lbQ()

@@ -7,7 +7,7 @@ import lombok.EqualsAndHashCode;
 
 @Data
 @EqualsAndHashCode(callSuper = true)
-@Schema(name = "FileStoragePageReq")
+@Schema(name = "FileStoragePageReq", description = "文件分页请求")
 public class FileStoragePageReq extends PageRequest {
 
     @Schema(description = "文件类型")
