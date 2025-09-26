@@ -1,6 +1,8 @@
 package com.koi.common.springboot.sensitive;
 
 /**
+ * 脱敏策略
+ *
  * @author lida
  */
 public interface SensitiveStrategy {

@@ -17,6 +17,8 @@ import java.lang.reflect.Type;
 import java.util.List;
 
 /**
+ * 动态消息
+ *
  * @author lida
  */
 @RequiredArgsConstructor

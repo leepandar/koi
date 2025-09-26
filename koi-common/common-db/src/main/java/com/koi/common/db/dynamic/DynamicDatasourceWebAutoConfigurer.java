@@ -17,6 +17,8 @@ import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 /**
+ * 多数据源拦截器
+ *
  * @author lida
  */
 @Slf4j

@@ -7,6 +7,8 @@ import com.koi.common.core.security.DataScopeType;
 import java.lang.annotation.*;
 
 /**
+ * 数据权限字段注解
+ *
  * @author lida
  */
 @Target({ElementType.METHOD})

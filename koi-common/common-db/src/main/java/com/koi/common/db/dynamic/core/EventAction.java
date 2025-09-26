@@ -8,6 +8,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 /**
+ * 事件动作
  * TenantType
  *
  * @author lida

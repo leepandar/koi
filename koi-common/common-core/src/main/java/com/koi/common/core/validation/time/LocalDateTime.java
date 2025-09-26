@@ -10,10 +10,6 @@ import java.lang.annotation.Target;
 import static java.lang.annotation.ElementType.*;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
-/**
- * @author lida
- * @since 2020/6/6
- */
 @Target({
         METHOD,
         FIELD,

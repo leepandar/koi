@@ -19,15 +19,6 @@ import com.koi.common.log.service.impl.DiffParseFunction;
 import com.koi.common.log.support.parse.DiffLogFunctionParser;
 import com.koi.common.log.support.parse.DiffLogValueParser;
 import com.koi.common.log.core.context.DiffLogContext;
-import com.koi.common.log.core.context.DiffLogContext;
-import com.koi.common.log.domain.DiffLogInfo;
-import com.koi.common.log.domain.DiffLogOps;
-import com.koi.common.log.domain.MethodExecute;
-import com.koi.common.log.service.IDiffLogPerformanceMonitor;
-import com.koi.common.log.service.IDiffLogService;
-import com.koi.common.log.service.IFunctionService;
-import com.koi.common.log.service.impl.DiffParseFunction;
-import com.koi.common.log.support.parse.DiffLogValueParser;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
 import org.aopalliance.intercept.MethodInterceptor;
@@ -50,8 +41,6 @@ import static org.springframework.http.HttpHeaders.USER_AGENT;
 
 /**
  * 拦截器
- *
- * @author mzt.
  */
 @Slf4j
 public class DiffLogInterceptor extends DiffLogValueParser implements MethodInterceptor, Serializable, SmartInitializingSingleton {

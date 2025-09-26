@@ -9,9 +9,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 /**
- * <p>
+ * 数据权限范围枚举
  * 数据权限范围，值越大，权限越大
- * </p>
  *
  * @author lida
  */

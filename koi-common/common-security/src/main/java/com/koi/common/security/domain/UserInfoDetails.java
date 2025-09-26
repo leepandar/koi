@@ -16,8 +16,9 @@ import java.util.Collection;
 import java.util.Map;
 
 /**
+ * 用户信息
+ *
  * @author lida
- * @since 2019-04-03
  */
 @Data
 @Builder
@@ -30,39 +31,50 @@ public class UserInfoDetails implements Serializable {
 
     @Schema(description = "用户ID")
     private Long userId;
+
     @Schema(description = "邮箱")
     private String email;
+
     @Schema(description = "手机号")
     private String mobile;
+
     @Schema(description = "租户ID")
     private Long tenantId;
+
     @Schema(description = "租户编码")
     private String tenantCode;
+
     @Schema(description = "租户名称")
     private String tenantName;
+
     @Schema(description = "昵称")
     private String nickName;
+
     @Schema(description = "用户名")
     private String username;
+
     @JsonIgnore
     @Schema(hidden = true)
     private String password;
+
     @Schema(description = "头像")
     private String avatar;
+
     @Schema(description = "启用状态")
     private Boolean enabled;
+
     @Schema(description = "描述信息")
     private String description;
+
     @Schema(description = "生日")
     private LocalDate birthday;
+
     @Schema(description = "机构ID")
     private Long orgId;
 
     @Schema(description = "登录日志")
     private Map<String, Object> loginLog;
-    /**
-     * 功能权限（资源码）
-     */
+
     @Schema(description = "功能权限（资源码）")
     @Builder.Default
     private Collection<String> funcPermissions = new ArrayList<>();
@@ -70,9 +82,7 @@ public class UserInfoDetails implements Serializable {
     @Builder.Default
     @Schema(description = "功能权限（角色编码）")
     private Collection<String> roles = new ArrayList<>();
-    /**
-     * 数据权限(可视范围)
-     */
+
     @Schema(description = "数据权限(可视范围)")
     private DataPermission dataPermission;
 

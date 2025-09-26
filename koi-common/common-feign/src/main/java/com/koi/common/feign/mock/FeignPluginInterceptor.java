@@ -16,6 +16,8 @@ import java.util.Collection;
 import java.util.Enumeration;
 
 /**
+ * feign 拦截器
+ *
  * @author lida
  */
 @Slf4j

@@ -12,6 +12,8 @@ import java.util.List;
 import java.util.Locale;
 
 /**
+ * i18n消息源
+ *
  * @author lida
  */
 @RequiredArgsConstructor

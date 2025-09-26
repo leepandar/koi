@@ -16,6 +16,8 @@ import java.util.Set;
 import static java.util.stream.Collectors.toMap;
 
 /**
+ * 字典服务
+ *
  * @author lida
  */
 @Slf4j

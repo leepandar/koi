@@ -25,7 +25,6 @@ import java.util.List;
 
 /**
  * Mybatis 常用重用拦截器
- * <p>
  * 拦截器执行一定是：
  * WriteInterceptor > DataScopeInterceptor > PaginationInterceptor
  *

@@ -7,6 +7,8 @@ import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 /**
+ * Feign 配置文件
+ *
  * @author lida
  */
 @Data

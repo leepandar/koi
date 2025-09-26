@@ -30,18 +30,24 @@ import java.util.Objects;
 import java.util.Set;
 
 /**
+ * 动态数据源处理
+ *
  * @author Levin
  */
 @Slf4j
 public class DynamicDataSourceHandler {
 
     public static final String TENANT_DATASOURCE_POOL = "TenantDataSourcePool_%s";
+
     @Resource
     private DynamicRoutingDataSource dynamicRoutingDataSource;
+
     @Resource
     private HikariDataSourceCreator hikariDataSourceCreator;
+
     @Resource
     private DatabaseProperties databaseProperties;
+
     @Resource
     private ResourceLoader resourceLoader;
 

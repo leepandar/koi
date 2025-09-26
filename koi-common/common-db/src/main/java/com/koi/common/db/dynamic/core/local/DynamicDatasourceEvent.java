@@ -6,6 +6,8 @@ import lombok.Setter;
 import org.springframework.context.ApplicationEvent;
 
 /**
+ * 动态数据源事件
+ *
  * @author lida
  */
 @Getter

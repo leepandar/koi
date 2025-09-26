@@ -9,6 +9,8 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
+ * 敏感信息注解
+ *
  * @author lida
  */
 @Retention(RetentionPolicy.RUNTIME)

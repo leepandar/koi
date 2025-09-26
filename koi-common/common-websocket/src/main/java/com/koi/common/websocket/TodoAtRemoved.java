@@ -2,9 +2,6 @@ package com.koi.common.websocket;
 
 import java.util.List;
 
-/**
- * @author lida
- */
 @FunctionalInterface
 public interface TodoAtRemoved {
 

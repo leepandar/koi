@@ -9,7 +9,6 @@ import java.lang.annotation.*;
  * 授权服务注解
  *
  * @author lida
- * @since 2023-08-24
  */
 @Target({ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)

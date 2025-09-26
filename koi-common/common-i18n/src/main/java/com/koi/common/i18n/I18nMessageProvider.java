@@ -6,6 +6,8 @@ import java.util.List;
 import java.util.Locale;
 
 /**
+ * 国际化消息提供者
+ *
  * @author lida
  */
 public interface I18nMessageProvider {

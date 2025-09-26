@@ -14,7 +14,6 @@ import java.util.Set;
 
 /**
  * 封装 Remote 注解中解析出来的参数
- * <p>
  * 必须重写该类的 equals() 和 hashCode() 便于Map操作
  *
  * @author lida

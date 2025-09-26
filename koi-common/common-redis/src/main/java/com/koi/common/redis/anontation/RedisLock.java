@@ -7,6 +7,8 @@ import java.lang.annotation.*;
 import java.util.concurrent.TimeUnit;
 
 /**
+ * redis锁注解
+ *
  * @author lida
  */
 @Target(ElementType.METHOD)

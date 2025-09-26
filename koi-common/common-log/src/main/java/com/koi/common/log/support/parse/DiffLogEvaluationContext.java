@@ -1,16 +1,12 @@
 package com.koi.common.log.support.parse;
 
 import com.koi.common.log.core.context.DiffLogContext;
-import com.koi.common.log.core.context.DiffLogContext;
 import org.springframework.context.expression.MethodBasedEvaluationContext;
 import org.springframework.core.ParameterNameDiscoverer;
 
 import java.lang.reflect.Method;
 import java.util.Map;
 
-/**
- * @author mzt.
- */
 public class DiffLogEvaluationContext extends MethodBasedEvaluationContext {
 
     public DiffLogEvaluationContext(Object rootObject, Method method, Object[] arguments,

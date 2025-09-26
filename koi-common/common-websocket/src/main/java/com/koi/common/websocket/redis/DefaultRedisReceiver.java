@@ -3,17 +3,12 @@ package com.koi.common.websocket.redis;
 import com.alibaba.fastjson2.JSONObject;
 import com.koi.common.websocket.WebSocketManager;
 import com.koi.common.websocket.redis.action.Action;
-import com.koi.common.websocket.WebSocketManager;
-import com.koi.common.websocket.redis.action.Action;
-import com.koi.common.websocket.WebSocketManager;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.ApplicationContext;
 
 /**
  * redis消息订阅者
- *
- * @author lida
  */
 @Slf4j
 @RequiredArgsConstructor

@@ -15,6 +15,8 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 
 /**
+ * i18n消息提供者
+ *
  * @author lida
  */
 @RequiredArgsConstructor

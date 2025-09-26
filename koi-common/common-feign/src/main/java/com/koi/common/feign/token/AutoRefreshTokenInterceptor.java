@@ -20,6 +20,8 @@ import java.util.Collection;
 import java.util.Map;
 
 /**
+ * 获取自动刷新Token
+ *
  * @author lida
  */
 @Slf4j

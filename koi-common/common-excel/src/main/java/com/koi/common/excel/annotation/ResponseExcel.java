@@ -13,9 +13,6 @@ import com.koi.common.excel.handler.head.HeadGenerator;
 
 import java.lang.annotation.*;
 
-/**
- * @author lida
- */
 @Documented
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)

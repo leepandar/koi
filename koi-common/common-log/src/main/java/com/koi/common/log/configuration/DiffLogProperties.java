@@ -8,6 +8,8 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import java.util.List;
 
 /**
+ * 差异日志配置文件
+ *
  * @author lida
  */
 @Data

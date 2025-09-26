@@ -1,7 +1,6 @@
 package com.koi.common.log.service.impl;
 
 import com.koi.common.log.service.IParseFunction;
-import com.koi.common.log.service.IParseFunction;
 
 /**
  * 默认的解析器

@@ -2,15 +2,11 @@ package com.koi.common.log.support.parse;
 
 import cn.hutool.core.util.StrUtil;
 import com.koi.common.log.service.IFunctionService;
-import com.koi.common.log.service.IFunctionService;
 import lombok.AllArgsConstructor;
 import org.apache.logging.log4j.util.Strings;
 
 import java.util.Map;
 
-/**
- * @author muzhantong
- */
 @AllArgsConstructor
 public class DiffLogFunctionParser {
 

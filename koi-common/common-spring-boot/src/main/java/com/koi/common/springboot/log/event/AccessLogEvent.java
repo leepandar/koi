@@ -1,7 +1,6 @@
 package com.koi.common.springboot.log.event;
 
 import com.koi.common.springboot.log.AccessLogInfo;
-import com.koi.common.springboot.log.AccessLogInfo;
 import org.springframework.context.ApplicationEvent;
 
 /**

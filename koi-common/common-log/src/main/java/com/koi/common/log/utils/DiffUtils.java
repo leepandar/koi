@@ -6,9 +6,6 @@ import org.javers.core.diff.Diff;
 import java.util.Collection;
 import java.util.Collections;
 
-/**
- * @author lida
- */
 @SuppressWarnings("all")
 public class DiffUtils {
 

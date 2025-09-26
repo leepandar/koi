@@ -16,7 +16,6 @@ import org.springframework.scheduling.annotation.Scheduled;
  * webSocket.heartCheck.timeSpan=1000
  * webSocket.heartCheck.errorToleration=30
  *
- * @author lida
  * 这是一个配置模板
  */
 @Slf4j

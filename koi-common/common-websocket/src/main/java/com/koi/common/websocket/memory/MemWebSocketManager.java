@@ -5,11 +5,6 @@ import com.koi.common.websocket.WebSocketCloseEvent;
 import com.koi.common.websocket.WebSocketConnectEvent;
 import com.koi.common.websocket.WebSocketManager;
 import com.koi.common.websocket.utils.WebSocketUtil;
-import com.koi.common.websocket.WebSocket;
-import com.koi.common.websocket.WebSocketCloseEvent;
-import com.koi.common.websocket.WebSocketConnectEvent;
-import com.koi.common.websocket.WebSocketManager;
-import com.koi.common.websocket.utils.WebSocketUtil;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
@@ -17,9 +12,6 @@ import org.springframework.context.ApplicationContextAware;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-/**
- * @author lida
- */
 public class MemWebSocketManager implements WebSocketManager, ApplicationContextAware {
 
     /**

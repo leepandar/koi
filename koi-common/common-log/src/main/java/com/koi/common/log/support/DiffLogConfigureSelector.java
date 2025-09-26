@@ -9,11 +9,6 @@ import org.springframework.context.annotation.AdviceModeImportSelector;
 import org.springframework.context.annotation.AutoProxyRegistrar;
 import org.springframework.lang.Nullable;
 
-/**
- * DATE 6:57 PM
- *
- * @author mzt.
- */
 public class DiffLogConfigureSelector extends AdviceModeImportSelector<EnableDiffLog> {
 
     @Override

@@ -10,8 +10,6 @@ import java.text.SimpleDateFormat;
  * 日期格式验证
  *
  * @author lida
- * @version 1.0.0
- * @since 2020-06-06
  */
 public class DateTimeValidator implements ConstraintValidator<DateTime, String> {
 

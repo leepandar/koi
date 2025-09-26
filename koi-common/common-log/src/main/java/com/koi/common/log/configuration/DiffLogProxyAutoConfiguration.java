@@ -32,6 +32,8 @@ import java.util.List;
 import static org.javers.core.diff.ListCompareAlgorithm.LEVENSHTEIN_DISTANCE;
 
 /**
+ * 差值日志自动配置
+ *
  * @author lida
  */
 @Configuration

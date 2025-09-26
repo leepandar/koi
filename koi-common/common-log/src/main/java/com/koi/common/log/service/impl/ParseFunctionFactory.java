@@ -2,18 +2,17 @@ package com.koi.common.log.service.impl;
 
 import cn.hutool.core.util.StrUtil;
 import com.koi.common.log.service.IParseFunction;
-import com.koi.common.log.service.IParseFunction;
 import org.springframework.util.CollectionUtils;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-
 /**
+ * 解析函数工厂
+ *
  * @author lida
  */
-
 public class ParseFunctionFactory {
     private Map<String, IParseFunction> allFunctionMap;
 

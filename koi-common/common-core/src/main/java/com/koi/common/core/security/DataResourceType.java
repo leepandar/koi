@@ -8,9 +8,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 /**
- * <p>
  * 数据权限范围，值越大，权限越大
- * </p>
  *
  * @author lida
  */
@@ -27,8 +25,7 @@ public enum DataResourceType {
     ORG("org", "机构维度"),
     TENANT("tenant", "租户维度"),
     COMPANY("company", "公司维护"),
-    AREA("area", "地区维度"),
-    ;
+    AREA("area", "地区维度");
 
     @EnumValue
     @JsonValue

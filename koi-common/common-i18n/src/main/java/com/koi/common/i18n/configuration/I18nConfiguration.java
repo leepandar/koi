@@ -21,6 +21,8 @@ import java.time.Duration;
 import java.util.List;
 
 /**
+ * 国际化配置
+ *
  * @author lida
  **/
 @Order

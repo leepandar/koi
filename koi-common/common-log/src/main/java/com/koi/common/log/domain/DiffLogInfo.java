@@ -10,6 +10,8 @@ import java.time.Instant;
 import java.util.Map;
 
 /**
+ * 审计日志
+ *
  * @author lida
  */
 @Data

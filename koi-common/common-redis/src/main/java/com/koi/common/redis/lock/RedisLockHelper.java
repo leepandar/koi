@@ -15,6 +15,8 @@ import java.util.concurrent.TimeUnit;
 import java.util.function.Supplier;
 
 /**
+ * Redis 分布式锁工具类
+ *
  * @author lida
  */
 @Slf4j

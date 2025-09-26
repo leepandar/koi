@@ -3,6 +3,8 @@ package com.koi.common.redis.sequence;
 import java.time.format.DateTimeFormatter;
 
 /**
+ * 序列号生成器
+ *
  * @author lida
  */
 public interface Sequence {

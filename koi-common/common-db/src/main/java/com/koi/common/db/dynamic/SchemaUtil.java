@@ -9,6 +9,8 @@ import javax.sql.DataSource;
 import java.util.List;
 
 /**
+ * 数据库工具类
+ *
  * @author lida
  */
 @Slf4j
@@ -25,7 +27,12 @@ public class SchemaUtil {
         }
     }
 
-    // MySQL Schema 创建
+    /**
+     * MySQL Schema 创建
+     *
+     * @param hikari
+     * @param schemaName
+     */
     @SneakyThrows
     private static void createMySqlSchema(DataSource hikari, String schemaName) {
         String checkSchemaSql = "SELECT SCHEMA_NAME FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME = ?";
@@ -40,7 +47,11 @@ public class SchemaUtil {
         }
     }
 
-    // PostgreSQL Schema 创建
+    /**
+     * PostgreSQL Schema 创建
+     *
+     * @param ds
+     */
     @SneakyThrows
     private static void createPostgreSqlSchema(DataSource ds) {
         String checkSchemaSql = "SELECT schema_name FROM information_schema.schemata WHERE schema_name = ?";
@@ -56,7 +67,11 @@ public class SchemaUtil {
         }
     }
 
-    // Oracle Schema 创建
+    /**
+     * Oracle Schema 创建
+     *
+     * @param ds
+     */
     @SneakyThrows
     private static void createOracleSchema(DataSource ds) {
         String checkSchemaSql = "SELECT USERNAME FROM ALL_USERS WHERE USERNAME = ?";
@@ -74,7 +89,11 @@ public class SchemaUtil {
         }
     }
 
-    // SQL Server Schema 创建
+    /**
+     * SQL Server Schema 创建
+     *
+     * @param ds
+     */
     @SneakyThrows
     private static void createSqlServerSchema(DataSource ds) {
         String checkSchemaSql = "SELECT name FROM sys.schemas WHERE name = ?";

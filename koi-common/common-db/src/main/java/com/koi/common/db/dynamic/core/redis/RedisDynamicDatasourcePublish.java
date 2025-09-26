@@ -7,7 +7,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.data.redis.core.StringRedisTemplate;
 
 /**
- * @author Levin
+ * Redis 发布动态数据源事件
+ *
+ * @author lida
  */
 @RequiredArgsConstructor
 public class RedisDynamicDatasourcePublish implements DynamicDatasourceEventPublish {

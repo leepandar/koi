@@ -6,8 +6,6 @@ import com.google.common.util.concurrent.ListeningExecutorService;
 import com.google.common.util.concurrent.MoreExecutors;
 import com.google.common.util.concurrent.ThreadFactoryBuilder;
 import com.koi.common.springboot.remote.properties.RemoteProperties;
-import com.koi.common.springboot.remote.properties.RemoteProperties;
-import com.koi.common.springboot.remote.properties.RemoteProperties;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.lang.NonNull;
 

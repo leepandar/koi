@@ -4,6 +4,8 @@ import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 /**
+ * 日志配置信息
+ *
  * @author lida
  */
 @Data

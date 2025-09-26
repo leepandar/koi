@@ -4,9 +4,6 @@ import jakarta.annotation.Nonnull;
 import org.springframework.aop.Pointcut;
 import org.springframework.aop.support.AbstractBeanFactoryPointcutAdvisor;
 
-/**
- * @author mzt.
- */
 public class BeanFactoryDiffLogAdvisor extends AbstractBeanFactoryPointcutAdvisor {
 
     private final DiffLogPointcut pointcut = new DiffLogPointcut();

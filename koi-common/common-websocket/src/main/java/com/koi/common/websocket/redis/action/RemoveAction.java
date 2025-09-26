@@ -16,8 +16,6 @@ import java.util.Map;
  * "identifier":"xxx"
  * }
  * 给webSocket发送消息的action
- *
- * @author lida
  */
 public class RemoveAction implements Action {
 

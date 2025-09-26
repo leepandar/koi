@@ -16,6 +16,8 @@ import java.util.List;
 import java.util.Optional;
 
 /**
+ * 认证上下文
+ *
  * @author lida
  */
 @Slf4j

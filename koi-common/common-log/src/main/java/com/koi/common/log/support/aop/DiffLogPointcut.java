@@ -7,9 +7,6 @@ import org.springframework.util.CollectionUtils;
 import java.io.Serializable;
 import java.lang.reflect.Method;
 
-/**
- * @author mzt.
- */
 public class DiffLogPointcut extends StaticMethodMatcherPointcut implements Serializable {
 
     private DiffLogOperationSource diffLogOperationSource;

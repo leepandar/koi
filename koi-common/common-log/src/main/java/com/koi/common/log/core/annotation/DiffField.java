@@ -1,14 +1,14 @@
 package com.koi.common.log.core.annotation;
 
 import com.koi.common.log.core.DiffFieldStrategy;
-import com.koi.common.log.core.DiffFieldStrategy;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
 /**
- * @author lida
  * 对比差异字段注解
+ *
+ * @author lida
  */
 @Retention(RetentionPolicy.RUNTIME)
 public @interface DiffField {

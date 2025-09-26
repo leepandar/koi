@@ -16,8 +16,6 @@ import java.util.regex.Pattern;
 
 /**
  * 解析需要存储的日志里面的SpeEL表达式
- *
- * @author mzt.
  */
 public class DiffLogValueParser implements BeanFactoryAware {
 

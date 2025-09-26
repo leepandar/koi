@@ -2,7 +2,6 @@ package com.koi.common.excel.handler.read;
 
 import com.alibaba.excel.read.listener.ReadListener;
 import com.koi.common.excel.domain.ValidateLine;
-import com.koi.common.excel.domain.ValidateLine;
 
 import java.util.List;
 

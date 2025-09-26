@@ -6,6 +6,8 @@ import org.springframework.data.redis.listener.Topic;
 import java.lang.reflect.Type;
 
 /**
+ * 消息监听器
+ *
  * @author lida
  */
 public interface MessageEventListener extends MessageListener {

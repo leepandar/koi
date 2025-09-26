@@ -10,6 +10,8 @@ import org.springframework.lang.Nullable;
 import java.util.Map;
 
 /**
+ * 字符串转枚举转换器工厂
+ *
  * @author lida
  */
 @SuppressWarnings("all")

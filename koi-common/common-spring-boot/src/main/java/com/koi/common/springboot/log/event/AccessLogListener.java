@@ -1,7 +1,6 @@
 package com.koi.common.springboot.log.event;
 
 import com.koi.common.springboot.log.AccessLogInfo;
-import com.koi.common.springboot.log.AccessLogInfo;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.event.EventListener;

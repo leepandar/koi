@@ -4,6 +4,8 @@ import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 /**
+ * easy-excel 配置
+ *
  * @author lida
  */
 @Data

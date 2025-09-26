@@ -13,7 +13,6 @@ import com.koi.common.websocket.WebSocketManager;
  * }
  * 广播给所有的websocket发送消息 action
  *
- * @author lida
  */
 public class BroadCastAction implements Action {
 

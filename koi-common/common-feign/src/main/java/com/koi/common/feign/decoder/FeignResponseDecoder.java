@@ -15,6 +15,8 @@ import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 
 /**
+ * Feign 响应解码器
+ *
  * @author lida
  */
 @Slf4j

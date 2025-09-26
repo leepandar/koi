@@ -36,6 +36,8 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 /**
+ * Feign 配置类
+ *
  * @author lida
  */
 @Slf4j

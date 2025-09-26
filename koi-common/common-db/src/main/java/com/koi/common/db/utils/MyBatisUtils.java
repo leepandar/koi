@@ -6,6 +6,8 @@ import net.sf.jsqlparser.schema.Column;
 import net.sf.jsqlparser.schema.Table;
 
 /**
+ * MyBatis 工具类
+ *
  * @author lida
  */
 public class MyBatisUtils {

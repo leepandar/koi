@@ -2,12 +2,9 @@ package com.koi.common.websocket.redis.action;
 
 import com.alibaba.fastjson2.JSONObject;
 import com.koi.common.websocket.WebSocketManager;
-import com.koi.common.websocket.WebSocketManager;
 
 /**
  * 要做的事情
- *
- * @author lida
  */
 public interface Action {
 

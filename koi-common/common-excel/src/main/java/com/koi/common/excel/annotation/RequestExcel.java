@@ -9,9 +9,6 @@ import com.koi.common.excel.handler.read.ValidateAnalysisEventListener;
 
 import java.lang.annotation.*;
 
-/**
- * @author lida
- */
 @Documented
 @Target(ElementType.PARAMETER)
 @Retention(RetentionPolicy.RUNTIME)

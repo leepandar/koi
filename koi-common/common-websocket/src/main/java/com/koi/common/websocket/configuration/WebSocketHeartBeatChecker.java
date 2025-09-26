@@ -13,9 +13,6 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
-/**
- * @author lida
- */
 @Slf4j
 public class WebSocketHeartBeatChecker {
 

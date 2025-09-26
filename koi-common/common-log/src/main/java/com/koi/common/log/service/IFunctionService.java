@@ -1,6 +1,8 @@
 package com.koi.common.log.service;
 
 /**
+ * 方法
+ *
  * @author lida
  */
 public interface IFunctionService {

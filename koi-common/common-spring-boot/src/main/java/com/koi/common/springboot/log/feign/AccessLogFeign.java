@@ -1,7 +1,6 @@
 package com.koi.common.springboot.log.feign;
 
 import com.koi.common.springboot.log.AccessLogInfo;
-import com.koi.common.springboot.log.AccessLogInfo;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

@@ -13,7 +13,6 @@ import java.util.Map;
  * 服务之间调用添加same-token 请求头
  *
  * @author lida
- * @since 2025-06-06 16:04
  **/
 @Slf4j
 public class AutoSaSameConfiguration implements RequestInterceptor {

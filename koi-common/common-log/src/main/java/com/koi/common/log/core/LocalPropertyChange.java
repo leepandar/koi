@@ -13,6 +13,8 @@ import java.io.Serial;
 import java.util.Objects;
 
 /**
+ * 属性变更
+ *
  * @author lida
  */
 public class LocalPropertyChange extends PropertyChange<Object> {

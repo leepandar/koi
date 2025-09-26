@@ -12,6 +12,8 @@ import java.lang.reflect.Field;
 import java.util.Optional;
 
 /**
+ * 枚举字典转换器
+ *
  * @author lida
  */
 @SuppressWarnings("unchecked")

@@ -31,9 +31,10 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 /**
- * @author lida
  * redis方法级缓存使用配置项
  * 全局开启时，才会加载该模块
+ *
+ * @author lida
  */
 @Slf4j
 @Configuration

@@ -7,6 +7,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
+ * 审计字段
+ *
  * @author lida
  */
 @Data

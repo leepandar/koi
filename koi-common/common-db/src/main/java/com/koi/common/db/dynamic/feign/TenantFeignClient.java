@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import java.util.List;
 
 /**
+ * 租户动态数据源服务
+ *
  * @author lida
  */
 @FeignClient(name = "koi-iam", dismiss404 = true, fallback = TenantFeignClient.TenantFeignClientFallback.class)

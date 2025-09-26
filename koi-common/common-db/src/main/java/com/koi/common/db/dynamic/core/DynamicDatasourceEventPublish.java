@@ -4,6 +4,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
+ * 动态数据源发布
+ *
  * @author lida
  */
 public interface DynamicDatasourceEventPublish {

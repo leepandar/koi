@@ -1,11 +1,12 @@
 package com.koi.common.excel.exception;
 
-
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
 /**
+ * 自定义异常
+ *
  * @author lida
  */
 @Getter

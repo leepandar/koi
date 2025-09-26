@@ -13,6 +13,8 @@ import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 /**
+ * 认证配置
+ *
  * @author lida
  */
 @EnableConfigurationProperties(SecurityExtProperties.class)

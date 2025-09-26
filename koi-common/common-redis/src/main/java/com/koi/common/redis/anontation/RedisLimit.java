@@ -6,8 +6,9 @@ import java.lang.annotation.*;
 import java.util.concurrent.TimeUnit;
 
 /**
- * @author lida
  * redisson限流器，注解配置项
+ *
+ * @author lida
  */
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)

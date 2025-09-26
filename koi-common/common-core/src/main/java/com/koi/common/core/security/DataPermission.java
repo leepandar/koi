@@ -11,6 +11,8 @@ import java.util.List;
 import java.util.Map;
 
 /**
+ * 数据权限
+ *
  * @author lida
  */
 @Data

@@ -6,6 +6,8 @@ import java.util.List;
 import java.util.Set;
 
 /**
+ * 头信息
+ *
  * @author lida
  */
 @Data

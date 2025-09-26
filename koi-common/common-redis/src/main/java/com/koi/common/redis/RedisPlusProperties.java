@@ -8,6 +8,8 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
+ * Redis 配置属性
+ *
  * @author lida
  */
 @Data

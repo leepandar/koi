@@ -9,8 +9,6 @@ import com.koi.common.log.configuration.DiffLogProperties;
 import com.koi.common.log.core.DiffFieldStrategy;
 import com.koi.common.log.core.LocalPropertyChange;
 import com.koi.common.log.core.annotation.DiffField;
-import com.koi.common.log.configuration.DiffLogProperties;
-import com.koi.common.log.core.LocalPropertyChange;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
@@ -29,9 +27,6 @@ import java.lang.reflect.Field;
 import java.util.Objects;
 import java.util.Optional;
 
-/**
- * @author lida
- */
 @Slf4j
 @Setter
 @Getter

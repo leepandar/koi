@@ -5,9 +5,6 @@ import com.koi.common.core.exception.CheckedException;
 import com.koi.common.redis.RedisKeyGenerator;
 import com.koi.common.redis.anontation.RedisLock;
 import com.koi.common.redis.exception.RedisLockException;
-import com.koi.common.redis.RedisKeyGenerator;
-import com.koi.common.redis.anontation.RedisLock;
-import com.koi.common.redis.exception.RedisLockException;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
@@ -23,6 +20,8 @@ import org.redisson.api.RedissonClient;
 import java.lang.reflect.Method;
 
 /**
+ * Redis分布式锁切面处理
+ *
  * @author lida
  */
 @Slf4j

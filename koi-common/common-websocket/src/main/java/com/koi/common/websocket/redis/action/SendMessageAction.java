@@ -3,11 +3,7 @@ package com.koi.common.websocket.redis.action;
 import com.alibaba.fastjson2.JSONObject;
 import com.koi.common.websocket.WebSocket;
 import com.koi.common.websocket.WebSocketManager;
-import com.koi.common.websocket.WebSocket;
-import com.koi.common.websocket.WebSocketManager;
 import com.koi.common.websocket.utils.WebSocketUtil;
-import com.koi.common.websocket.WebSocket;
-import com.koi.common.websocket.WebSocketManager;
 
 /**
  * {
@@ -17,7 +13,6 @@ import com.koi.common.websocket.WebSocketManager;
  * }
  * 给webSocket发送消息的action
  *
- * @author lida
  */
 public class SendMessageAction implements Action {
 

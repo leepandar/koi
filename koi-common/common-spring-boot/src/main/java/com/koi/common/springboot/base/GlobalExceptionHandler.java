@@ -39,6 +39,8 @@ import java.sql.SQLSyntaxErrorException;
 import java.util.Objects;
 
 /**
+ * 全局异常处理
+ *
  * @author lida
  */
 @Slf4j

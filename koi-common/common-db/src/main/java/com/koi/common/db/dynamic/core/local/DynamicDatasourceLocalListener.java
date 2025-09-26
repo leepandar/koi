@@ -8,7 +8,7 @@ import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.EventListener;
 
 /**
- * 本地监听
+ * 动态数据源本地监听
  *
  * @author lida
  */

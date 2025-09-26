@@ -7,6 +7,8 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
+ * 模拟服务配置
+ *
  * @author lida
  */
 @Data

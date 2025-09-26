@@ -9,6 +9,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
+ * DiffLog 上下文
+ *
  * @author lida
  */
 public final class DiffLogContext {

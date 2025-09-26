@@ -13,6 +13,8 @@ import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
 /**
+ * redis序列号生成
+ *
  * @author lida
  */
 @Slf4j

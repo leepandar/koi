@@ -8,6 +8,8 @@ import org.springframework.boot.web.server.WebServerFactoryCustomizer;
 import org.springframework.context.annotation.Configuration;
 
 /**
+ * Undertow 配置
+ *
  * @author lida
  */
 @Slf4j

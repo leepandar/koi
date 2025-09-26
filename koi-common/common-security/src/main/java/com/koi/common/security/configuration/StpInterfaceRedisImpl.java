@@ -10,6 +10,8 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 /**
+ * 自定义权限验证接口扩展
+ *
  * @author lida
  */
 @Slf4j

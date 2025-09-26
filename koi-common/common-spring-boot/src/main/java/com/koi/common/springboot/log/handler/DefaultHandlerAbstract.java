@@ -1,7 +1,6 @@
 package com.koi.common.springboot.log.handler;
 
 import com.koi.common.springboot.log.AccessLogInfo;
-import com.koi.common.springboot.log.AccessLogInfo;
 import lombok.extern.slf4j.Slf4j;
 
 /**

@@ -4,9 +4,6 @@ import com.baomidou.mybatisplus.extension.service.IService;
 
 import java.util.List;
 
-/**
- * @author lida
- */
 public interface SuperService<T> extends IService<T> {
 
     /**

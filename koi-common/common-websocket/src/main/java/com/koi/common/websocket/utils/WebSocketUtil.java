@@ -6,9 +6,6 @@ import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.util.concurrent.Future;
 
-/**
- * @author lida
- */
 public class WebSocketUtil {
 
     /**

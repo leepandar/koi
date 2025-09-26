@@ -3,9 +3,6 @@ package com.koi.common.idempotent.annotation;
 import java.lang.annotation.*;
 import java.util.concurrent.TimeUnit;
 
-/**
- * @author lida
- */
 @Inherited
 @Target(ElementType.METHOD)
 @Retention(value = RetentionPolicy.RUNTIME)

@@ -4,6 +4,7 @@ package com.koi.common.db.mybatisplus.datascope.service;
 import com.koi.common.core.security.DataPermission;
 
 /**
+ * 数据权限服务
  * @author lida
  */
 public interface DataScopeService {

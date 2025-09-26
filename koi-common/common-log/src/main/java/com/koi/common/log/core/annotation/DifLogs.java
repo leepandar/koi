@@ -3,6 +3,8 @@ package com.koi.common.log.core.annotation;
 import java.lang.annotation.*;
 
 /**
+ * 差异日志注解
+ *
  * @author lida
  **/
 @Target(ElementType.METHOD)

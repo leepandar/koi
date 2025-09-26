@@ -11,6 +11,8 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.Objects;
 
 /**
+ * 差异解析函数
+ *
  * @author lida
  */
 @Slf4j

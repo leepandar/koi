@@ -13,8 +13,9 @@ import org.springframework.data.redis.listener.Topic;
 import java.lang.reflect.Type;
 import java.util.Objects;
 
-
 /**
+ * redis监听动态数据源
+ *
  * @author lida
  */
 @Slf4j

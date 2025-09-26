@@ -12,11 +12,6 @@ import java.lang.reflect.Method;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-/**
- * DATE 4:38 PM
- *
- * @author mzt.
- */
 public class DiffLogExpressionEvaluator extends CachedExpressionEvaluator {
 
     private final Map<AnnotatedElementKey, Method> targetMethodCache = new ConcurrentHashMap<>(64);

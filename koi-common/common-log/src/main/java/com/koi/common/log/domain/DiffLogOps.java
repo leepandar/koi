@@ -4,6 +4,8 @@ import lombok.Builder;
 import lombok.Data;
 
 /**
+ * 日志操作
+ *
  * @author muzhantong
  */
 @Data

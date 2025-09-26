@@ -24,6 +24,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
+ * 远程数据注入
+ *
  * @author lida
  **/
 @Slf4j

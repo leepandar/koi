@@ -9,6 +9,8 @@ import org.redisson.api.RedissonClient;
 import java.util.concurrent.TimeUnit;
 
 /**
+ * redis限流
+ *
  * @author lida
  */
 @RequiredArgsConstructor

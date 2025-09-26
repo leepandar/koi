@@ -4,6 +4,8 @@ import com.koi.common.log.service.IFunctionService;
 import com.koi.common.log.service.IParseFunction;
 
 /**
+ * 默认函数服务实现
+ *
  * @author lida
  */
 public class DefaultFunctionServiceImpl implements IFunctionService {

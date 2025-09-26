@@ -3,9 +3,6 @@ package com.koi.common.websocket.configuration;
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
-/**
- * @author lida
- */
 @Data
 @ConfigurationProperties(prefix = "spring.websocket.heart-check")
 public class WebSocketProperties {

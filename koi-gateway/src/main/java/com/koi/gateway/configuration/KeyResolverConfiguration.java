@@ -9,6 +9,8 @@ import reactor.core.publisher.Mono;
 import java.util.Objects;
 
 /**
+ * 限流配置
+ *
  * @author lida
  */
 @Configuration

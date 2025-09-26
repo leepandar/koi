@@ -16,9 +16,6 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
-/**
- * @author lida
- */
 public class NoopJaversRepository implements JaversRepository {
 
     public static NoopJaversRepository INSTANCE = new NoopJaversRepository();

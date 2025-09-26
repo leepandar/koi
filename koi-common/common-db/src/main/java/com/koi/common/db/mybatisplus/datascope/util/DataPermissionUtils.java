@@ -32,6 +32,8 @@ import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
 /**
+ * 数据权限工具类
+ *
  * @author lida
  */
 @Slf4j

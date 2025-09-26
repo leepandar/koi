@@ -5,6 +5,8 @@ import lombok.Getter;
 import java.lang.reflect.Method;
 
 /**
+ * 方法执行信息
+ *
  * @author lida
  **/
 @Getter

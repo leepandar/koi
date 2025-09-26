@@ -4,6 +4,8 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
 /**
+ * 动态数据源事件
+ *
  * @author lida
  */
 @Data

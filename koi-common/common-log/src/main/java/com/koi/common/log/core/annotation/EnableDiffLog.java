@@ -1,7 +1,6 @@
 package com.koi.common.log.core.annotation;
 
 import com.koi.common.log.support.DiffLogConfigureSelector;
-import com.koi.common.log.support.DiffLogConfigureSelector;
 import org.springframework.context.annotation.AdviceMode;
 import org.springframework.context.annotation.Import;
 import org.springframework.core.Ordered;
@@ -9,6 +8,8 @@ import org.springframework.core.Ordered;
 import java.lang.annotation.*;
 
 /**
+ * 启用差异日志
+ *
  * @author lida
  */
 @Target(ElementType.TYPE)

@@ -1,8 +1,5 @@
 package com.koi.common.log;
 
-/**
- * @author lida
- */
 public interface IDiffItemsToLogContentService {
 
     /**

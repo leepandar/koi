@@ -21,10 +21,6 @@ import com.koi.common.springboot.log.AccessLogProperties;
 import com.koi.common.springboot.log.AccessLogUtil;
 import com.koi.common.springboot.log.event.AccessLogEvent;
 import com.koi.common.springboot.log.handler.AbstractLogHandler;
-import com.koi.common.springboot.log.AccessLogInfo;
-import com.koi.common.springboot.log.AccessLogProperties;
-import com.koi.common.springboot.log.AccessLogUtil;
-import com.koi.common.springboot.log.event.AccessLogEvent;
 import jakarta.annotation.Resource;
 import jakarta.servlet.http.HttpServletRequest;
 import org.aspectj.lang.JoinPoint;
@@ -44,7 +40,6 @@ import java.util.function.Consumer;
 
 /**
  * 操作日志切面，使用Spring事件机制异步入库。
- * <p>
  * 该类用于拦截带有 @AccessLog 注解的方法，并记录相关操作日志。日志信息包括请求的参数、响应结果、异常信息等。
  * 所有日志记录过程通过异步事件处理，避免影响业务流程。
  *

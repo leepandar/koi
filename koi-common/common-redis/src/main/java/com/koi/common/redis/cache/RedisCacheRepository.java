@@ -18,10 +18,11 @@ import java.util.Set;
 import java.util.concurrent.Callable;
 
 /**
- * @author lida
  * 自定义配置redis缓存
  * 自定义生成key策略，目前分开了不同的缓存name区：
  * 如当前cacheName的名字是defalut：那么就增删改查时，都会生成的key带上前缀:projectName+"_fn_"+cacheName+"_"],类似于ehcache功能
+ *
+ * @author lida
  */
 @Data
 @Slf4j
