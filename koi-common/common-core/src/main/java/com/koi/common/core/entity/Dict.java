@@ -6,6 +6,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
+ * 字典
+ *
  * @param <T> T
  * @author lida
  */

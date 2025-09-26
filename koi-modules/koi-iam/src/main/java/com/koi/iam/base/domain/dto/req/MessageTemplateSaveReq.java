@@ -5,10 +5,8 @@ import lombok.Data;
 
 import java.util.List;
 
-/**
- * @author lida
- */
 @Data
+@Schema(name = "MessageTemplateSaveReq", description = "消息模版保存DTO")
 public class MessageTemplateSaveReq {
 
     @Schema(description = "模板编码")

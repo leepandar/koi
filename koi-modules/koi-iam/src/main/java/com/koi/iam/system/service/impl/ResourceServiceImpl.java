@@ -29,14 +29,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-/**
- * <p>
- * 业务实现类
- * 资源
- * </p>
- *
- * @author lida
- */
 @Slf4j
 @Service
 @RequiredArgsConstructor
@@ -49,6 +41,12 @@ public class ResourceServiceImpl extends SuperServiceImpl<ResourceMapper, Resour
     private final UserMapper userMapper;
     private final RoleResMapper roleResMapper;
 
+    /**
+     * 查询 拥有的资源
+     *
+     * @param req req
+     * @return
+     */
     @Override
     public List<VisibleResourceResp> findVisibleResource(ResourceQueryReq req) {
         var resIdList = TenantHelper.executeWithIsolationType(() -> {
@@ -76,6 +74,11 @@ public class ResourceServiceImpl extends SuperServiceImpl<ResourceMapper, Resour
         return BeanUtilPlus.toBeans(list, VisibleResourceResp.class);
     }
 
+    /**
+     * 添加资源
+     *
+     * @param req 资源
+     */
     @Override
     @DSTransactional(rollbackFor = Exception.class)
     public void create(ResourceSaveReq req) {
@@ -98,12 +101,23 @@ public class ResourceServiceImpl extends SuperServiceImpl<ResourceMapper, Resour
         roleResMapper.insertBatchSomeColumn(roleResList);
     }
 
+    /**
+     * 修改资源
+     *
+     * @param id  id
+     * @param req 资源
+     */
     @Override
     public void modify(Long id, ResourceSaveReq req) {
         final Resource resource = BeanUtilPlus.toBean(id, req, Resource.class);
         this.baseMapper.updateById(resource);
     }
 
+    /**
+     * 删除资源
+     *
+     * @param id resourceId
+     */
     @Override
     @DSTransactional(rollbackFor = Exception.class)
     public void delete(Long id) {

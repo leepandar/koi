@@ -9,15 +9,13 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
-/**
- * @author lida
- */
 @Data
 @SuperBuilder(toBuilder = true)
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @TableName(value = "b_message_channel")
+@Schema(name = "MessageChannel", description = "消息通道")
 public class MessageChannel extends SuperEntity<Long> {
 
     @Schema(description = "标题")

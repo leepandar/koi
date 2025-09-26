@@ -8,14 +8,6 @@ import com.koi.iam.system.domain.entity.Resource;
 
 import java.util.List;
 
-/**
- * <p>
- * 业务接口
- * 资源
- * </p>
- *
- * @author lida
- */
 public interface ResourceService extends SuperService<Resource> {
 
     /**

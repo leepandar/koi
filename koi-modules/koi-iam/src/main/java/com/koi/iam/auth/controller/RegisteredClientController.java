@@ -9,11 +9,6 @@ import com.koi.iam.system.domain.dto.req.RegisteredClientReq;
 import com.koi.iam.system.domain.dto.resp.RegisteredClientResp;
 import com.koi.iam.auth.domain.entity.RegisteredClient;
 import com.koi.iam.auth.service.RegisteredClientService;
-import com.koi.iam.auth.domain.entity.RegisteredClient;
-import com.koi.iam.auth.service.RegisteredClientService;
-import com.koi.iam.system.domain.converts.RegisteredClientConverts;
-import com.koi.iam.system.domain.dto.req.RegisteredClientReq;
-import com.koi.iam.system.domain.dto.resp.RegisteredClientResp;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.Parameters;
@@ -24,11 +19,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-/**
- * 应用管理
- *
- * @author lida
- */
 @Slf4j
 @RestController
 @RequiredArgsConstructor

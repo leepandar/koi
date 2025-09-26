@@ -6,16 +6,7 @@ import com.koi.iam.system.domain.dto.req.PositionPageReq;
 import com.koi.iam.system.domain.dto.req.PositionSaveReq;
 import com.koi.iam.system.domain.dto.resp.PositionPageResp;
 import com.koi.iam.system.domain.entity.Position;
-import com.koi.iam.system.domain.entity.Position;
 
-/**
- * <p>
- * 业务接口
- * 岗位
- * </p>
- *
- * @author lida
- */
 public interface SysPositionService extends SuperService<Position> {
 
     /**

@@ -9,13 +9,11 @@ import lombok.NoArgsConstructor;
 
 import java.util.List;
 
-/**
- * @author lida
- */
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@Schema(name = "LoginResp", description = "登录返回")
 public class LoginResp {
 
     @Schema(description = "scope")

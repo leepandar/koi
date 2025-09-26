@@ -5,6 +5,11 @@ import lombok.Data;
 
 import java.time.LocalDate;
 
+/**
+ * 用户信息
+ *
+ * @author lida
+ */
 @Data
 public class UserInfoResp {
 

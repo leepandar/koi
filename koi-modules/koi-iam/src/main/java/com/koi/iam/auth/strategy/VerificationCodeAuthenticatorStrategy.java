@@ -4,8 +4,6 @@ import com.koi.common.core.entity.Result;
 import com.koi.common.core.exception.CheckedException;
 import com.koi.iam.system.service.CaptchaService;
 import com.koi.iam.auth.support.AuthenticationPrincipal;
-import com.koi.iam.auth.support.AuthenticationPrincipal;
-import com.koi.iam.system.service.CaptchaService;
 import jakarta.annotation.Resource;
 import org.springframework.stereotype.Component;
 

@@ -14,7 +14,6 @@ import com.koi.iam.system.domain.dto.req.UserSaveReq;
 import com.koi.iam.system.domain.dto.req.UserUpdateReq;
 import com.koi.iam.system.domain.dto.resp.UserResp;
 import com.koi.iam.system.domain.entity.User;
-import com.koi.iam.system.service.UserService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
@@ -27,11 +26,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-/**
- * 用户管理
- *
- * @author lida
- */
 @Slf4j
 @RestController
 @RequiredArgsConstructor

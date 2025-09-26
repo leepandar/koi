@@ -5,12 +5,9 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-/**
- * @author lida
- */
 @Data
 @EqualsAndHashCode(callSuper = true)
-@Schema(name = "DictionaryItemPageReq")
+@Schema(name = "DictionaryItemPageReq", description = "字典请求DTO")
 public class DictItemPageReq extends PageRequest {
 
     @Schema(description = "字典编码")

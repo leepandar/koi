@@ -22,7 +22,7 @@ import java.util.Map;
 import java.util.concurrent.ThreadPoolExecutor;
 
 /**
- * @author lida
+ * 消息通知事件监听
  */
 @Slf4j
 @Component

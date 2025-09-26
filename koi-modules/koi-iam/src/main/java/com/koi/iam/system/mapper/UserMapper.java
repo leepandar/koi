@@ -17,10 +17,6 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-/**
- * @author lida
- */
-
 @Repository
 public interface UserMapper extends SuperMapper<User> {
 

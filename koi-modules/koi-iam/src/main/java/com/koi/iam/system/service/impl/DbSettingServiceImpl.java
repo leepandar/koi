@@ -29,9 +29,6 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
-/**
- * @author lida
- */
 @Slf4j
 @Service
 @RequiredArgsConstructor
@@ -40,16 +37,29 @@ public class DbSettingServiceImpl extends SuperServiceImpl<DbSettingMapper, DbSe
     private final DatabaseProperties databaseProperties;
     private final ApplicationContext applicationContext;
 
+    /**
+     * 查询所有可用的动态数据源
+     *
+     * @return
+     */
     @Override
     public List<DbSettingPageResp> selectTenantDynamicDatasource() {
         return this.baseMapper.selectTenantDbById(null);
     }
 
+    /**
+     * ping 数据源
+     *
+     * @param id id
+     */
     @Override
     public void ping(Long id) {
         log.debug("查询结果 - {}", JSON.toJSONString(""));
     }
 
+    /**
+     * 初始化
+     */
     @PostConstruct
     public void init() {
         final List<DbSettingPageResp> dataSourceList = this.baseMapper.selectTenantDbById(null);
@@ -65,6 +75,11 @@ public class DbSettingServiceImpl extends SuperServiceImpl<DbSettingMapper, DbSe
         }
     }
 
+    /**
+     * 添加或者保存动态数据源信息
+     *
+     * @param req req
+     */
     @Override
     @DSTransactional
     public void created(DbSettingSaveReq req) {
@@ -76,6 +91,12 @@ public class DbSettingServiceImpl extends SuperServiceImpl<DbSettingMapper, DbSe
         this.baseMapper.insert(bean);
     }
 
+    /**
+     * 添加或者保存动态数据源信息
+     *
+     * @param id  id
+     * @param req req
+     */
     @Override
     @DSTransactional
     public void edit(Long id, DbSettingSaveReq req) {
@@ -89,6 +110,11 @@ public class DbSettingServiceImpl extends SuperServiceImpl<DbSettingMapper, DbSe
         this.baseMapper.updateById(bean);
     }
 
+    /**
+     * 删除数据源
+     *
+     * @param id id
+     */
     @Override
     @DSTransactional
     public void delete(Long id) {
@@ -100,6 +126,12 @@ public class DbSettingServiceImpl extends SuperServiceImpl<DbSettingMapper, DbSe
         }
     }
 
+    /**
+     * 发布数据源事件
+     *
+     * @param action   动作
+     * @param tenantId 租户ID
+     */
     @Override
     public void publishEvent(EventAction action, Long tenantId) {
         final DbSettingPageResp dbSetting = this.baseMapper.getTenantDynamicDatasourceByTenantId(tenantId);

@@ -5,9 +5,6 @@ import lombok.Data;
 
 import java.time.Instant;
 
-/**
- * @author lida
- */
 @Data
 public class TenantPageResp {
 

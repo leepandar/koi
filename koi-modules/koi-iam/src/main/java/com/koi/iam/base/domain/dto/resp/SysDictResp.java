@@ -3,10 +3,8 @@ package com.koi.iam.base.domain.dto.resp;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
-/**
- * @author lida
- */
 @Data
+@Schema(name = "SysDictResp", description = "字典返回")
 public class SysDictResp {
 
     @Schema(description = "ID")

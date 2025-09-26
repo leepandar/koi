@@ -24,14 +24,6 @@ import java.util.Optional;
 
 import static java.util.stream.Collectors.toList;
 
-/**
- * <p>
- * 业务实现类
- * 角色
- * </p>
- *
- * @author lida
- */
 @Slf4j
 @Service
 @RequiredArgsConstructor
@@ -42,11 +34,21 @@ public class RoleServiceImpl extends SuperServiceImpl<RoleMapper, Role> implemen
     private final UserRoleMapper userRoleMapper;
     private final ResourceMapper resourceMapper;
 
+    /**
+     * 列表
+     *
+     * @return
+     */
     @Override
     public List<Role> list() {
         return baseMapper.list();
     }
 
+    /**
+     * 根据角色ID移除
+     *
+     * @param roleId roleId
+     */
     @Override
     @DSTransactional(rollbackFor = Exception.class)
     public void removeByRoleId(Long roleId) {
@@ -65,6 +67,11 @@ public class RoleServiceImpl extends SuperServiceImpl<RoleMapper, Role> implemen
         userRoleMapper.delete(Wraps.<UserRole>lbQ().eq(UserRole::getRoleId, roleId));
     }
 
+    /**
+     * 保存角色
+     *
+     * @param req req
+     */
     @Override
     @DSTransactional(rollbackFor = Exception.class)
     public void create(RoleSaveReq req) {
@@ -74,6 +81,12 @@ public class RoleServiceImpl extends SuperServiceImpl<RoleMapper, Role> implemen
         addDataPermission(role.getId(), req.getOrgList());
     }
 
+    /**
+     * 修改角色
+     *
+     * @param roleId 角色ID
+     * @param req    req
+     */
     @Override
     @DSTransactional(rollbackFor = Exception.class)
     public void modify(Long roleId, RoleSaveReq req) {
@@ -93,6 +106,12 @@ public class RoleServiceImpl extends SuperServiceImpl<RoleMapper, Role> implemen
         addDataPermission(role.getId(), req.getOrgList());
     }
 
+    /**
+     * 给角色分配用户
+     *
+     * @param roleId     roleId
+     * @param userIdList userIdList
+     */
     @Override
     @DSTransactional(rollbackFor = Exception.class)
     public void assignUser(Long roleId, List<Long> userIdList) {
@@ -106,24 +125,12 @@ public class RoleServiceImpl extends SuperServiceImpl<RoleMapper, Role> implemen
         this.userRoleMapper.insertBatchSomeColumn(userRoles);
     }
 
-    private void addDataPermission(Long roleId, List<Long> orgList) {
-        dataPermissionResourceMapper.delete(Wraps.<DataPermissionResource>lbQ()
-                .eq(DataPermissionResource::getOwnerId, roleId)
-                .eq(DataPermissionResource::getOwnerType, DataResourceType.ROLE)
-                .eq(DataPermissionResource::getDataType, DataResourceType.ORG));
-        if (CollectionUtil.isEmpty(orgList)) {
-            return;
-        }
-        // 根据 数据范围类型 和 勾选的组织ID， 重新计算全量的组织ID
-        List<DataPermissionResource> list = orgList.stream()
-                .map(orgId -> DataPermissionResource.builder().dataId(orgId)
-                        .dataType(DataResourceType.ORG)
-                        .ownerType(DataResourceType.ROLE)
-                        .ownerId(roleId).build())
-                .collect(toList());
-        dataPermissionResourceMapper.insertBatchSomeColumn(list);
-    }
-
+    /**
+     * 根据角色ID查询资源码
+     *
+     * @param roleId 角色ID
+     * @return
+     */
     @Override
     public RolePermissionResp findRolePermissionById(Long roleId) {
         final List<Resource> resourceList = resourceMapper.selectList();
@@ -143,5 +150,23 @@ public class RoleServiceImpl extends SuperServiceImpl<RoleMapper, Role> implemen
                 .map(Resource::getId)
                 .toList();
         return RolePermissionResp.builder().menuIdList(menuIdList).buttonIdList(buttonIdList).build();
+    }
+
+    private void addDataPermission(Long roleId, List<Long> orgList) {
+        dataPermissionResourceMapper.delete(Wraps.<DataPermissionResource>lbQ()
+                .eq(DataPermissionResource::getOwnerId, roleId)
+                .eq(DataPermissionResource::getOwnerType, DataResourceType.ROLE)
+                .eq(DataPermissionResource::getDataType, DataResourceType.ORG));
+        if (CollectionUtil.isEmpty(orgList)) {
+            return;
+        }
+        // 根据 数据范围类型 和 勾选的组织ID， 重新计算全量的组织ID
+        List<DataPermissionResource> list = orgList.stream()
+                .map(orgId -> DataPermissionResource.builder().dataId(orgId)
+                        .dataType(DataResourceType.ORG)
+                        .ownerType(DataResourceType.ROLE)
+                        .ownerId(roleId).build())
+                .collect(toList());
+        dataPermissionResourceMapper.insertBatchSomeColumn(list);
     }
 }

@@ -4,9 +4,6 @@ import cn.dev33.satoken.annotation.SaIgnore;
 import com.koi.iam.system.domain.enums.ThirdAuthType;
 import com.koi.iam.auth.domain.dto.resp.ThirdAuthResp;
 import com.koi.iam.auth.service.ThirdAuthTemplate;
-import com.koi.iam.auth.domain.dto.resp.ThirdAuthResp;
-import com.koi.iam.auth.service.ThirdAuthTemplate;
-import com.koi.iam.system.domain.enums.ThirdAuthType;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
@@ -18,9 +15,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-/**
- * @author lida
- */
 @SaIgnore
 @RestController
 @RequestMapping("/third-auth")

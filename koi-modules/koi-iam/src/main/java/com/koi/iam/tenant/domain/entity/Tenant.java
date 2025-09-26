@@ -13,13 +13,6 @@ import lombok.experimental.SuperBuilder;
 
 import static com.baomidou.mybatisplus.annotation.FieldStrategy.ALWAYS;
 
-/**
- * <p>
- * 租户信息
- * </p>
- *
- * @author lida
- */
 @Data
 @SuperBuilder
 @NoArgsConstructor

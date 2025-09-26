@@ -10,7 +10,7 @@ import lombok.Builder;
 import lombok.Data;
 
 /**
- * @author lida
+ * 授权登陆凭证
  **/
 @Data
 @Builder

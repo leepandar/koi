@@ -18,11 +18,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
-/**
- * 业务实现类
- *
- * @author lida
- */
 @Slf4j
 @Service
 @RequiredArgsConstructor
@@ -31,6 +26,11 @@ public class TenantDictItemServiceImpl extends SuperServiceImpl<TenantDictItemMa
     private final TenantDictMapper tenantDictMapper;
     private final AuthenticationContext context;
 
+    /**
+     * 添加字典项
+     *
+     * @param req req
+     */
     @Override
     public void create(DictItemSaveReq req) {
         final TenantDict dict = Optional.ofNullable(this.tenantDictMapper.selectOne(TenantDict::getCode, req.getDictCode()))
@@ -48,6 +48,12 @@ public class TenantDictItemServiceImpl extends SuperServiceImpl<TenantDictItemMa
         this.baseMapper.insert(item);
     }
 
+    /**
+     * 修改字典项
+     *
+     * @param id  字典项ID
+     * @param req req
+     */
     @Override
     public void modify(Long id, DictItemSaveReq req) {
         TenantDictItem dictItem = this.baseMapper.selectById(id);
@@ -68,6 +74,11 @@ public class TenantDictItemServiceImpl extends SuperServiceImpl<TenantDictItemMa
         this.baseMapper.updateById(item);
     }
 
+    /**
+     * 删除字典
+     *
+     * @param id id
+     */
     @Override
     public void delete(Long id) {
         TenantDictItem dictItem = this.baseMapper.selectById(id);

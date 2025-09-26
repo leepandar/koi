@@ -7,10 +7,6 @@ import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
-/**
- * @author lida
- */
-
 @Repository
 public interface OrgMapper extends SuperMapper<Org> {
 

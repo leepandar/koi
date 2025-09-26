@@ -9,12 +9,15 @@ import lombok.NoArgsConstructor;
 import java.util.List;
 
 /**
+ * 角色权限返回
+ *
  * @author lida
  */
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@Schema(name = "RolePermissionResp", description = "角色权限返回")
 public class RolePermissionResp {
 
     @Schema(description = "菜单ID")

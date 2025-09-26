@@ -14,10 +14,13 @@ import java.time.Instant;
 import java.time.LocalDate;
 
 /**
+ * 用户返回
+ *
  * @author lida
  */
 @Data
 @ColumnWidth(30)
+@Schema(name = "RoleResResp", description = "用户返回")
 public class UserResp {
 
     @ExcelIgnore

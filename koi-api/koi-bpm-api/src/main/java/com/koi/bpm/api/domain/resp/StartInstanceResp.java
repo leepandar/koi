@@ -8,6 +8,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
+ * 启动流程实例返回参数
+ *
  * @author lida
  */
 @Data

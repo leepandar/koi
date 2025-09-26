@@ -30,9 +30,6 @@ import java.util.Map;
 import static java.util.stream.Collectors.groupingBy;
 import static java.util.stream.Collectors.toList;
 
-/**
- * @author lida
- */
 @Slf4j
 @Service
 @RequiredArgsConstructor
@@ -50,6 +47,12 @@ public class I18nDataServiceImpl extends SuperServiceImpl<I18nDataMapper, I18nDa
         i18nMessageProvider.loadI18nMessage(messages);
     }
 
+    /**
+     * 分页查询
+     *
+     * @param req req
+     * @return
+     */
     @Override
     public IPage<I18nDataPageResp> pageList(I18nPageReq req) {
         final IPage<I18nDataPageResp> page = this.baseMapper.selectPage(req.buildPage(),
@@ -67,6 +70,11 @@ public class I18nDataServiceImpl extends SuperServiceImpl<I18nDataMapper, I18nDa
         return page;
     }
 
+    /**
+     * 添加 i18n 数据
+     *
+     * @param req req
+     */
     @Override
     @DSTransactional(rollbackFor = Exception.class)
     public void add(I18nDataSaveReq req) {
@@ -80,6 +88,12 @@ public class I18nDataServiceImpl extends SuperServiceImpl<I18nDataMapper, I18nDa
         this.i18nLocaleMessageMapper.insertBatchSomeColumn(list);
     }
 
+    /**
+     * 编辑I18N数据
+     *
+     * @param id  id
+     * @param req req
+     */
     @Override
     @DSTransactional(rollbackFor = Exception.class)
     public void edit(Long id, I18nDataSaveReq req) {
@@ -93,6 +107,12 @@ public class I18nDataServiceImpl extends SuperServiceImpl<I18nDataMapper, I18nDa
         this.i18nLocaleMessageMapper.insertBatchSomeColumn(list);
     }
 
+    /**
+     * 删除i18n数据
+     *
+     * @param id
+     * @return
+     */
     @Override
     @DSTransactional(rollbackFor = Exception.class)
     public boolean removeById(Serializable id) {

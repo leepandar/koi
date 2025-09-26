@@ -7,11 +7,7 @@ import com.koi.iam.base.domain.dto.req.MessageTemplateSaveReq;
 import com.koi.iam.base.domain.dto.resp.MessageTemplateDetailResp;
 import com.koi.iam.base.domain.dto.resp.MessageTemplatePageResp;
 import com.koi.iam.base.domain.entity.MessageTemplate;
-import com.koi.iam.base.domain.entity.MessageTemplate;
 
-/**
- * @author lida
- */
 public interface MessageTemplateService extends IService<MessageTemplate> {
 
     /**

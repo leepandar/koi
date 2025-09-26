@@ -22,9 +22,6 @@ import org.springframework.stereotype.Component;
 
 import java.util.Map;
 
-/**
- * @author lida
- */
 @Slf4j
 @Component
 @RequiredArgsConstructor

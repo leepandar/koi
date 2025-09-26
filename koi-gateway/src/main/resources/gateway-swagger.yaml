@@ -14,7 +14,7 @@ knife4j:
         service-name: koi-suite
         order: 2
       - name: Bpm
-        url: /Bpm/api-docs?group=default
-        context-path: /Bpm
-        service-name: koi-Bpm
+        url: /bpm/api-docs?group=default
+        context-path: /bpm
+        service-name: koi-bpm
         order: 3

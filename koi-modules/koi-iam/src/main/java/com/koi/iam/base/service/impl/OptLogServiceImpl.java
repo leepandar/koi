@@ -12,9 +12,6 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
-/**
- * @author lida
- */
 @Slf4j
 @Service
 @RequiredArgsConstructor
@@ -22,6 +19,11 @@ public class OptLogServiceImpl extends SuperServiceImpl<OptLogMapper, OptLog> im
 
     private final OptLogMapper optLogMapper;
 
+    /**
+     * 保存操作日志
+     *
+     * @param info logInfo
+     */
     @Override
     public void listener(AccessLogInfo info) {
         TenantHelper.executeWithTenantDb(info.getTenantCode(), () -> {

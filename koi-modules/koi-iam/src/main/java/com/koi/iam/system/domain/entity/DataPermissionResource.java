@@ -22,6 +22,7 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 @TableName("sys_data_permission_resource")
 @EqualsAndHashCode(callSuper = true)
+@Schema(name = "DataPermissionResource", description = "数据权限关联表")
 public class DataPermissionResource extends Entity<Long> {
 
     @Schema(description = "所有者 ID")

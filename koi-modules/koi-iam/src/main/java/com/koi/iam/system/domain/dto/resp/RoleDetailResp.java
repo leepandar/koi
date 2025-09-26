@@ -7,10 +7,7 @@ import lombok.experimental.Accessors;
 import java.io.Serializable;
 
 /**
- * <p>
- * 实体类
- * 角色
- * </p>
+ * 角色详情返回
  *
  * @author lida
  */
@@ -21,6 +18,7 @@ import java.io.Serializable;
 @ToString(callSuper = true)
 @EqualsAndHashCode(callSuper = false)
 @Builder
+@Schema(name = "RoleDetailResp", description = "角色详情返回")
 public class RoleDetailResp implements Serializable {
 
     @Schema(description = "ID")

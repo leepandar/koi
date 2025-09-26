@@ -18,6 +18,8 @@ import java.time.Instant;
 import java.time.LocalDate;
 
 /**
+ * 用户
+ *
  * @author lida
  */
 @Data

@@ -12,6 +12,8 @@ import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
 /**
+ * 角色
+ *
  * @author lida
  */
 @Data
@@ -20,6 +22,7 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 @TableName("sys_role")
 @EqualsAndHashCode(callSuper = true)
+@Schema(name = "Role", description = "角色")
 public class Role extends Entity<Long> {
 
     @Schema(description = "租户ID")

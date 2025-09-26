@@ -10,10 +10,8 @@ import lombok.Data;
 
 import java.util.List;
 
-/**
- * @author lida
- */
 @Data
+@Schema(name = "SiteMessageSaveReq", description = "消息保存DTO")
 public class SiteMessageSaveReq {
 
     @NotBlank(message = "标题不能为空")
@@ -34,9 +32,7 @@ public class SiteMessageSaveReq {
     @NotNull(message = "接收类型不能为空")
     @Schema(description = "接收类型")
     private ReceiverType type;
-    /**
-     * 接收的Id
-     */
+
     @NotEmpty(message = "接收者不能为空")
     @Schema(description = "接收人")
     private List<Long> receiver;

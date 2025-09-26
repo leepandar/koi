@@ -12,6 +12,10 @@ services:
     command: --lower_case_table_names=1
     ports:
       - 3306:3306
+    volumes:
+      - ./home/koi-mysql/data:/var/lib/mysql
+      - ./home/koi-mysql/file:/var/lib/mysql-files
+      - ./home/koi-mysql/file:/etc/mysql/my.cnfdocker
     networks:
       - koi
 
@@ -21,6 +25,10 @@ services:
     restart: always
     ports:
       - 6379:6379
+    volumes:
+      - ./home/koi-redis/conf/redis.conf:/usr/local/etc/redis/redis.conf
+      - ./home/koi-redis/log/redis.log:/var/log/redis.log
+      - ./home/koi-redis/data:/data
     networks:
       - koi
 
@@ -43,6 +51,8 @@ services:
     image: koi-gateway
     ports:
       - 8888:8888
+    volumes:
+      - ./home/iot-gateway/logs/:/koi-gateway/logs/koi-gateway/
     networks:
       - koi
 
@@ -54,6 +64,8 @@ services:
     image: koi-iam
     ports:
       - 8001:8001
+    volumes:
+      - ./home/iot-iam/logs/:/koi-iam/logs/koi-iam/
     networks:
       - koi
 
@@ -65,6 +77,8 @@ services:
     image: koi-suite
     ports:
       - 8002:8002
+    volumes:
+      - ./home/iot-suite/logs/:/koi-suite/logs/koi-suite/
     networks:
       - koi
 
@@ -76,6 +90,8 @@ services:
     image: koi-bpm
     ports:
       - 8003:8003
+    volumes:
+      - ./home/iot-bpm/logs/:/koi-bpm/logs/koi-bpm/
     networks:
       - koi
 
@@ -98,6 +114,8 @@ services:
     container_name: koi-job-server
     ports:
       - 7002:7002
+    volumes:
+      - ./home/iot-job-server/logs/:/koi-job-server/logs/koi-job-server/
     networks:
       - koi
 
@@ -109,6 +127,8 @@ services:
     container_name: koi-job-client
     ports:
       - 7003:7003
+    volumes:
+      - ./home/iot-job-client/logs/:/koi-job-client/logs/koi-job-client/
     networks:
       - koi
 
@@ -121,22 +141,28 @@ services:
       - 5672:5672
       - 15672:15672
       - 25672:25672
+    volumes:
+      - ./home/koi-rabbitmq/data:/var/lib/rabbitmq
+      - ./home/koi-rabbitmq/conf:/etc/rabbitmq
+      - ./home/koi-rabbitmq/log:/var/log/rabbitmq
     networks:
       - koi
 
   koi-prometheus:
     image: prom/prometheus:v2.40.1
     container_name: koi-prometheus
+    restart: always
     ports:
-      - "9090:9090"
+      - 9090:9090
     volumes:
-      - /koi-prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+      - ./home/koi-prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
     networks:
       - koi
 
   koi-grafana:
     image: grafana/grafana:9.2.4
     container_name: koi-grafana
+    restart: always
     environment:
       TZ: Asia/Shanghai
       # 服务地址 用于指定外网ip或域名
@@ -144,18 +170,19 @@ services:
       # admin 管理员密码
       GF_SECURITY_ADMIN_PASSWORD: 123456
     ports:
-      - "3000:3000"
+      - 3000:3000
     volumes:
-      - /koi-grafana/grafana.ini:/etc/grafana/grafana.ini
-      - /koi-grafana:/var/lib/grafana
+      - ./home/koi-grafana/grafana.ini:/etc/grafana/grafana.ini
+      - ./home/koi-grafana:/var/lib/grafana
     networks:
       - koi
 
   koi-kafka:
-    image: 'bitnami/kafka:3.6.2'
+    image: bitnami/kafka:3.6.2
     container_name: koi-kafka
+    restart: always
     ports:
-      - "9092:9092"
+      - 9092:9092
     environment:
       TZ: Asia/Shanghai
       # 更多变量 查看文档 https://github.com/bitnami/bitnami-docker-kafka/blob/master/README.md
@@ -167,7 +194,7 @@ services:
       KAFKA_CFG_ZOOKEEPER_CONNECT: 127.0.0.1:2181
       ALLOW_PLAINTEXT_LISTENER: "yes"
     volumes:
-      - /koi-kafka/data:/bitnami/kafka/data
+      - ./home/koi-kafka/data:/bitnami/kafka/data
     depends_on:
       - zookeeper
     networks:
@@ -176,8 +203,9 @@ services:
   koi-kafka-manager:
     image: sheepkiller/kafka-manager:latest
     container_name: koi-kafka-manager
+    restart: always
     ports:
-      - "19092:19092"
+      - 19092:19092
     environment:
       ZK_HOSTS: 127.0.0.1:2181
       APPLICATION_SECRET: letmein
@@ -185,15 +213,16 @@ services:
       KAFKA_MANAGER_PASSWORD: 123456
       KM_ARGS: -Dhttp.port=19092
     depends_on:
-      - kafka
+      - koi-kafka
     networks:
       - koi
 
   koi-zookeeper:
     image: 'bitnami/zookeeper:3.8.0'
     container_name: koi-zookeeper
+    restart: always
     ports:
-      - "2181:2181"
+      - 2181:2181
     environment:
       TZ: Asia/Shanghai
       ALLOW_ANONYMOUS_LOGIN: "yes"
@@ -209,9 +238,10 @@ services:
   koi-elasticsearch:
     image: elasticsearch:7.17.6
     container_name: koi-elasticsearch
+    restart: always
     ports:
-      - "9200:9200"
-      - "9300:9300"
+      - 9200:9200
+      - 9300:9300
     environment:
       # 设置集群名称
       cluster.name: koi-elasticsearch
@@ -219,17 +249,18 @@ services:
       discovery.type: single-node
       ES_JAVA_OPTS: "-Xms512m -Xmx512m"
     volumes:
-      - /koi-elk/elasticsearch/plugins:/usr/share/elasticsearch/plugins
-      - /koi-elk/elasticsearch/data:/usr/share/elasticsearch/data
-      - /koi-elk/elasticsearch/logs:/usr/share/elasticsearch/logs
+      - ./home/koi-elk/elasticsearch/plugins:/usr/share/elasticsearch/plugins
+      - ./home/koi-elk/elasticsearch/data:/usr/share/elasticsearch/data
+      - ./home/koi-elk/elasticsearch/logs:/usr/share/elasticsearch/logs
     networks:
       - koi
 
   koi-kibana:
     image: kibana:7.17.6
     container_name: koi-kibana
+    restart: always
     ports:
-      - "5601:5601"
+      - 5601:5601
     depends_on:
       # kibana在elasticsearch启动之后再启动
       - koi-elasticsearch
@@ -239,20 +270,39 @@ services:
       # 访问域名
       # SERVER_PUBLICBASEURL: https://kibana.cloud.com
     volumes:
-      - /koi-elk/kibana/config/kibana.yml:/usr/share/kibana/config/kibana.yml
+      - ./home/koi-elk/kibana/config/kibana.yml:/usr/share/kibana/config/kibana.yml
     networks:
       - koi
 
   koi-logstash:
     image: logstash:7.17.6
     container_name: koi-logstash
+    restart: always
     ports:
-      - "4560:4560"
+      - 4560:4560
     volumes:
-      - /koi-elk/logstash/pipeline/logstash.conf:/usr/share/logstash/pipeline/logstash.conf
-      - /koi-elk/logstash/config/logstash.yml:/usr/share/logstash/config/logstash.yml
+      - ./home/koi-elk/logstash/pipeline/logstash.conf:/usr/share/logstash/pipeline/logstash.conf
+      - ./home/koi-elk/logstash/config/logstash.yml:/usr/share/logstash/config/logstash.yml
     depends_on:
       - koi-elasticsearch
+    networks:
+      - koi
+
+  koi-minio:
+    image: minio/minio
+    container_name: koi-minio
+    restart: always
+    command:
+      - server /data
+    environment:
+      MINIO_ACCESS_KEY: minio
+      MINIO_SECRET_KEY: minio123456
+      MINIO_DOMAIN: koi-minio
+    ports:
+      - 9000:9000
+      - 9001:9001
+    volumes:
+      - ./home/koi-minio/data:/data
     networks:
       - koi
 

@@ -52,9 +52,6 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-/**
- * @author lida
- */
 @Slf4j
 @Service
 @RequiredArgsConstructor
@@ -75,17 +72,11 @@ public class TenantServiceImpl extends SuperServiceImpl<TenantMapper, Tenant> im
     private final TenantDictMapper tenantDictMapper;
     private final TenantDictItemMapper tenantDictItemMapper;
 
-    private String getNameById(Long id) {
-        if (Objects.isNull(id)) {
-            return null;
-        }
-        final AreaEntity areaEntity = areaMapper.selectById(id);
-        if (Objects.isNull(areaEntity)) {
-            return null;
-        }
-        return areaEntity.getName();
-    }
-
+    /**
+     * 保存租户
+     *
+     * @param req 租户信息
+     */
     @Override
     @DSTransactional(rollbackFor = Exception.class)
     public void create(TenantSaveReq req) {
@@ -106,6 +97,12 @@ public class TenantServiceImpl extends SuperServiceImpl<TenantMapper, Tenant> im
         this.baseMapper.insert(tenant);
     }
 
+    /**
+     * 修改租户
+     *
+     * @param id  id
+     * @param req 租户信息
+     */
     @Override
     @DSTransactional(rollbackFor = Exception.class)
     public void modify(Long id, TenantSaveReq req) {
@@ -126,6 +123,12 @@ public class TenantServiceImpl extends SuperServiceImpl<TenantMapper, Tenant> im
         this.baseMapper.updateById(bean);
     }
 
+    /**
+     * 租户配置
+     *
+     * @param tenantId tenantId
+     * @param req      租户配置
+     */
     @Override
     @DSTransactional(rollbackFor = Exception.class)
     public void tenantConfig(Long tenantId, TenantConfigReq req) {
@@ -150,6 +153,11 @@ public class TenantServiceImpl extends SuperServiceImpl<TenantMapper, Tenant> im
         // }
     }
 
+    /**
+     * 初始化SQL脚本
+     *
+     * @param id id
+     */
     @Override
     @DSTransactional(rollbackFor = Exception.class)
     public void initSqlScript(Long id) {
@@ -168,6 +176,102 @@ public class TenantServiceImpl extends SuperServiceImpl<TenantMapper, Tenant> im
         } else if (multiTenant.getType() == MultiTenantType.DATASOURCE) {
             initDatasourceTypeTenant(tenant);
         }
+    }
+
+    /**
+     * 字典刷新
+     *
+     * @param tenantId tenantId
+     */
+    @Override
+    @DSTransactional(rollbackFor = Exception.class)
+    public void refreshTenantDict(Long tenantId) {
+        validTenant(tenantId);
+        // 查询超管 所有字典数据
+        List<SysDict> dictList = TenantHelper.executeWithMaster(() -> dictMapper.selectList(SysDict::getType, 1));
+        if (CollUtil.isEmpty(dictList)) {
+            log.warn("未查询到有效的数据字典");
+            return;
+        }
+        List<TenantDict> dictTypeList = dictList.stream().map(x -> {
+            TenantDict dict = BeanUtil.toBean(x, TenantDict.class);
+            dict.setId(null);
+            dict.setLastModifiedTime(Instant.now());
+            dict.setLastModifiedBy(context.userId());
+            dict.setLastModifiedName(context.nickName());
+            return dict;
+        }).toList();
+        List<Long> dictIdList = dictList.stream().map(Entity::getId).toList();
+        List<TenantDictItem> dictDataList = TenantHelper.executeWithMaster(() -> dictItemMapper.selectList(Wraps.<SysDictItem>lbQ().in(SysDictItem::getDictId, dictIdList)))
+                .stream()
+                .map(x -> {
+                    TenantDictItem item = BeanUtil.toBean(x, TenantDictItem.class);
+                    item.setId(null);
+                    item.setTenantId(tenantId);
+                    item.setLastModifiedTime(Instant.now());
+                    item.setLastModifiedBy(context.userId());
+                    item.setLastModifiedName(context.nickName());
+                    return item;
+                }).toList();
+        // 理论上如果是管理员刷新租户字典那么需要给租户的数据给删除然后重新添加
+        this.tenantDictMapper.delete(Wraps.<TenantDict>lbQ().eq(TenantDict::getTenantId, tenantId));
+        this.tenantDictItemMapper.delete(Wraps.<TenantDictItem>lbQ().eq(TenantDictItem::getTenantId, tenantId));
+        // 将新数据写入到租户字典表中
+        this.tenantDictMapper.insertBatchSomeColumn(dictTypeList);
+        this.tenantDictItemMapper.insertBatchSomeColumn(dictDataList);
+    }
+
+    /**
+     * 租户设置信息
+     *
+     * @param tenantId 租户ID
+     * @return
+     */
+    @Override
+    public TenantSettingResp settingInfo(Long tenantId) {
+        TenantSetting setting = this.tenantSettingMapper.selectOne(TenantSetting::getTenantId, tenantId);
+        return BeanUtil.toBean(setting, TenantSettingResp.class);
+    }
+
+    /**
+     * 保存租户设置
+     *
+     * @param tenantId 租户ID
+     * @param req      设置信息
+     */
+    @Override
+    @DSTransactional(rollbackFor = Exception.class)
+    public void saveSetting(Long tenantId, TenantSettingReq req) {
+        validTenant(tenantId);
+        String siteUrl = req.getSiteUrl();
+        if (StrUtil.isNotBlank(siteUrl)) {
+            Long count = this.tenantSettingMapper.selectCount(Wraps.<TenantSetting>lbQ()
+                    .ne(TenantSetting::getTenantId, tenantId).eq(TenantSetting::getSiteUrl, req.getSiteUrl()));
+            if (count != null && count > 0) {
+                throw CheckedException.badRequest("该租户站点已存在");
+            }
+        }
+        TenantSetting setting = this.tenantSettingMapper.selectOne(TenantSetting::getTenantId, tenantId);
+        var bean = BeanUtil.toBean(req, TenantSetting.class);
+        bean.setTenantId(tenantId);
+        if (setting == null) {
+            this.tenantSettingMapper.insert(bean);
+        } else {
+            bean.setId(setting.getId());
+            this.tenantSettingMapper.updateById(bean);
+        }
+        dbSettingService.publishEvent(EventAction.INIT, tenantId);
+    }
+
+    private String getNameById(Long id) {
+        if (Objects.isNull(id)) {
+            return null;
+        }
+        final AreaEntity areaEntity = areaMapper.selectById(id);
+        if (Objects.isNull(areaEntity)) {
+            return null;
+        }
+        return areaEntity.getName();
     }
 
     private boolean isSuperTenant(Tenant tenant, DatabaseProperties.MultiTenant multiTenant) {
@@ -257,73 +361,5 @@ public class TenantServiceImpl extends SuperServiceImpl<TenantMapper, Tenant> im
         if (StringUtils.equals(tenant.getCode(), properties.getMultiTenant().getSuperTenantCode())) {
             throw CheckedException.badRequest("超级租户,禁止操作");
         }
-    }
-
-    @Override
-    @DSTransactional(rollbackFor = Exception.class)
-    public void refreshTenantDict(Long tenantId) {
-        validTenant(tenantId);
-        // 查询超管 所有字典数据
-        List<SysDict> dictList = TenantHelper.executeWithMaster(() -> dictMapper.selectList(SysDict::getType, 1));
-        if (CollUtil.isEmpty(dictList)) {
-            log.warn("未查询到有效的数据字典");
-            return;
-        }
-        List<TenantDict> dictTypeList = dictList.stream().map(x -> {
-            TenantDict dict = BeanUtil.toBean(x, TenantDict.class);
-            dict.setId(null);
-            dict.setLastModifiedTime(Instant.now());
-            dict.setLastModifiedBy(context.userId());
-            dict.setLastModifiedName(context.nickName());
-            return dict;
-        }).toList();
-        List<Long> dictIdList = dictList.stream().map(Entity::getId).toList();
-        List<TenantDictItem> dictDataList = TenantHelper.executeWithMaster(() -> dictItemMapper.selectList(Wraps.<SysDictItem>lbQ().in(SysDictItem::getDictId, dictIdList)))
-                .stream()
-                .map(x -> {
-                    TenantDictItem item = BeanUtil.toBean(x, TenantDictItem.class);
-                    item.setId(null);
-                    item.setTenantId(tenantId);
-                    item.setLastModifiedTime(Instant.now());
-                    item.setLastModifiedBy(context.userId());
-                    item.setLastModifiedName(context.nickName());
-                    return item;
-                }).toList();
-        // 理论上如果是管理员刷新租户字典那么需要给租户的数据给删除然后重新添加
-        this.tenantDictMapper.delete(Wraps.<TenantDict>lbQ().eq(TenantDict::getTenantId, tenantId));
-        this.tenantDictItemMapper.delete(Wraps.<TenantDictItem>lbQ().eq(TenantDictItem::getTenantId, tenantId));
-        // 将新数据写入到租户字典表中
-        this.tenantDictMapper.insertBatchSomeColumn(dictTypeList);
-        this.tenantDictItemMapper.insertBatchSomeColumn(dictDataList);
-    }
-
-    @Override
-    public TenantSettingResp settingInfo(Long tenantId) {
-        TenantSetting setting = this.tenantSettingMapper.selectOne(TenantSetting::getTenantId, tenantId);
-        return BeanUtil.toBean(setting, TenantSettingResp.class);
-    }
-
-    @Override
-    @DSTransactional(rollbackFor = Exception.class)
-    public void saveSetting(Long tenantId, TenantSettingReq req) {
-        validTenant(tenantId);
-        String siteUrl = req.getSiteUrl();
-        if (StrUtil.isNotBlank(siteUrl)) {
-            Long count = this.tenantSettingMapper.selectCount(Wraps.<TenantSetting>lbQ()
-                    .ne(TenantSetting::getTenantId, tenantId).eq(TenantSetting::getSiteUrl, req.getSiteUrl()));
-            if (count != null && count > 0) {
-                throw CheckedException.badRequest("该租户站点已存在");
-            }
-        }
-        TenantSetting setting = this.tenantSettingMapper.selectOne(TenantSetting::getTenantId, tenantId);
-        var bean = BeanUtil.toBean(req, TenantSetting.class);
-        bean.setTenantId(tenantId);
-        if (setting == null) {
-            this.tenantSettingMapper.insert(bean);
-        } else {
-            bean.setId(setting.getId());
-            this.tenantSettingMapper.updateById(bean);
-        }
-        dbSettingService.publishEvent(EventAction.INIT, tenantId);
     }
 }

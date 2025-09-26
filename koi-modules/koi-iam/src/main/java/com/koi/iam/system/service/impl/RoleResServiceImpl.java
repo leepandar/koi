@@ -19,11 +19,6 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
-/**
- * 角色资源
- *
- * @author lida
- */
 @Slf4j
 @Service
 @RequiredArgsConstructor
@@ -31,6 +26,12 @@ public class RoleResServiceImpl extends SuperServiceImpl<RoleResMapper, RoleRes>
 
     private final UserRoleMapper userRoleMapper;
 
+    /**
+     * 给用户分配角色
+     *
+     * @param req req
+     * @return
+     */
     @Override
     @DSTransactional(rollbackFor = Exception.class)
     public boolean assignUser(UserRoleSaveReq req) {
@@ -49,6 +50,12 @@ public class RoleResServiceImpl extends SuperServiceImpl<RoleResMapper, RoleRes>
         resHandler(req, req.getRoleId());
     }
 
+    /**
+     * 给角色重新分配 权限（资源/菜单）
+     *
+     * @param data
+     * @param roleId
+     */
     private void resHandler(RoleResSaveReq data, Long roleId) {
         final Set<Long> resIdList = data.getResIdList();
         if (CollUtil.isEmpty(resIdList)) {

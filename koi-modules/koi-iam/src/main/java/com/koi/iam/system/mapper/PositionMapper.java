@@ -9,12 +9,6 @@ import com.koi.iam.system.domain.entity.Position;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
-/**
- * 岗位
- *
- * @author lida
- */
-
 @Repository
 public interface PositionMapper extends SuperMapper<Position> {
 

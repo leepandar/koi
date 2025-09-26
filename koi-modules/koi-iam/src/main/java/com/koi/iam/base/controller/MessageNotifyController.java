@@ -12,7 +12,6 @@ import com.koi.iam.system.domain.dto.req.MessageNotifyPageReq;
 import com.koi.iam.base.domain.dto.req.MessageNotifyPublishReq;
 import com.koi.iam.base.domain.dto.resp.MessageNotifyPageResp;
 import com.koi.iam.base.domain.entity.MessageNotify;
-import com.koi.iam.system.domain.dto.req.MessageNotifyPageReq;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
@@ -22,9 +21,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-/**
- * @author lida
- */
 @Slf4j
 @Validated
 @RestController

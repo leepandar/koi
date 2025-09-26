@@ -7,10 +7,8 @@ import lombok.Data;
 
 import java.util.List;
 
-/**
- * @author lida
- */
 @Data
+@Schema(name = "MessageNotifyPublishReq", description = "消息通知发布DTO")
 public class MessageNotifyPublishReq {
 
     @Schema(description = "模板ID")

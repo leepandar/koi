@@ -2,17 +2,13 @@ package com.koi.iam.auth.support.domain;
 
 import com.koi.iam.system.domain.entity.User;
 import com.koi.iam.tenant.domain.entity.Tenant;
-import com.koi.iam.system.domain.entity.User;
-import com.koi.iam.tenant.domain.entity.Tenant;
-import com.koi.iam.system.domain.entity.User;
-import com.koi.iam.tenant.domain.entity.Tenant;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * @author lida
+ * 登陆租户用户信息
  */
 @Data
 @Builder

@@ -7,14 +7,6 @@ import com.koi.iam.system.domain.entity.Role;
 
 import java.util.List;
 
-/**
- * <p>
- * 业务接口
- * 角色
- * </p>
- *
- * @author lida
- */
 public interface RoleService extends SuperService<Role> {
 
     /**
@@ -33,7 +25,7 @@ public interface RoleService extends SuperService<Role> {
     void removeByRoleId(Long roleId);
 
     /**
-     * 1，保存角色
+     * 保存角色
      *
      * @param req req
      */

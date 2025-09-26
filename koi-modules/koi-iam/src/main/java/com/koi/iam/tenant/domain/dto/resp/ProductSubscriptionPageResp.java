@@ -6,9 +6,6 @@ import lombok.Data;
 import java.math.BigDecimal;
 import java.time.Instant;
 
-/**
- * @author lida
- */
 @Data
 public class ProductSubscriptionPageResp {
 

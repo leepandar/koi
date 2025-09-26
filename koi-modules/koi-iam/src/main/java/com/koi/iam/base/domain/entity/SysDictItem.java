@@ -9,15 +9,6 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
-/**
- * <p>
- * 实体类
- * 字典项
- * </p>
- *
- * @author lida
- * @since 2020-01-03
- */
 @Data
 @SuperBuilder
 @NoArgsConstructor

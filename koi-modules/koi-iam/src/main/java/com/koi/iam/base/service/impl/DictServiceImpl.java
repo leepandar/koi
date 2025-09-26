@@ -30,12 +30,6 @@ import java.util.stream.Collectors;
 
 import static java.util.stream.Collectors.groupingBy;
 
-/**
- * 系统字典服务层
- *
- * @author lida
- * @see DictLoadService 可以理解为字典缓存（同时 @Remote 注解使用）
- */
 @Slf4j
 @Service
 @RequiredArgsConstructor
@@ -50,6 +44,11 @@ public class DictServiceImpl extends SuperServiceImpl<SysDictMapper, SysDict> im
         refresh();
     }
 
+    /**
+     * 添加字典
+     *
+     * @param req 字典信息
+     */
     @Override
     public void create(DictSaveReq req) {
         if (req == null) {
@@ -62,6 +61,12 @@ public class DictServiceImpl extends SuperServiceImpl<SysDictMapper, SysDict> im
         this.baseMapper.insert(BeanUtil.toBean(req, SysDict.class));
     }
 
+    /**
+     * 编辑字典
+     *
+     * @param id  id
+     * @param req 字典信息
+     */
     @Override
     @DSTransactional(rollbackFor = Exception.class)
     public void modify(Long id, DictSaveReq req) {
@@ -78,6 +83,11 @@ public class DictServiceImpl extends SuperServiceImpl<SysDictMapper, SysDict> im
         this.dictLoadService.refreshCache(getPairMap(List.of(req.getCode())));
     }
 
+    /**
+     * 删除字典
+     *
+     * @param id id
+     */
     @Override
     @DSTransactional(rollbackFor = Exception.class)
     public void deleteById(Long id) {
@@ -89,6 +99,9 @@ public class DictServiceImpl extends SuperServiceImpl<SysDictMapper, SysDict> im
         this.sysDictItemMapper.delete(Wraps.<SysDictItem>lbQ().eq(SysDictItem::getDictCode, dict.getCode()));
     }
 
+    /**
+     * 刷新缓存
+     */
     @Override
     public void refresh() {
         List<SysDict> list = this.baseMapper.selectList(SysDict::getStatus, true);
@@ -99,15 +112,12 @@ public class DictServiceImpl extends SuperServiceImpl<SysDictMapper, SysDict> im
         this.dictLoadService.refreshCache(getPairMap(codeList));
     }
 
-    private Map<String, List<Pair<String, String>>> getPairMap(List<String> codeList) {
-        return this.sysDictItemMapper.selectList(Wraps.<SysDictItem>lbQ()
-                        .eq(SysDictItem::getStatus, true))
-                .stream()
-                .collect(groupingBy(
-                        SysDictItem::getDictCode,
-                        Collectors.mapping(item -> Pair.of(item.getValue(), item.getLabel()), Collectors.toList())));
-    }
-
+    /**
+     * 根据 code 查询
+     *
+     * @param code code
+     * @return
+     */
     @Override
     public List<Dict<String>> findItemByCode(String code) {
         Map<Object, Object> map = this.dictLoadService.findByIds(code);
@@ -121,4 +131,12 @@ public class DictServiceImpl extends SuperServiceImpl<SysDictMapper, SysDict> im
         return dictList;
     }
 
+    private Map<String, List<Pair<String, String>>> getPairMap(List<String> codeList) {
+        return this.sysDictItemMapper.selectList(Wraps.<SysDictItem>lbQ()
+                        .eq(SysDictItem::getStatus, true))
+                .stream()
+                .collect(groupingBy(
+                        SysDictItem::getDictCode,
+                        Collectors.mapping(item -> Pair.of(item.getValue(), item.getLabel()), Collectors.toList())));
+    }
 }

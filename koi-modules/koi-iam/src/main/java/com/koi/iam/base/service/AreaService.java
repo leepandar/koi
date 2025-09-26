@@ -2,13 +2,9 @@ package com.koi.iam.base.service;
 
 import com.koi.common.db.mybatisplus.ext.SuperService;
 import com.koi.iam.base.domain.entity.AreaEntity;
-import com.koi.iam.base.domain.entity.AreaEntity;
 
 import java.util.List;
 
-/**
- * @author lida
- */
 public interface AreaService extends SuperService<AreaEntity> {
 
     /**

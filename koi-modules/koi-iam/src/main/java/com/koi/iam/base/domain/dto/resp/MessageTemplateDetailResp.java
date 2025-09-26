@@ -6,10 +6,8 @@ import lombok.Data;
 import java.time.Instant;
 import java.util.Set;
 
-/**
- * @author lida
- */
 @Data
+@Schema(name = "I18nDataPageResp", description = "消息模版详情返回")
 public class MessageTemplateDetailResp {
 
     @Schema(description = "模板ID")

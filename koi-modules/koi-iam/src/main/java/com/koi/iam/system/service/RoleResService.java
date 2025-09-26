@@ -5,14 +5,6 @@ import com.koi.iam.system.domain.dto.req.RoleResSaveReq;
 import com.koi.iam.system.domain.dto.req.UserRoleSaveReq;
 import com.koi.iam.system.domain.entity.RoleRes;
 
-/**
- * <p>
- * 业务接口
- * 角色的资源
- * </p>
- *
- * @author lida
- */
 public interface RoleResService extends SuperService<RoleRes> {
 
     /**

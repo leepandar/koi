@@ -6,9 +6,12 @@ import lombok.Data;
 import java.time.Instant;
 
 /**
+ * 岗位分页查询返回
+ *
  * @author lida
  */
 @Data
+@Schema(name = "PositionPageResp", description = "岗位分页查询返回")
 public class PositionPageResp {
 
     @Schema(description = "ID")

@@ -12,7 +12,7 @@ import lombok.EqualsAndHashCode;
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
-@Schema(name = "PositionPageReq", description = "岗位分页查询")
+@Schema(name = "PositionPageReq", description = "岗位分页查询DTO")
 public class PositionPageReq extends PageRequest {
 
     @Schema(description = "名称")

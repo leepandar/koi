@@ -17,15 +17,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
-/**
- * <p>
- * 业务实现类
- * 字典项
- * </p>
- *
- * @author lida
- * @since 2019-07-02
- */
 @Slf4j
 @Service
 @RequiredArgsConstructor
@@ -33,6 +24,12 @@ public class DictItemServiceImpl extends SuperServiceImpl<SysDictItemMapper, Sys
 
     private final SysDictMapper sysDictMapper;
 
+    /**
+     * 添加字典项
+     *
+     * @param dictId 字典ID
+     * @param req    req
+     */
     @Override
     public void create(Long dictId, DictItemSaveReq req) {
         final SysDict dict = Optional.ofNullable(this.sysDictMapper.selectById(dictId)).orElseThrow(() -> CheckedException.notFound("字典不存在"));
@@ -47,6 +44,13 @@ public class DictItemServiceImpl extends SuperServiceImpl<SysDictItemMapper, Sys
         this.baseMapper.insert(item);
     }
 
+    /**
+     * 修改字典项
+     *
+     * @param dictId 字典ID
+     * @param itemId 字典项ID
+     * @param req    req
+     */
     @Override
     public void modify(Long dictId, Long itemId, DictItemSaveReq req) {
         final SysDict dict = Optional.ofNullable(this.sysDictMapper.selectById(dictId)).orElseThrow(() -> CheckedException.notFound("字典不存在"));

@@ -14,7 +14,6 @@ import java.io.Serializable;
 import java.time.Instant;
 
 /**
- * 在考虑是否应该移动到 database 模块
  * 基础实体
  *
  * @param <T> T

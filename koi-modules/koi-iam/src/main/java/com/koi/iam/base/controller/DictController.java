@@ -21,11 +21,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-/**
- * 字典类型
- *
- * @author lida
- */
 @Slf4j
 @Validated
 @RestController
@@ -37,7 +32,7 @@ public class DictController {
     private final DictService dictService;
 
     @GetMapping("/list")
-    @Operation(summary = "字典列表 - [DONE] - [lida]", description = "查询字典列表 - [DONE] - [lida]")
+    @Operation(summary = "字典列表", description = "查询字典列表")
     @SaCheckPermission(value = {"dict:list"})
     public List<SysDictResp> list() {
         List<SysDict> list = this.dictService.list(Wraps.<SysDict>lbQ().eq(SysDict::getStatus, true).orderByAsc(SysDict::getSequence));
@@ -46,7 +41,7 @@ public class DictController {
 
     @PostMapping("/refresh")
     @AccessLog(module = "系统字典", description = "刷新字典")
-    @Operation(summary = "刷新字典 - [DONE] - [lida]", description = "刷新字典缓存数据 - [DONE] - [lida]")
+    @Operation(summary = "刷新字典", description = "刷新字典缓存数据")
     @SaCheckPermission(value = {"dict:refresh"})
     public void refresh() {
         this.dictService.refresh();
@@ -54,7 +49,7 @@ public class DictController {
 
     @PostMapping("/create")
     @AccessLog(module = "系统字典", description = "字典新增")
-    @Operation(summary = "新增字典 - [DONE] - [lida]", description = "新增字典 - [DONE] - [lida]")
+    @Operation(summary = "新增字典", description = "新增字典")
     @SaCheckPermission(value = {"dict:add"})
     public void create(@Validated @RequestBody DictSaveReq req) {
         this.dictService.create(req);
@@ -62,7 +57,7 @@ public class DictController {
 
     @PutMapping("/{id}")
     @AccessLog(module = "系统字典", description = "字典编辑")
-    @Operation(summary = "编辑字典 - [DONE] - [lida]", description = "编辑字典 - [DONE] - [lida]")
+    @Operation(summary = "编辑字典", description = "编辑字典")
     @SaCheckPermission(value = {"dict:edit"})
     public void modify(@PathVariable Long id, @Validated @RequestBody DictSaveReq req) {
         this.dictService.modify(id, req);
@@ -70,14 +65,14 @@ public class DictController {
 
     @DeleteMapping("/{id}")
     @AccessLog(module = "系统字典", description = "删除指定字典项")
-    @Operation(summary = "删除字典 - [DONE] - [lida]", description = "删除字典 - [DONE] - [lida]")
+    @Operation(summary = "删除字典", description = "删除字典")
     @SaCheckPermission(value = {"dict:remove"})
     public void remove(@PathVariable Long id) {
         this.dictService.deleteById(id);
     }
 
     @GetMapping("/{code}/list")
-    @Operation(summary = "查询字典子项 - [DONE] - [lida]", description = "查询字典子项")
+    @Operation(summary = "查询字典子项", description = "查询字典子项")
     @Parameters({
             @Parameter(name = "Accept-Language", description = "语言", example = "zh-CN,zh;q=0.9", in = ParameterIn.HEADER),
             @Parameter(name = "code", description = "编码", in = ParameterIn.PATH),

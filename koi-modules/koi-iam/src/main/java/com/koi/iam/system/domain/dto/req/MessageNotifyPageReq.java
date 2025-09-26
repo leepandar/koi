@@ -6,11 +6,12 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 /**
+ * 消息分页DTO
  * @author lida
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
-@Schema(name = "MessageNotifyPageReq")
+@Schema(name = "MessageNotifyPageReq", description = "消息分页DTO")
 public class MessageNotifyPageReq extends PageRequest {
 
     @Schema(description = "关键字")

@@ -9,15 +9,13 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
-/**
- * @author lida
- */
 @Data
 @SuperBuilder(toBuilder = true)
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @TableName(value = "b_message_notify")
+@Schema(name = "MessageNotify", description = "消息通知")
 public class MessageNotify extends SuperEntity<Long> {
 
     @Schema(description = "标题")

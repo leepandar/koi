@@ -7,9 +7,6 @@ import com.koi.iam.base.service.OptLogService;
 import com.koi.iam.base.domain.dto.req.OptLogPageReq;
 import com.koi.iam.base.domain.entity.OptLog;
 import com.koi.common.db.mybatisplus.wrap.Wraps;
-import com.koi.iam.base.domain.dto.req.OptLogPageReq;
-import com.koi.iam.base.domain.entity.OptLog;
-import com.koi.iam.base.service.OptLogService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.Parameters;
@@ -23,11 +20,6 @@ import org.springframework.web.bind.annotation.*;
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
 
-/**
- * 操作日志
- *
- * @author lida
- */
 @Slf4j
 @Validated
 @RestController
@@ -40,7 +32,7 @@ public class OptLogController {
     private final OptLogService optLogService;
 
     @GetMapping
-    @Operation(summary = "查询日志 - [DONE] - [lida]", description = "查询日志 - [DONE] - [lida]")
+    @Operation(summary = "查询日志", description = "查询日志")
     @SaCheckPermission(value = {"monitor:log:opt"})
     public Page<OptLog> page(OptLogPageReq req) {
         return this.optLogService.page(req.buildPage(), Wraps.<OptLog>lbQ()
@@ -53,13 +45,13 @@ public class OptLogController {
     @Parameters({
             @Parameter(name = "day", description = "天数", in = ParameterIn.PATH),
     })
-    @Operation(summary = "查询日志 - [DONE] - [lida]", description = "查询日志 - [DONE] - [lida]")
+    @Operation(summary = "查询日志", description = "查询日志")
     public void batchDelete(@PathVariable Integer day) {
         this.optLogService.remove(Wraps.<OptLog>lbQ().le(OptLog::getStartTime, Instant.now().plus(-day, ChronoUnit.DAYS)));
     }
 
     @PostMapping("/listener")
-    @Operation(summary = "监听日志 - [DONE] - [lida]", description = "监听日志 - [DONE] - [lida]")
+    @Operation(summary = "监听日志", description = "监听日志")
     public void listener(@RequestBody AccessLogInfo info) {
         this.optLogService.listener(info);
     }

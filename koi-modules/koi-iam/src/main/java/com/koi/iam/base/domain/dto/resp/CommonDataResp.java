@@ -6,17 +6,16 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-/**
- * @author lida
- */
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@Schema(name = "CommonDataResp", description = "公共返回")
 public class CommonDataResp {
 
     @Schema(description = "ID")
     private Long id;
+
     @Schema(description = "名称")
     private String name;
 }

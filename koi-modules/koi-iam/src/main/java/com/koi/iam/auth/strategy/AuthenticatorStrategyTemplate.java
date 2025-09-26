@@ -21,7 +21,7 @@ import java.util.List;
 import java.util.Optional;
 
 /**
- * @author lida
+ * 认证策略模板
  */
 @Slf4j
 @Component

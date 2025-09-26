@@ -26,8 +26,7 @@ public enum ResourceType implements DictEnum<String> {
     MENU("menu", "菜单"),
     IFRAME("iframe", "内嵌"),
     LINK("link", "外链"),
-    BUTTON("button", "按钮"),
-    ;
+    BUTTON("button", "按钮");
 
     @EnumValue
     @JsonValue

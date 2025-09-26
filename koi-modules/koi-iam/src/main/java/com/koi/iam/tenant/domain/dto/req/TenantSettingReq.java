@@ -3,9 +3,6 @@ package com.koi.iam.tenant.domain.dto.req;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
-/**
- * @author lida
- */
 @Data
 @Schema(name = "TenantSettingReq")
 public class TenantSettingReq {

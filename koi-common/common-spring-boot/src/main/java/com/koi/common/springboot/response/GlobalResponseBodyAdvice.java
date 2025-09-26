@@ -21,6 +21,8 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 import java.util.List;
 
 /**
+ * 全局返回值切面
+ *
  * @author lida
  **/
 @Slf4j

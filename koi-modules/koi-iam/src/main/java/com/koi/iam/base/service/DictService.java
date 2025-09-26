@@ -7,15 +7,6 @@ import com.koi.iam.base.domain.entity.SysDict;
 
 import java.util.List;
 
-/**
- * <p>
- * 业务接口
- * 字典类型
- * </p>
- *
- * @author lida
- * @since 2019-07-02
- */
 public interface DictService extends SuperService<SysDict> {
 
     /**

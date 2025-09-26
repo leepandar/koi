@@ -60,9 +60,6 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
-/**
- * @author lida
- */
 @Slf4j
 @Service
 @RequiredArgsConstructor
@@ -80,6 +77,11 @@ public class UserServiceImpl extends SuperServiceImpl<UserMapper, User> implemen
     private final DatabaseProperties databaseProperties;
     private static final List<String> ADMIN_ROLE = List.of("PLATFORM-ADMIN", "TENANT-ADMIN");
 
+    /**
+     * 添加用户
+     *
+     * @param req 用户信息
+     */
     @Override
     public void create(UserSaveReq req) {
         final long count = super.count(Wraps.<User>lbQ().eq(User::getUsername, req.getUsername()));
@@ -92,6 +94,12 @@ public class UserServiceImpl extends SuperServiceImpl<UserMapper, User> implemen
         this.baseMapper.insert(bean);
     }
 
+    /**
+     * 编辑用户
+     *
+     * @param id  id
+     * @param req req
+     */
     @Override
     @DiffLog(group = "用户管理", tag = "编辑用户", businessKey = "{{#id}}",
             success = "更新用户信息 {_DIFF{#_newObj}}",
@@ -103,11 +111,22 @@ public class UserServiceImpl extends SuperServiceImpl<UserMapper, User> implemen
         this.baseMapper.updateById(newVal);
     }
 
+    /**
+     * 列表
+     *
+     * @return
+     */
     @Override
     public List<User> list() {
         return baseMapper.list();
     }
 
+    /**
+     * 分页
+     *
+     * @param req req
+     * @return
+     */
     @Override
     @RemoteResult
     public IPage<UserResp> pageList(UserPageReq req) {
@@ -127,6 +146,13 @@ public class UserServiceImpl extends SuperServiceImpl<UserMapper, User> implemen
                         .eq(User::getMobile, req.getMobile())).convert(x -> BeanUtil.toBean(x, UserResp.class)));
     }
 
+    /**
+     * 修改密码
+     *
+     * @param userId      用户ID
+     * @param orgPassword 原始密码
+     * @param newPassword 新密码
+     */
     @Override
     public void changePassword(Long userId, String orgPassword, String newPassword) {
         final User user = Optional.ofNullable(this.baseMapper.selectById(userId)).orElseThrow(() -> CheckedException.notFound("用户不存在"));
@@ -136,6 +162,11 @@ public class UserServiceImpl extends SuperServiceImpl<UserMapper, User> implemen
         // this.baseMapper.updateById(User.builder().id(userId).password(passwordEncoder.encode(newPassword)).build());
     }
 
+    /**
+     * 根据ID删除用户
+     *
+     * @param id id
+     */
     @Override
     @DSTransactional(rollbackFor = Exception.class)
     public void deleteById(Long id) {
@@ -147,6 +178,11 @@ public class UserServiceImpl extends SuperServiceImpl<UserMapper, User> implemen
         userRoleMapper.delete(Wraps.<UserRole>lbQ().eq(UserRole::getUserId, id));
     }
 
+    /**
+     * 修改用户信息
+     *
+     * @param req req
+     */
     @Override
     @DSTransactional(rollbackFor = Exception.class)
     public void changeInfo(ChangeUserInfoReq req) {
@@ -157,6 +193,11 @@ public class UserServiceImpl extends SuperServiceImpl<UserMapper, User> implemen
         this.baseMapper.updateById(bean);
     }
 
+    /**
+     * 重置密码
+     *
+     * @param id ID
+     */
     @Override
     @DSTransactional(rollbackFor = Exception.class)
     public void resetPassword(Long id) {
@@ -173,6 +214,12 @@ public class UserServiceImpl extends SuperServiceImpl<UserMapper, User> implemen
         this.baseMapper.updateById(User.builder().id(id).password(encodePassword).build());
     }
 
+    /**
+     * 用户信息
+     *
+     * @param userId 用户信息
+     * @return
+     */
     @Override
     public UserInfoDetails userinfo(Long userId) {
         // TODO 后续通过注解和 API 方式动态控制，MP3.5.10 支持 api.execute 方式
@@ -184,6 +231,12 @@ public class UserServiceImpl extends SuperServiceImpl<UserMapper, User> implemen
         });
     }
 
+    /**
+     * 用户信息
+     *
+     * @param authentication
+     * @return
+     */
     @Override
     public UserInfoDetails userinfo(UserTenantAuthentication authentication) {
         User user = authentication.getUser();
@@ -212,29 +265,12 @@ public class UserServiceImpl extends SuperServiceImpl<UserMapper, User> implemen
         });
     }
 
-    public void setFuncPermissions(UserInfoDetails info) {
-        Collection<String> roles = info.getRoles();
-        Long userId = info.getUserId();
-        // 需要考虑下租户订阅产品后,租户管理员应该自动读取相关权限
-        // 同时需要考虑到期的产品如何回收权限
-        DatabaseProperties.MultiTenant multiTenant = databaseProperties.getMultiTenant();
-        boolean isAdmin = CollUtil.containsAny(roles, ADMIN_ROLE);
-        if (isAdmin || multiTenant.getType() != MultiTenantType.COLUMN) {
-            // 查询租户数据源
-            LbqWrapper<Resource> wrapper = Wraps.<Resource>lbQ().select(Resource::getPermission);
-            if (!isAdmin) {
-                List<Long> resIdList = this.baseMapper.selectResByUserId(userId);
-                wrapper.in(Resource::getId, resIdList);
-            }
-            List<String> permission = TenantHelper.executeWithMaster(() -> this.resourceMapper.selectList(wrapper)
-                    .stream().filter(Objects::nonNull).map(Resource::getPermission).distinct().toList());
-            info.setFuncPermissions(permission);
-        } else {
-            List<String> permission = this.resourceMapper.selectPermissionByUserId(userId);
-            info.setFuncPermissions(permission);
-        }
-    }
-
+    /**
+     * 查询在线用户列表
+     *
+     * @param req req
+     * @return
+     */
     @Override
     public IPage<Object> userOnlineList(UserOnlinePageReq req) {
         // TODO 需要重写
@@ -273,5 +309,28 @@ public class UserServiceImpl extends SuperServiceImpl<UserMapper, User> implemen
         List<Object> records = CollUtil.page((int) (ObjUtil.defaultIfNull(req.getCurrent(), 1L) - 1), (int) req.getSize(), list);
         page.setRecords(records);
         return page;
+    }
+
+    public void setFuncPermissions(UserInfoDetails info) {
+        Collection<String> roles = info.getRoles();
+        Long userId = info.getUserId();
+        // 需要考虑下租户订阅产品后,租户管理员应该自动读取相关权限
+        // 同时需要考虑到期的产品如何回收权限
+        DatabaseProperties.MultiTenant multiTenant = databaseProperties.getMultiTenant();
+        boolean isAdmin = CollUtil.containsAny(roles, ADMIN_ROLE);
+        if (isAdmin || multiTenant.getType() != MultiTenantType.COLUMN) {
+            // 查询租户数据源
+            LbqWrapper<Resource> wrapper = Wraps.<Resource>lbQ().select(Resource::getPermission);
+            if (!isAdmin) {
+                List<Long> resIdList = this.baseMapper.selectResByUserId(userId);
+                wrapper.in(Resource::getId, resIdList);
+            }
+            List<String> permission = TenantHelper.executeWithMaster(() -> this.resourceMapper.selectList(wrapper)
+                    .stream().filter(Objects::nonNull).map(Resource::getPermission).distinct().toList());
+            info.setFuncPermissions(permission);
+        } else {
+            List<String> permission = this.resourceMapper.selectPermissionByUserId(userId);
+            info.setFuncPermissions(permission);
+        }
     }
 }

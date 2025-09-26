@@ -6,15 +6,7 @@ import com.koi.iam.tenant.domain.entity.Tenant;
 import com.koi.iam.tenant.domain.dto.req.TenantConfigReq;
 import com.koi.iam.tenant.domain.dto.req.TenantSaveReq;
 import com.koi.iam.tenant.domain.dto.req.TenantSettingReq;
-import com.koi.iam.tenant.domain.dto.req.TenantConfigReq;
-import com.koi.iam.tenant.domain.dto.req.TenantSaveReq;
-import com.koi.iam.tenant.domain.dto.req.TenantSettingReq;
-import com.koi.iam.tenant.domain.dto.resp.TenantSettingResp;
-import com.koi.iam.tenant.domain.entity.Tenant;
 
-/**
- * @author lida
- */
 public interface TenantService extends SuperService<Tenant> {
 
     /**
@@ -25,7 +17,7 @@ public interface TenantService extends SuperService<Tenant> {
     void create(TenantSaveReq req);
 
     /**
-     * 保存租户
+     * 修改租户
      *
      * @param id  id
      * @param req 租户信息

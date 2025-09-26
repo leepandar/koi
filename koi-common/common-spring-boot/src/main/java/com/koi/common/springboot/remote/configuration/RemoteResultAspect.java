@@ -2,7 +2,6 @@ package com.koi.common.springboot.remote.configuration;
 
 import com.koi.common.core.annotation.remote.RemoteResult;
 import com.koi.common.springboot.remote.RemoteService;
-import com.koi.common.springboot.remote.RemoteService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;

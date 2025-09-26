@@ -10,18 +10,26 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-/**
- * @author lida
- */
 @Service
 @RequiredArgsConstructor
 public class AreaServiceImpl extends SuperServiceImpl<AreaMapper, AreaEntity> implements AreaService {
 
+    /**
+     * 根据 parentId 查询数据集
+     *
+     * @param parentId parentId
+     * @return
+     */
     @Override
     public List<AreaEntity> listArea(Integer parentId) {
         return baseMapper.listArea(parentId);
     }
 
+    /**
+     * 保存或者修改地区
+     *
+     * @param area area
+     */
     @Override
     public void saveOrUpdateArea(AreaEntity area) {
         final long count = count(Wraps.<AreaEntity>lbQ().eq(AreaEntity::getId, area.getId()));

@@ -3,9 +3,6 @@ package com.koi.iam.system.service;
 import cn.hutool.captcha.CircleCaptcha;
 import com.koi.common.core.entity.Result;
 
-/**
- * @author lida
- */
 public interface CaptchaService {
 
     /**

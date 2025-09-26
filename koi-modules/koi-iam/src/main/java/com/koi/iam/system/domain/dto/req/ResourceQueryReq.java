@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Schema(description = "资源查询")
+@Schema(name = "ResourceSaveReq", description = "资源查询DTO")
 public class ResourceQueryReq {
 
     @Schema(description = "资源类型")

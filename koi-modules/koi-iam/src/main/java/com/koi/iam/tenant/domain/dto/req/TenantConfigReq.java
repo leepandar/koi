@@ -5,9 +5,6 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
-/**
- * @author lida
- */
 @Data
 @Schema(name = "TenantConfigReq")
 public class TenantConfigReq {

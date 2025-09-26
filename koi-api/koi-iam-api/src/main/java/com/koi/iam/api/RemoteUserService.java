@@ -10,6 +10,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import java.util.Map;
 import java.util.Set;
 
+/**
+ * 用户接口
+ *
+ * @author lida
+ */
 @FeignClient(name = FeignConstants.AUTH_FEIGN_NAME, dismiss404 = true)
 public interface RemoteUserService extends LoadService<UserInfoResp> {
 

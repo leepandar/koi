@@ -7,9 +7,12 @@ import lombok.Data;
 import java.time.Instant;
 
 /**
+ * 角色分页返回
+ *
  * @author lida
  */
 @Data
+@Schema(name = "RolePageResp", description = "角色分页返回")
 public class RolePageResp {
 
     @Schema(description = "ID")

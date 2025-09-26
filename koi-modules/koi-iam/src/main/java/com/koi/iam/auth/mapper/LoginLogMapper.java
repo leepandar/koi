@@ -5,15 +5,6 @@ import com.koi.iam.auth.domain.entity.LoginLog;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
 
-/**
- * <p>
- * Mapper 接口
- * 系统日志
- * </p>
- *
- * @author lida
- */
-
 @Repository
 public interface LoginLogMapper extends SuperMapper<LoginLog> {
 

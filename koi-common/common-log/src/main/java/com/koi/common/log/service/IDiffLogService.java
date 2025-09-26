@@ -2,8 +2,6 @@ package com.koi.common.log.service;
 
 import com.koi.common.log.domain.DiffLogInfo;
 import com.koi.common.log.domain.req.DiffLogInfoQueryReq;
-import com.koi.common.log.domain.DiffLogInfo;
-import com.koi.common.log.domain.req.DiffLogInfoQueryReq;
 
 import java.util.List;
 
@@ -13,6 +11,7 @@ import java.util.List;
  * @author lida
  */
 public interface IDiffLogService {
+
     /**
      * 日志信息回调
      *

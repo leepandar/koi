@@ -6,11 +6,13 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 /**
+ * 现在用户分页DTO
+ *
  * @author lida
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
-@Schema(name = "UserOnlinePageReq")
+@Schema(name = "UserOnlinePageReq", description = "现在用户分页DTO")
 public class UserOnlinePageReq extends PageRequest {
 
     @Schema(description = "租户")

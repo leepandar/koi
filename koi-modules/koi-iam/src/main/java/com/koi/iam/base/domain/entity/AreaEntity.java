@@ -12,25 +12,15 @@ import lombok.experimental.SuperBuilder;
 
 import java.math.BigDecimal;
 
-/**
- * <p>
- * 实体类
- * 字典类型
- * </p>
- *
- * @author lida
- */
 @Data
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @TableName("c_area")
+@Schema(name = "AreaEntity", description = "区域")
 public class AreaEntity extends SuperEntity<Long> {
 
-    /**
-     * 名称
-     */
     @Schema(description = "名称")
     private String name;
 

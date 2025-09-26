@@ -25,14 +25,17 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
 
-/**
- * @author lida
- */
 @Slf4j
 @Service
 @RequiredArgsConstructor
 public class MessageTemplateServiceImpl extends ServiceImpl<MessageTemplateMapper, MessageTemplate> implements MessageTemplateService {
 
+    /**
+     * 分页列表
+     *
+     * @param req req
+     * @return
+     */
     @Override
     public IPage<MessageTemplatePageResp> pageList(MessageTemplatePageReq req) {
         return this.baseMapper.selectPage(req.buildPage(), Wraps.<MessageTemplate>lbQ()
@@ -42,6 +45,11 @@ public class MessageTemplateServiceImpl extends ServiceImpl<MessageTemplateMappe
                 .convert(x -> BeanUtil.toBean(x, MessageTemplatePageResp.class));
     }
 
+    /**
+     * 创建模板
+     *
+     * @param req req
+     */
     @Override
     @DSTransactional(rollbackFor = Exception.class)
     public void create(MessageTemplateSaveReq req) {
@@ -52,6 +60,12 @@ public class MessageTemplateServiceImpl extends ServiceImpl<MessageTemplateMappe
         this.baseMapper.insert(bean);
     }
 
+    /**
+     * 修改模板
+     *
+     * @param id  id
+     * @param req req
+     */
     @Override
     @DSTransactional(rollbackFor = Exception.class)
     public void modify(Long id, MessageTemplateSaveReq req) {
@@ -64,6 +78,12 @@ public class MessageTemplateServiceImpl extends ServiceImpl<MessageTemplateMappe
         this.baseMapper.updateById(bean);
     }
 
+    /**
+     * 模板详情
+     *
+     * @param id id
+     * @return
+     */
     @Override
     public MessageTemplateDetailResp detail(Long id) {
         var template = Optional.ofNullable(baseMapper.selectById(id)).orElseThrow(() -> CheckedException.notFound("模板不存在"));

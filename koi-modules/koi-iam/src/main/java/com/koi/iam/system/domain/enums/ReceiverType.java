@@ -11,9 +11,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 /**
- * <p>
  * ReceiverType
- * </p>
  *
  * @author lida
  */

@@ -3,7 +3,6 @@ package com.koi.iam.auth.domain.entity;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.koi.common.core.entity.SuperEntity;
 import com.koi.iam.system.domain.enums.ThirdAuthType;
-import com.koi.iam.system.domain.enums.ThirdAuthType;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -14,17 +13,14 @@ import lombok.experimental.SuperBuilder;
 
 import java.time.Instant;
 
-/**
- * @author lida
- */
 @Data
 @SuperBuilder
 @EqualsAndHashCode(callSuper = true)
 @Accessors(chain = true)
-@Schema(description = "第三方授权账户实体类")
 @NoArgsConstructor
 @AllArgsConstructor
 @TableName("t_user_third_account")
+@Schema(name = "UserThirdAccount", description = "第三方授权账户实体类")
 public class UserThirdAccount extends SuperEntity<Long> {
 
     @Schema(description = "平台用户 ID")

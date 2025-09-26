@@ -18,12 +18,6 @@ import com.koi.iam.auth.strategy.AuthenticatorStrategyTemplate;
 import com.koi.iam.auth.support.AuthenticationPrincipal;
 import com.koi.iam.base.domain.dto.req.ChangePasswordReq;
 import com.koi.iam.base.domain.dto.req.ChangeUserInfoReq;
-import com.koi.iam.auth.strategy.AuthenticatorStrategyTemplate;
-import com.koi.iam.auth.support.AuthenticationPrincipal;
-import com.koi.iam.base.domain.dto.req.ChangePasswordReq;
-import com.koi.iam.base.domain.dto.req.ChangeUserInfoReq;
-import com.koi.iam.system.domain.dto.req.UserOnlinePageReq;
-import com.koi.iam.system.service.UserService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.enums.ParameterIn;
@@ -37,9 +31,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-/**
- * @author lida
- */
 @Slf4j
 @RestController
 @RequiredArgsConstructor

@@ -22,8 +22,8 @@ import lombok.NoArgsConstructor;
 @Schema(description = "枚举 - ThirdAuthType")
 public enum ThirdAuthType implements IEnum<String> {
 
-    GITEE("gitee", "GITEE 平台"),
-    ;
+    GITEE("gitee", "GITEE 平台");
+
     @EnumValue
     @JsonValue
     private String type;

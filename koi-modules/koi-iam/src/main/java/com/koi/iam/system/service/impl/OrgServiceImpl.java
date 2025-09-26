@@ -19,16 +19,16 @@ import java.util.Optional;
 
 import static java.util.stream.Collectors.toList;
 
-/**
- * 机构管理
- *
- * @author lida
- */
 @Slf4j
 @Service
 @RequiredArgsConstructor
 public class OrgServiceImpl extends SuperServiceImpl<OrgMapper, Org> implements OrgService {
 
+    /**
+     * 批量删除以及删除其子节点
+     *
+     * @param id id
+     */
     @Override
     public void remove(Long id) {
         final Long count = this.baseMapper.selectCount(Org::getParentId, id);
@@ -38,6 +38,11 @@ public class OrgServiceImpl extends SuperServiceImpl<OrgMapper, Org> implements 
         this.baseMapper.deleteById(id);
     }
 
+    /**
+     * 添加组织
+     *
+     * @param req req
+     */
     @Override
     public void create(OrgSaveReq req) {
         final Org bean = BeanUtil.toBean(req, Org.class);
@@ -45,6 +50,12 @@ public class OrgServiceImpl extends SuperServiceImpl<OrgMapper, Org> implements 
         this.baseMapper.insert(bean);
     }
 
+    /**
+     * 获取当前机构本级及子级的ID
+     *
+     * @param id id
+     * @return
+     */
     @Override
     public List<Long> getFullTreeIdPath(Long id) {
         if (id == null) {

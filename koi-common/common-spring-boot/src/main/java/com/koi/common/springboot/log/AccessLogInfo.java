@@ -6,12 +6,8 @@ import lombok.Data;
 
 import java.time.Instant;
 
-/**
- * 访问日志
- *
- * @author lida
- */
 @Data
+@Schema(name = "AccessLogInfo", description = "访问日志")
 public class AccessLogInfo {
 
     @Schema(description = "租户ID")

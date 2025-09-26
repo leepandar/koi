@@ -16,9 +16,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.concurrent.TimeUnit;
 
-/**
- * @author lida
- */
 @Slf4j
 @Service
 @RequiredArgsConstructor
@@ -28,6 +25,14 @@ public class CaptchaServiceImpl implements CaptchaService {
 
     private final StringRedisTemplate stringRedisTemplate;
 
+    /**
+     * 创建验证码
+     *
+     * @param key    key
+     * @param width  宽度
+     * @param height 高度
+     * @return
+     */
     @SneakyThrows
     @Override
     public CircleCaptcha create(String key, Integer width, Integer height) {
@@ -41,6 +46,13 @@ public class CaptchaServiceImpl implements CaptchaService {
         return captcha;
     }
 
+    /**
+     * 验证图形验证码
+     *
+     * @param key   key
+     * @param value val
+     * @return
+     */
     @Override
     public Result<Boolean> valid(String key, String value) {
         if (StringUtils.isBlank(value)) {

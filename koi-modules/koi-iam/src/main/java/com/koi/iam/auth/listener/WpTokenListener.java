@@ -43,6 +43,8 @@ public class WpTokenListener implements SaTokenListener {
     private final HttpServletRequest request;
 
     /**
+     * 登陆
+     *
      * @param loginType  账号类别
      * @param loginId    账号id
      * @param tokenValue 本次登录产生的 token 值
@@ -84,6 +86,8 @@ public class WpTokenListener implements SaTokenListener {
     }
 
     /**
+     * 登出
+     *
      * @param loginType  账号类别
      * @param loginId    账号id
      * @param tokenValue token值

@@ -16,16 +16,6 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.stream.Collectors;
 
-/**
- * <p>
- * 业务实现类
- * 角色分配
- * 账号角色绑定
- * </p>
- *
- * @author lida
- * @since 2019-07-03
- */
 @Slf4j
 @Service
 @RequiredArgsConstructor
@@ -33,6 +23,12 @@ public class UserRoleServiceImpl extends SuperServiceImpl<UserRoleMapper, UserRo
 
     private final UserMapper userMapper;
 
+    /**
+     * 根据劫色查询用户
+     *
+     * @param roleId 角色id
+     * @return
+     */
     @Override
     public UserRoleResp findUserByRoleId(Long roleId) {
         final List<Long> userIdList = super.list(Wraps.<UserRole>lbQ().eq(UserRole::getRoleId, roleId))

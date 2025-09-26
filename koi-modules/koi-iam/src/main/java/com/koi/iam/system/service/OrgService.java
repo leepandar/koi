@@ -6,14 +6,6 @@ import com.koi.iam.system.domain.entity.Org;
 
 import java.util.List;
 
-/**
- * <p>
- * 业务接口
- * 组织
- * </p>
- *
- * @author lida
- */
 public interface OrgService extends SuperService<Org> {
 
     /**

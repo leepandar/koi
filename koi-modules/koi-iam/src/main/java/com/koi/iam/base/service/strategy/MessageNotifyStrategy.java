@@ -2,12 +2,10 @@ package com.koi.iam.base.service.strategy;
 
 import com.koi.iam.base.domain.entity.MessageChannel;
 import com.koi.iam.base.domain.entity.MessageNotify;
-import com.koi.iam.base.domain.entity.MessageChannel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * @author lida
  * 消息推送策略
  */
 public interface MessageNotifyStrategy {

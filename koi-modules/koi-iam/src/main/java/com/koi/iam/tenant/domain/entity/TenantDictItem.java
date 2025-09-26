@@ -11,11 +11,6 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
-/**
- * 租户字典
- *
- * @author lida
- */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

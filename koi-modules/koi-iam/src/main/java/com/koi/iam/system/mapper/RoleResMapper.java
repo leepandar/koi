@@ -6,12 +6,6 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-/**
- * 角色资源
- *
- * @author lida
- */
-
 @Repository
 public interface RoleResMapper extends SuperMapper<RoleRes> {
 

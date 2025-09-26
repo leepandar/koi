@@ -5,15 +5,9 @@ import com.koi.common.db.mybatisplus.ext.SuperService;
 import com.koi.iam.tenant.domain.dto.resp.DbSettingPageResp;
 import com.koi.iam.tenant.domain.entity.DbSetting;
 import com.koi.iam.tenant.domain.dto.req.DbSettingSaveReq;
-import com.koi.iam.tenant.domain.dto.req.DbSettingSaveReq;
-import com.koi.iam.tenant.domain.dto.resp.DbSettingPageResp;
-import com.koi.iam.tenant.domain.entity.DbSetting;
 
 import java.util.List;
 
-/**
- * @author Levvin
- */
 public interface DbSettingService extends SuperService<DbSetting> {
 
     /**

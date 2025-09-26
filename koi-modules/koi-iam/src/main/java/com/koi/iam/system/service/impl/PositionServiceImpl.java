@@ -18,9 +18,6 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
-/**
- * @author lida
- */
 @Slf4j
 @Service
 @RequiredArgsConstructor
@@ -28,6 +25,12 @@ public class PositionServiceImpl extends SuperServiceImpl<PositionMapper, Positi
 
     private final OrgService orgService;
 
+    /**
+     * 按权限查询岗位的分页信息
+     *
+     * @param req req
+     * @return
+     */
     @Override
     public IPage<PositionPageResp> pageList(PositionPageReq req) {
         final LbqWrapper<Position> wrapper = Wraps.<Position>lbQ()
@@ -40,6 +43,11 @@ public class PositionServiceImpl extends SuperServiceImpl<PositionMapper, Positi
                 .convert(x -> BeanUtil.toBean(x, PositionPageResp.class));
     }
 
+    /**
+     * 添加岗位
+     *
+     * @param req req
+     */
     @Override
     public void create(PositionSaveReq req) {
         this.baseMapper.existsCallback(Position::getCode, req.getCode(), () -> CheckedException.badRequest("职位编码已存在"));
@@ -47,6 +55,12 @@ public class PositionServiceImpl extends SuperServiceImpl<PositionMapper, Positi
         this.baseMapper.insert(bean);
     }
 
+    /**
+     * 修改岗位数据
+     *
+     * @param id  id
+     * @param req req
+     */
     @Override
     public void modify(Long id, PositionSaveReq req) {
         Long count = baseMapper.selectCount(Wraps.<Position>lbQ()

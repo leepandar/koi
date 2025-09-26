@@ -17,7 +17,7 @@ import java.util.Map;
 import java.util.Properties;
 
 /**
- * @author lida
+ * 邮件消息处理策略
  */
 @Component
 @RequiredArgsConstructor
@@ -31,6 +31,12 @@ public class EmailMessageNotifyStrategy implements MessageNotifyStrategy {
         return "email";
     }
 
+    /**
+     * 获取邮件发送器
+     *
+     * @param channel
+     * @return
+     */
     public JavaMailSenderImpl getMailSender(MessageChannel channel) {
         // 要判断配置是否又被覆盖过,如果配置覆盖过应该刷新配置
         ChannelSetting setting = JSON.parseObject(channel.getSetting(), ChannelSetting.class);
@@ -57,6 +63,12 @@ public class EmailMessageNotifyStrategy implements MessageNotifyStrategy {
         return mailSender;
     }
 
+    /**
+     * 消息处理
+     *
+     * @param channel 通知渠道
+     * @param notify  通知内容
+     */
     @Override
     public void handler(MessageChannel channel, MessageNotify notify) {
         JavaMailSenderImpl mailSender = getMailSender(channel);

@@ -5,12 +5,9 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-/**
- * @author lida
- */
 @Data
 @EqualsAndHashCode(callSuper = true)
-@Schema(name = "OptLogPageReq")
+@Schema(name = "OptLogPageReq", description = "操作日志分页DTO")
 public class OptLogPageReq extends PageRequest {
 
     @Schema(description = "HTTP 请求方式")

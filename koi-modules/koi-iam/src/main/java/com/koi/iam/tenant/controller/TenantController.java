@@ -32,11 +32,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-/**
- * 租户管理
- *
- * @author lida
- */
 @Slf4j
 @RestController
 @RequiredArgsConstructor

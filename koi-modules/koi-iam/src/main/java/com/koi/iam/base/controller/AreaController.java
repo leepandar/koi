@@ -25,13 +25,6 @@ import java.util.stream.Collectors;
 import static com.koi.iam.base.domain.converts.AreaConverts.AREA_DTO_2_PO_CONVERTS;
 import static com.koi.iam.base.domain.converts.AreaConverts.AREA_ENTITY_2_NODE_RESP_CONVERTS;
 
-/**
- * <p>
- * 地区管理
- * </p>
- *
- * @author lida
- */
 @Slf4j
 @Validated
 @RestController
@@ -62,7 +55,7 @@ public class AreaController {
     }
 
     @GetMapping("/{parent_id}/children")
-    @Operation(summary = "查询子节点 - [DONE] - [lida]", description = "查询子节点 - [DONE] - [lida]")
+    @Operation(summary = "查询子节点", description = "查询子节点")
     public List<AreaNodeResp> list(@PathVariable(name = "parent_id") Integer parentId) {
         final List<AreaEntity> list = this.areaService.listArea(parentId);
         return AREA_ENTITY_2_NODE_RESP_CONVERTS.converts(list);
@@ -70,14 +63,14 @@ public class AreaController {
 
     @PostMapping
     @Parameter(name = "id", description = "国标码", in = ParameterIn.PATH)
-    @Operation(summary = "保存地址 - [DONE] - [lida]", description = "保存地址 - [DONE] - [lida]")
+    @Operation(summary = "保存地址", description = "保存地址")
     public void save(@Validated @RequestBody AreaReq req) {
         this.areaService.saveOrUpdateArea(AREA_DTO_2_PO_CONVERTS.convert(req));
 
     }
 
     @DeleteMapping
-    @Operation(summary = "批量删除 - [DONE] - [lida]", description = "批量删除 - [DONE] - [lida]")
+    @Operation(summary = "批量删除", description = "批量删除")
     public void batchDel(@RequestBody List<Long> ids) {
         this.areaService.removeByIds(ids);
 
@@ -85,7 +78,7 @@ public class AreaController {
 
     @DeleteMapping("/{id}")
     @Parameter(name = "id", description = "国标码", in = ParameterIn.PATH)
-    @Operation(summary = "删除地址 - [DONE] - [lida]", description = "删除地址 - [DONE] - [lida]")
+    @Operation(summary = "删除地址", description = "删除地址")
     public void del(@PathVariable Integer id) {
         this.areaService.removeById(id);
 

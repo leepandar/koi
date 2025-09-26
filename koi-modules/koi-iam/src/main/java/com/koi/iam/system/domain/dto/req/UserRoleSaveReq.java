@@ -9,11 +9,7 @@ import lombok.Data;
 import java.util.List;
 
 /**
- * <p>
- * 实体类
- * 角色分配
- * 账号角色绑定
- * </p>
+ * 角色分配 账号角色绑定
  *
  * @author lida
  */

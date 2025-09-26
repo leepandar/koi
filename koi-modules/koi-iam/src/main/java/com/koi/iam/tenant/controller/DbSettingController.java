@@ -6,8 +6,6 @@ import com.koi.common.db.mybatisplus.wrap.Wraps;
 import com.koi.iam.tenant.domain.dto.req.DbSettingSaveReq;
 import com.koi.iam.tenant.domain.entity.DbSetting;
 import com.koi.iam.tenant.service.DbSettingService;
-import com.koi.iam.tenant.domain.dto.req.DbSettingSaveReq;
-import com.koi.iam.tenant.domain.entity.DbSetting;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
@@ -17,9 +15,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-/**
- * @author lida
- */
 @Slf4j
 @RestController
 @RequestMapping("/db-setting")

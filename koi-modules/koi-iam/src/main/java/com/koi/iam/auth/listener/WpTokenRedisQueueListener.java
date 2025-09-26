@@ -11,14 +11,12 @@ import java.lang.reflect.Type;
 import java.util.Objects;
 
 /**
- * TODO 方案暂时废弃,还是不优雅
  * 在线用户队列监听
  *
  * @author lida
  */
 
 @Slf4j
-@Deprecated
 @RequiredArgsConstructor
 public class WpTokenRedisQueueListener implements AbstractMessageEventListener<String> {
 

@@ -4,10 +4,8 @@ import com.alibaba.fastjson2.JSONObject;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
-/**
- * @author lida
- */
 @Data
+@Schema(name = "MessageChannelSaveReq", description = "消息通道保存DTO")
 public class MessageChannelSaveReq {
 
     @Schema(description = "ID")

@@ -20,8 +20,6 @@ import com.koi.iam.system.domain.dto.resp.ResourcePageResp;
 import com.koi.iam.system.domain.dto.resp.VisibleResourceResp;
 import com.koi.iam.system.domain.entity.Resource;
 import com.koi.iam.system.domain.enums.ResourceType;
-import com.koi.iam.system.domain.converts.MenuConverts;
-import com.koi.iam.system.service.ResourceService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.Parameters;
@@ -37,11 +35,6 @@ import java.util.Optional;
 
 import static java.util.stream.Collectors.toList;
 
-/**
- * 菜单资源
- *
- * @author lida
- */
 @Slf4j
 @Validated
 @RestController

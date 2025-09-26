@@ -5,14 +5,7 @@ import com.koi.iam.tenant.domain.entity.ProductDefinition;
 import com.koi.iam.system.domain.dto.resp.RolePermissionResp;
 import com.koi.iam.tenant.domain.dto.req.ProductDefPermissionReq;
 import com.koi.iam.tenant.domain.dto.req.ProductDefinitionSaveReq;
-import com.koi.iam.system.domain.dto.resp.RolePermissionResp;
-import com.koi.iam.tenant.domain.dto.req.ProductDefPermissionReq;
-import com.koi.iam.tenant.domain.dto.req.ProductDefinitionSaveReq;
-import com.koi.iam.tenant.domain.entity.ProductDefinition;
 
-/**
- * @author lida
- */
 public interface ProductDefinitionService extends SuperService<ProductDefinition> {
 
     /**

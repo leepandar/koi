@@ -7,9 +7,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
-/**
- * @author lida
- */
 @Data
 @SuperBuilder(toBuilder = true)
 @NoArgsConstructor

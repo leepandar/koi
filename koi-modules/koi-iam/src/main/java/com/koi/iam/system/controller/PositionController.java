@@ -10,8 +10,6 @@ import com.koi.iam.system.domain.dto.req.PositionPageReq;
 import com.koi.iam.system.domain.dto.req.PositionSaveReq;
 import com.koi.iam.system.domain.dto.resp.PositionPageResp;
 import com.koi.iam.system.domain.entity.Position;
-import com.koi.iam.system.domain.entity.Position;
-import com.koi.iam.system.service.SysPositionService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
@@ -21,11 +19,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-/**
- * 岗位管理
- *
- * @author lida
- */
 @Slf4j
 @RestController
 @RequiredArgsConstructor

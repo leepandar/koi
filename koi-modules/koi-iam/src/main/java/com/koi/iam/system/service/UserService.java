@@ -12,14 +12,6 @@ import com.koi.iam.system.domain.dto.req.UserUpdateReq;
 import com.koi.iam.system.domain.dto.resp.UserResp;
 import com.koi.iam.system.domain.entity.User;
 
-/**
- * <p>
- * 业务接口
- * 账号
- * </p>
- *
- * @author lida
- */
 public interface UserService extends SuperService<User> {
 
     /**
@@ -83,6 +75,11 @@ public interface UserService extends SuperService<User> {
      */
     UserInfoDetails userinfo(Long userId);
 
+    /**
+     * 用户信息
+     * @param authentication
+     * @return
+     */
     UserInfoDetails userinfo(UserTenantAuthentication authentication);
 
     /**

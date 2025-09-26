@@ -3,9 +3,6 @@ package com.koi.iam.tenant.domain.dto.resp;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
-/**
- * @author lida
- */
 @Data
 public class TenantDictResp {
 

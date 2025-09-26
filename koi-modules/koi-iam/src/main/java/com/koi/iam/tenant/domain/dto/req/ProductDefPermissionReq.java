@@ -7,9 +7,6 @@ import lombok.Data;
 
 import java.util.Set;
 
-/**
- * @author lida
- */
 @Data
 @Schema(name = "ProductDefPermissionReq")
 public class ProductDefPermissionReq {

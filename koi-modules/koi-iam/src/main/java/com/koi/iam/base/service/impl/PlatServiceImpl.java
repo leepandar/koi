@@ -15,9 +15,6 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
-/**
- * @author lida
- */
 @Slf4j
 @Service
 @RequiredArgsConstructor
@@ -26,6 +23,12 @@ public class PlatServiceImpl implements PlatService {
     private final TenantMapper tenantMapper;
     private final TenantSettingMapper tenantSettingMapper;
 
+    /**
+     * 站点设置信息
+     *
+     * @param request http request
+     * @return
+     */
     @Override
     public SiteSettingDetailResp siteSetting(HttpServletRequest request) {
         String httpUrl = request.getHeader("origin");

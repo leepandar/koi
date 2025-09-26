@@ -12,9 +12,6 @@ import lombok.experimental.SuperBuilder;
 import java.math.BigDecimal;
 import java.time.Instant;
 
-/**
- * @author lida
- */
 @Data
 @EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor

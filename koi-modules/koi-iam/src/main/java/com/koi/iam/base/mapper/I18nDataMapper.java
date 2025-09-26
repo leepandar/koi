@@ -7,9 +7,6 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-/**
- * @author lida
- */
 @Repository
 public interface I18nDataMapper extends SuperMapper<I18nData> {
 

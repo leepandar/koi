@@ -9,7 +9,7 @@ import org.springframework.context.ApplicationEvent;
 import java.util.List;
 
 /**
- * @author lida
+ * 消息通知事件
  */
 @Getter
 public class MessageNotifyEvent extends ApplicationEvent {

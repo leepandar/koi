@@ -24,20 +24,22 @@ import java.util.Optional;
 
 import static com.koi.common.core.security.DataScopeType.*;
 
-
-/**
- * @author lida
- */
 @Slf4j
 @Service
 @RequiredArgsConstructor
 public class DataScopeServiceImpl implements DataScopeService {
 
     private final RoleMapper roleMapper;
-    private final DataPermissionResourceMapper dataPermissionResourceMapper;
     private final UserMapper userMapper;
     private final OrgService orgService;
+    private final DataPermissionResourceMapper dataPermissionResourceMapper;
 
+    /**
+     * 根据用户编号获取数据权限
+     *
+     * @param userId 用户ID
+     * @return
+     */
     @Override
     public DataPermission getDataScopeById(Long userId) {
         final User user = Optional.ofNullable(this.userMapper.selectById(userId)).orElseThrow(() -> CheckedException.notFound("用户不存在"));

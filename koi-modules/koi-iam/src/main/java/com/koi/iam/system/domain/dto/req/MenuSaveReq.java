@@ -5,13 +5,9 @@ import jakarta.validation.constraints.NotEmpty;
 import lombok.Data;
 
 /**
- * <p>
- * 实体类
  * 菜单
- * </p>
  *
  * @author lida
- * @since 2019-11-09
  */
 @Data
 @Schema(name = "MenuSaveReq", description = "菜单")

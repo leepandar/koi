@@ -7,7 +7,7 @@ import com.koi.iam.base.domain.dto.req.AreaReq;
 import org.springframework.beans.BeanUtils;
 
 /**
- * @author lida
+ * 区域转换
  */
 public class AreaConverts {
 

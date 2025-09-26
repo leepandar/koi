@@ -7,26 +7,35 @@ import java.time.Instant;
 import java.util.Set;
 
 /**
+ * 客户端注册DTO
+ *
  * @author lida
  */
 @Data
-@Schema(name = "RegisteredClientRefReq")
+@Schema(name = "RegisteredClientRefReq", description = "客户端注册DTO")
 public class RegisteredClientReq {
 
     @Schema(description = "客户端名称")
     private String clientName;
+
     @Schema(description = "客户端ID")
     private String clientId;
+
     @Schema(description = "客户端ID生效时间")
     private Instant clientIdIssuedAt;
+
     @Schema(description = "客户端秘钥")
     private String clientSecret;
+
     @Schema(description = "秘钥失效时间")
     private Instant clientSecretExpiresAt;
+
     @Schema(description = "授权类型")
     private Set<String> grantTypes;
+
     @Schema(description = "重定向地址")
     private String redirectUris;
+
     @Schema(description = "授权范围")
     private Set<String> scopes;
 

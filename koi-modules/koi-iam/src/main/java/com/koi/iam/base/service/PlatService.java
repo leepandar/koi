@@ -3,9 +3,6 @@ package com.koi.iam.base.service;
 import com.koi.iam.base.domain.dto.resp.SiteSettingDetailResp;
 import jakarta.servlet.http.HttpServletRequest;
 
-/**
- * @author lida
- */
 public interface PlatService {
 
     /**

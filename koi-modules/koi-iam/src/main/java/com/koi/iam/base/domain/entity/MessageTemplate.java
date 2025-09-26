@@ -9,11 +9,6 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
-/**
- * 消息模板
- *
- * @author lida
- */
 @Data
 @SuperBuilder
 @NoArgsConstructor

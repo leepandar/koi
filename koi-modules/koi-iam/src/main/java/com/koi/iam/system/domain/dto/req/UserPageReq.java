@@ -2,16 +2,18 @@ package com.koi.iam.system.domain.dto.req;
 
 import com.koi.common.db.mybatisplus.page.PageRequest;
 import com.koi.iam.system.domain.enums.Sex;
-import com.koi.iam.system.domain.enums.Sex;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 /**
+ * 用户分页请求DTO
+ *
  * @author lida
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
+@Schema(name = "UserPageReq", description = "用户分页请求DTO")
 public class UserPageReq extends PageRequest {
 
     @Schema(description = "用户名")

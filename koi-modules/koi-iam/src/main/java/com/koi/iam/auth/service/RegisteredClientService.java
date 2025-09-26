@@ -3,12 +3,7 @@ package com.koi.iam.auth.service;
 import com.koi.common.db.mybatisplus.ext.SuperService;
 import com.koi.iam.auth.domain.entity.RegisteredClient;
 import com.koi.iam.system.domain.dto.req.RegisteredClientReq;
-import com.koi.iam.auth.domain.entity.RegisteredClient;
-import com.koi.iam.system.domain.dto.req.RegisteredClientReq;
 
-/**
- * @author lida
- */
 public interface RegisteredClientService extends SuperService<RegisteredClient> {
 
     /**

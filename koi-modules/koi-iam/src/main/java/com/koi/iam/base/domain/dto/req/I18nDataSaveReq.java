@@ -5,11 +5,8 @@ import lombok.Data;
 
 import java.util.List;
 
-/**
- * @author lida
- */
 @Data
-@Schema(description = "I18N国际化入参")
+@Schema(name = "I18nDataSaveReq", description = "I18N国际化入参DTO")
 public class I18nDataSaveReq {
 
     @Schema(description = "编码")

@@ -8,10 +8,8 @@ import lombok.Data;
 import java.time.Instant;
 import java.util.List;
 
-/**
- * @author lida
- */
 @Data
+@Schema(name = "I18nDataPageResp", description = "国际化返回")
 public class I18nDataPageResp {
 
     @Schema(description = "ID")

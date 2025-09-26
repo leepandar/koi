@@ -13,14 +13,16 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
-/**
- * @author lida
- */
 @Slf4j
 @Service
 @RequiredArgsConstructor
 public class MessageChannelServiceImpl extends SuperServiceImpl<MessageChannelMapper, MessageChannel> implements MessageChannelService {
 
+    /**
+     * 渠道设置
+     *
+     * @param req req
+     */
     @Override
     public void setting(MessageChannelSaveReq req) {
         MessageChannel bean = BeanUtilPlus.toBean(req, MessageChannel.class);
@@ -31,6 +33,12 @@ public class MessageChannelServiceImpl extends SuperServiceImpl<MessageChannelMa
         }
     }
 
+    /**
+     * 明细
+     *
+     * @param type 类型
+     * @return
+     */
     @Override
     public MessageChannelDetailResp detail(String type) {
         MessageChannel channel = this.baseMapper.selectOne(MessageChannel::getType, type);

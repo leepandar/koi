@@ -32,9 +32,6 @@ import java.util.Set;
 
 import static java.util.stream.Collectors.toList;
 
-/**
- * @author lida
- */
 @Service
 @RequiredArgsConstructor
 public class ProductDefinitionServiceImpl extends SuperServiceImpl<ProductDefinitionMapper, ProductDefinition> implements ProductDefinitionService {
@@ -44,6 +41,11 @@ public class ProductDefinitionServiceImpl extends SuperServiceImpl<ProductDefini
     private final ResourceMapper resourceMapper;
     private final RedisSequenceHelper sequenceHelper;
 
+    /**
+     * 创建产品定义
+     *
+     * @param req req
+     */
     @Override
     public void create(ProductDefinitionSaveReq req) {
         final long count = count(Wraps.<ProductDefinition>lbQ().eq(ProductDefinition::getName, req.getName()));
@@ -56,6 +58,12 @@ public class ProductDefinitionServiceImpl extends SuperServiceImpl<ProductDefini
         this.baseMapper.insert(bean);
     }
 
+    /**
+     * 修改
+     *
+     * @param id  id
+     * @param req req
+     */
     @Override
     @DSTransactional(rollbackFor = Exception.class)
     public void modify(Long id, ProductDefinitionSaveReq req) {
@@ -70,6 +78,12 @@ public class ProductDefinitionServiceImpl extends SuperServiceImpl<ProductDefini
                 .build());
     }
 
+    /**
+     * 产品授予权限
+     *
+     * @param productId productId
+     * @param req       req
+     */
     @Override
     @DSTransactional(rollbackFor = Exception.class)
     public void permissions(Long productId, ProductDefPermissionReq req) {
@@ -85,6 +99,12 @@ public class ProductDefinitionServiceImpl extends SuperServiceImpl<ProductDefini
         productDefResMapper.insertBatch(resList);
     }
 
+    /**
+     * 查询套餐权限
+     *
+     * @param id id
+     * @return
+     */
     @Override
     public RolePermissionResp findPermissions(Long id) {
         final List<Resource> resourceList = resourceMapper.selectList();
@@ -106,6 +126,11 @@ public class ProductDefinitionServiceImpl extends SuperServiceImpl<ProductDefini
         return RolePermissionResp.builder().menuIdList(menuIdList).buttonIdList(buttonIdList).build();
     }
 
+    /**
+     * 删除产品
+     *
+     * @param id id
+     */
     @Override
     @DSTransactional(rollbackFor = Exception.class)
     public void delete(Long id) {

@@ -15,13 +15,15 @@ import org.springframework.stereotype.Service;
 
 import java.util.Objects;
 
-/**
- * @author lida
- */
 @Service
 @RequiredArgsConstructor
 public class RegisteredClientServiceImpl extends SuperServiceImpl<RegisteredClientMapper, RegisteredClient> implements RegisteredClientService {
 
+    /**
+     * 创建安全终端
+     *
+     * @param req req
+     */
     @Override
     public void create(RegisteredClientReq req) {
         baseMapper.existsCallback(RegisteredClient::getClientId, req.getClientId(), () -> CheckedException.badRequest("终端已存在,注册失败"));
@@ -38,6 +40,12 @@ public class RegisteredClientServiceImpl extends SuperServiceImpl<RegisteredClie
         this.baseMapper.insert(bean);
     }
 
+    /**
+     * 修改安全终端
+     *
+     * @param id
+     * @param req req
+     */
     @Override
     public void modify(Long id, RegisteredClientReq req) {
         Long count = baseMapper.selectCount(Wraps.<RegisteredClient>lbQ()
@@ -58,6 +66,11 @@ public class RegisteredClientServiceImpl extends SuperServiceImpl<RegisteredClie
         this.baseMapper.updateById(bean);
     }
 
+    /**
+     * 根据ID删除
+     *
+     * @param id id
+     */
     @Override
     public void deleteById(String id) {
         this.baseMapper.removeById(id);

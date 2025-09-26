@@ -19,7 +19,6 @@ import static cn.hutool.core.text.CharSequenceUtil.EMPTY;
  * 如： User 想要注入 File， File也想注入User
  * </p>
  */
-
 @Retention(RetentionPolicy.RUNTIME)
 @Target(value = {ElementType.METHOD, ElementType.TYPE, ElementType.FIELD})
 public @interface Remote {

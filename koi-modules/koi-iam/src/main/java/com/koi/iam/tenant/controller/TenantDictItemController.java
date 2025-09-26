@@ -16,11 +16,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-/**
- * 字典项
- *
- * @author lida
- */
 @Slf4j
 @Validated
 @RestController
@@ -32,7 +27,7 @@ public class TenantDictItemController {
     private final TenantDictItemService tenantDictItemService;
 
     @GetMapping("/page")
-    @Operation(summary = "查询字典子项", description = "查询字典子项 - [DONE] - [lida]")
+    @Operation(summary = "查询字典子项", description = "查询字典子项")
     @Parameters({
             @Parameter(name = "dict_code", description = "字典编码", in = ParameterIn.PATH),
             @Parameter(name = "label", description = "名称", in = ParameterIn.QUERY)
@@ -45,7 +40,7 @@ public class TenantDictItemController {
     }
 
     @PostMapping("/create")
-    @Operation(summary = "添加字典子项", description = "添加字典子项 - [DONE] - [lida]")
+    @Operation(summary = "添加字典子项", description = "添加字典子项")
     @Parameter(name = "dict_code", description = "字典编码", in = ParameterIn.PATH)
     public void create(@Validated @RequestBody DictItemSaveReq req) {
         this.tenantDictItemService.create(req);
@@ -53,7 +48,7 @@ public class TenantDictItemController {
     }
 
     @PutMapping("/{id}/modify")
-    @Operation(summary = "编辑字典子项 - [DONE] - [lida]", description = "编辑字典子项 - [DONE] - [lida]")
+    @Operation(summary = "编辑字典子项", description = "编辑字典子项")
     @Parameter(name = "dict_code", description = "字典编码", in = ParameterIn.PATH)
     public void modify(@PathVariable("id") Long id, @Validated @RequestBody DictItemSaveReq req) {
         this.tenantDictItemService.modify(id, req);
@@ -61,7 +56,7 @@ public class TenantDictItemController {
     }
 
     @DeleteMapping("/{id}")
-    @Operation(summary = "删除字典子项 - [DONE] - [lida]", description = "删除字典子项 - [DONE] - [lida]")
+    @Operation(summary = "删除字典子项", description = "删除字典子项")
     public void remove(@PathVariable("id") Long id) {
         this.tenantDictItemService.delete(id);
     }

@@ -58,6 +58,11 @@ public class TenantDictServiceImpl extends SuperServiceImpl<TenantDictMapper, Te
         refresh();
     }
 
+    /**
+     * 添加字典
+     *
+     * @param req 字典信息
+     */
     @Override
     public void create(TenantDictSaveReq req) {
         if (req == null) {
@@ -70,6 +75,12 @@ public class TenantDictServiceImpl extends SuperServiceImpl<TenantDictMapper, Te
         this.baseMapper.insert(BeanUtil.toBean(req, TenantDict.class));
     }
 
+    /**
+     * 编辑字典
+     *
+     * @param id  id
+     * @param req 字典信息
+     */
     @Override
     @DSTransactional(rollbackFor = Exception.class)
     public void modify(Long id, TenantDictSaveReq req) {
@@ -83,6 +94,11 @@ public class TenantDictServiceImpl extends SuperServiceImpl<TenantDictMapper, Te
         this.dictLoadService.refreshCache(getPairMap(List.of(req.getCode())));
     }
 
+    /**
+     * 删除字典
+     *
+     * @param id id
+     */
     @Override
     @DSTransactional(rollbackFor = Exception.class)
     public void deleteById(Long id) {
@@ -91,6 +107,9 @@ public class TenantDictServiceImpl extends SuperServiceImpl<TenantDictMapper, Te
         this.tenantDictItemMapper.delete(Wraps.<TenantDictItem>lbQ().eq(TenantDictItem::getDictCode, dict.getCode()));
     }
 
+    /**
+     * 刷新缓存
+     */
     @Override
     public void refresh() {
         List<TenantDict> list = this.baseMapper.selectList(TenantDict::getStatus, true);
@@ -101,15 +120,12 @@ public class TenantDictServiceImpl extends SuperServiceImpl<TenantDictMapper, Te
         this.dictLoadService.refreshCache(getPairMap(codeList));
     }
 
-    private Map<String, List<Pair<String, String>>> getPairMap(List<String> codeList) {
-        return this.tenantDictItemMapper.selectList(Wraps.<TenantDictItem>lbQ()
-                        .eq(TenantDictItem::getStatus, true))
-                .stream()
-                .collect(groupingBy(
-                        TenantDictItem::getDictCode,
-                        Collectors.mapping(item -> Pair.of(item.getValue(), item.getLabel()), Collectors.toList())));
-    }
-
+    /**
+     * 根据 code 查询
+     *
+     * @param code code
+     * @return
+     */
     @Override
     public List<Dict<String>> findItemByCode(String code) {
         Map<Object, Object> map = this.dictLoadService.findByIds(code);
@@ -123,6 +139,11 @@ public class TenantDictServiceImpl extends SuperServiceImpl<TenantDictMapper, Te
         return dictList;
     }
 
+    /**
+     * 增量同步租户字典
+     *
+     * @param tenantId
+     */
     @Override
     public void incrSyncTenantDict(Long tenantId) {
         if (TenantHelper.isSuperTenant()) {
@@ -172,4 +193,12 @@ public class TenantDictServiceImpl extends SuperServiceImpl<TenantDictMapper, Te
         this.tenantDictItemMapper.insertBatchSomeColumn(dictDataList);
     }
 
+    private Map<String, List<Pair<String, String>>> getPairMap(List<String> codeList) {
+        return this.tenantDictItemMapper.selectList(Wraps.<TenantDictItem>lbQ()
+                        .eq(TenantDictItem::getStatus, true))
+                .stream()
+                .collect(groupingBy(
+                        TenantDictItem::getDictCode,
+                        Collectors.mapping(item -> Pair.of(item.getValue(), item.getLabel()), Collectors.toList())));
+    }
 }

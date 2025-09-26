@@ -7,14 +7,6 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-/**
- * <p>
- * Mapper 接口
- * 资源
- * </p>
- *
- * @author lida
- */
 @Repository
 public interface ResourceMapper extends SuperMapper<Resource> {
 

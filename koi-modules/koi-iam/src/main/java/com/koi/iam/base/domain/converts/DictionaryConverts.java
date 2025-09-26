@@ -7,7 +7,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 
 /**
- * @author lida
+ * 字典转换
  */
 @Slf4j
 public class DictionaryConverts {

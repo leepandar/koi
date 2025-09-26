@@ -9,11 +9,13 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 /**
+ * 角色分页DTO
+ *
  * @author lida
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
-@Schema(name = "RolePageReq")
+@Schema(name = "RolePageReq", description = "角色分页DTO")
 public class RolePageReq extends PageRequest {
 
     @Schema(description = "名称")

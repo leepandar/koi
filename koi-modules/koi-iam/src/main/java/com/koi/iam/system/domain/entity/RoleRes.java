@@ -17,6 +17,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @TableName("sys_role_res")
+@Schema(name = "RoleRes", description = "角色的资源")
 public class RoleRes {
 
     @Schema(description = "资源ID")

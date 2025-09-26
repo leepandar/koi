@@ -14,9 +14,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-/**
- * @author lida
- */
 @Slf4j
 @Service
 @RequiredArgsConstructor
@@ -24,6 +21,11 @@ public class DiffLogServiceImpl implements IDiffLogService {
 
     private final DiffLogMapper diffLogMapper;
 
+    /**
+     * 日志信息回调
+     *
+     * @param logInfo 日志信息
+     */
     @Override
     public void handler(DiffLogInfo logInfo) {
         log.info("[diff log] {}", JSON.toJSONString(logInfo));
@@ -31,6 +33,12 @@ public class DiffLogServiceImpl implements IDiffLogService {
         this.diffLogMapper.insert(entity);
     }
 
+    /**
+     * 返回最多100条记录
+     *
+     * @param req req
+     * @return
+     */
     @Override
     public List<DiffLogInfo> queryLog(DiffLogInfoQueryReq req) {
         return this.diffLogMapper.selectObjs(Wraps.<DiffLogEntity>lbQ()

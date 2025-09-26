@@ -31,11 +31,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-/**
- * 角色管理
- *
- * @author lida
- */
 @Slf4j
 @Validated
 @RestController

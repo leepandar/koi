@@ -6,13 +6,11 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-/**
- * @author lida
- */
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@Schema(name = "ThirdAuthResp", description = "三方授权")
 public class ThirdAuthResp {
 
     @Schema(description = "授权地址")

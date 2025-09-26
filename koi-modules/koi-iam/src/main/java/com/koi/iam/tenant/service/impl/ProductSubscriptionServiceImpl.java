@@ -10,18 +10,26 @@ import com.koi.iam.tenant.domain.dto.req.ProductSubscriptionSaveReq;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-/**
- * @author lida
- */
 @Service
 @RequiredArgsConstructor
 public class ProductSubscriptionServiceImpl extends SuperServiceImpl<ProductSubscriptionMapper, ProductSubscription> implements ProductSubscriptionService {
 
+    /**
+     * 添加
+     *
+     * @param req req
+     */
     @Override
     public void create(ProductSubscriptionSaveReq req) {
         this.baseMapper.insert(BeanUtil.toBean(req, ProductSubscription.class));
     }
 
+    /**
+     * 编辑
+     *
+     * @param id  id
+     * @param req req
+     */
     @Override
     public void modify(Long id, ProductSubscriptionSaveReq req) {
         throw CheckedException.badRequest("禁止编辑");

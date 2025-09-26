@@ -3,10 +3,8 @@ package com.koi.iam.tenant.domain.dto.req;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
+import org.hibernate.validator.constraints.Length;
 
-/**
- * @author lida
- */
 @Data
 public class DbSettingSaveReq {
 
@@ -30,13 +28,11 @@ public class DbSettingSaveReq {
     @NotBlank(message = "HOST 不能为空")
     private String host;
 
-    @NotBlank(message = "驱动类不能为空")
     @Schema(description = "驱动类型")
+    @NotBlank(message = "驱动类不能为空")
     private String driverClassName;
 
-    /**
-     * 描述
-     */
-//    @Length(max = 300, message = "长度不能超过 {max} 个字符")
+    @Schema(description = "描述")
+    @Length(max = 300, message = "长度不能超过 {max} 个字符")
     private String description;
 }

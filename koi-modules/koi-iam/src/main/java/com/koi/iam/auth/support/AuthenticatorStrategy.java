@@ -3,7 +3,7 @@ package com.koi.iam.auth.support;
 import com.koi.iam.auth.support.domain.UserTenantAuthentication;
 
 /**
- * @author lida
+ * 认证策略
  **/
 public interface AuthenticatorStrategy {
 

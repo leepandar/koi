@@ -2,14 +2,9 @@ package com.koi.iam.auth.service;
 
 import com.koi.iam.auth.domain.dto.resp.ThirdAuthResp;
 import com.koi.iam.system.domain.enums.ThirdAuthType;
-import com.koi.iam.auth.domain.dto.resp.ThirdAuthResp;
-import com.koi.iam.system.domain.enums.ThirdAuthType;
 import me.zhyd.oauth.model.AuthUser;
 import me.zhyd.oauth.request.AuthRequest;
 
-/**
- * @author lida
- */
 public interface ThirdAuthService {
 
     /**

@@ -3,16 +3,7 @@ package com.koi.iam.base.service;
 import com.koi.common.db.mybatisplus.ext.SuperService;
 import com.koi.iam.base.domain.dto.req.DictItemSaveReq;
 import com.koi.iam.base.domain.entity.SysDictItem;
-import com.koi.iam.base.domain.entity.SysDictItem;
 
-/**
- * <p>
- * 业务接口
- * 字典项
- * </p>
- *
- * @author lida
- */
 public interface DictItemService extends SuperService<SysDictItem> {
 
     /**

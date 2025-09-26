@@ -22,11 +22,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-/**
- * 组织架构
- *
- * @author lida
- */
 @Slf4j
 @RestController
 @RequestMapping("/org")

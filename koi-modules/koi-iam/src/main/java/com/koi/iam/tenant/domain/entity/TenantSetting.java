@@ -9,13 +9,6 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
-/**
- * <p>
- * 租户设置信息
- * </p>
- *
- * @author lida
- */
 @Data
 @SuperBuilder
 @NoArgsConstructor

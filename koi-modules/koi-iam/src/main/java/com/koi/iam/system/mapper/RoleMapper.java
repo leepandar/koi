@@ -11,10 +11,6 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-/**
- * @author lida
- */
-
 @Repository
 public interface RoleMapper extends SuperMapper<Role> {
 

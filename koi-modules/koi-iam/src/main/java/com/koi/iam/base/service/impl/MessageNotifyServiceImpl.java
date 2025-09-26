@@ -28,9 +28,6 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-/**
- * @author lida
- */
 @Slf4j
 @Service
 @RequiredArgsConstructor
@@ -41,6 +38,11 @@ public class MessageNotifyServiceImpl extends SuperServiceImpl<MessageNotifyMapp
     private final MessageTemplateMapper messageTemplateMapper;
     private final MessageNotifyMapper messageNotifyMapper;
 
+    /**
+     * 消息通知
+     *
+     * @param req req
+     */
     @Override
     @DSTransactional(rollbackFor = Exception.class)
     public void publish(MessageNotifyPublishReq req) {

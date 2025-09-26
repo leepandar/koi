@@ -14,6 +14,7 @@ import com.koi.iam.base.service.MessageNotifyService;
 import com.koi.iam.tenant.domain.entity.Tenant;
 import com.koi.iam.tenant.mapper.TenantMapper;
 import com.koi.iam.base.domain.entity.MessageNotify;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.websocket.*;
 import jakarta.websocket.server.PathParam;
 import jakarta.websocket.server.ServerEndpoint;
@@ -23,14 +24,9 @@ import org.springframework.stereotype.Component;
 import javax.sql.DataSource;
 import java.util.List;
 
-/**
- * 聊天室
- *
- * @author lida
- * @since 2020/11/11
- */
 @Slf4j
 @Component
+@Tag(name = "聊天室", description = "聊天室")
 @ServerEndpoint(value = "/message/{tenantCode}/{identifier}")
 public class WebSocketMessageEndpoint extends BaseWebSocketEndpoint {
 

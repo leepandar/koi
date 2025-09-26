@@ -4,14 +4,6 @@ import com.koi.common.db.mybatisplus.ext.SuperService;
 import com.koi.iam.tenant.domain.entity.TenantDictItem;
 import com.koi.iam.base.domain.dto.req.DictItemSaveReq;
 
-/**
- * <p>
- * 业务接口
- * 字典项
- * </p>
- *
- * @author lida
- */
 public interface TenantDictItemService extends SuperService<TenantDictItem> {
 
     /**

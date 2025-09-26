@@ -4,11 +4,8 @@ import com.alibaba.fastjson2.JSONObject;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
-/**
- * @author lida
- */
 @Data
-@Schema(description = "平台站点详情")
+@Schema(name = "SiteSettingDetailResp", description = "平台站点详情返回")
 public class SiteSettingDetailResp {
 
     @Schema(description = "租户编码")

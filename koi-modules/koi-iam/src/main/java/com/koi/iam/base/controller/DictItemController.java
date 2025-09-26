@@ -16,11 +16,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-/**
- * 字典项
- *
- * @author lida
- */
 @Slf4j
 @Validated
 @RestController
@@ -32,7 +27,7 @@ public class DictItemController {
     private final DictItemService dictItemService;
 
     @GetMapping
-    @Operation(summary = "查询字典子项", description = "查询字典子项 - [DONE] - [lida]")
+    @Operation(summary = "查询字典子项", description = "查询字典子项")
     @Parameters({
             @Parameter(name = "dict_id", description = "字典ID", in = ParameterIn.PATH),
             @Parameter(name = "label", description = "名称", in = ParameterIn.QUERY)
@@ -43,14 +38,14 @@ public class DictItemController {
     }
 
     @PostMapping
-    @Operation(summary = "添加字典子项", description = "添加字典子项 - [DONE] - [lida]")
+    @Operation(summary = "添加字典子项", description = "添加字典子项")
     @Parameter(name = "dict_id", description = "字典ID", in = ParameterIn.PATH)
     public void create(@PathVariable("dict_id") Long dictId, @Validated @RequestBody DictItemSaveReq req) {
         this.dictItemService.create(dictId, req);
     }
 
     @PutMapping("/{item_id}")
-    @Operation(summary = "编辑字典子项 - [DONE] - [lida]", description = "编辑字典子项 - [DONE] - [lida]")
+    @Operation(summary = "编辑字典子项", description = "编辑字典子项")
     @Parameter(name = "dict_id", description = "字典ID", in = ParameterIn.PATH)
     public void modify(@PathVariable("dict_id") Long dictId, @PathVariable("item_id") Long itemId, @Validated @RequestBody DictItemSaveReq req) {
         this.dictItemService.modify(dictId, itemId, req);
@@ -58,7 +53,7 @@ public class DictItemController {
     }
 
     @DeleteMapping("/{item_id}")
-    @Operation(summary = "删除字典子项 - [DONE] - [lida]", description = "删除字典子项 - [DONE] - [lida]")
+    @Operation(summary = "删除字典子项", description = "删除字典子项")
     @Parameter(name = "dict_id", description = "字典ID", in = ParameterIn.PATH)
     public void del(@PathVariable("dict_id") Long dictId, @PathVariable("item_id") Long itemId) {
         this.dictItemService.removeById(itemId);

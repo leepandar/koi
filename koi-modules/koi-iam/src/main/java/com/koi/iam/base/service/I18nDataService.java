@@ -6,11 +6,7 @@ import com.koi.iam.base.domain.dto.req.I18nDataSaveReq;
 import com.koi.iam.base.domain.dto.req.I18nPageReq;
 import com.koi.iam.base.domain.dto.resp.I18nDataPageResp;
 import com.koi.iam.base.domain.entity.I18nData;
-import com.koi.iam.base.domain.entity.I18nData;
 
-/**
- * @author lida
- */
 public interface I18nDataService extends SuperService<I18nData> {
 
     /**
