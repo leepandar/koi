@@ -10,9 +10,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-/**
- * @author lida
- */
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/gateway/rules/limits")

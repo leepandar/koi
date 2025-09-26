@@ -20,9 +20,6 @@ import java.util.concurrent.Executor;
 
 /**
  * Nacos 路由数据源
- *
- * @author lida
- * <p>
  */
 @Slf4j
 public class NacosRouteDefinitionRepository implements RouteDefinitionRepository {

@@ -18,8 +18,6 @@ import static org.springframework.cloud.gateway.support.ServerWebExchangeUtils.G
 
 /**
  * 降级处理
- *
- * @author lida
  */
 @Slf4j
 @Component

@@ -6,9 +6,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
-/**
- * @author lida
- */
 @Data
 @ConfigurationProperties(prefix = "spring.cloud.gateway")
 public class DynamicRouteProperties {

@@ -21,12 +21,10 @@ public class GatewayApplication {
         final String appName = env.getProperty("spring.application.name");
         String port = env.getProperty("server.port");
         log.info("""
-                                        
                         ----------------------------------------------------------
-                        \tApplication '{}' is running! Access URLs:
-                        \tDoc: \thttp://{}:{}/doc.html
+                        Application '{}' is running! Post:{}
                         ----------------------------------------------------------""",
-                appName, "localhost", port);
+                appName, port);
     }
 
 }

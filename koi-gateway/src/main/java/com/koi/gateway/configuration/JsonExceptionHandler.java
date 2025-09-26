@@ -21,8 +21,6 @@ import java.util.Map;
  * 自定义网关异常处理
  *
  * <p>异常时用JSON代替HTML异常信息<p>
- *
- * @author lida
  */
 @Slf4j
 public class JsonExceptionHandler extends DefaultErrorWebExceptionHandler {

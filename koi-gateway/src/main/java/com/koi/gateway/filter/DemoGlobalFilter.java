@@ -16,8 +16,6 @@ import java.util.Map;
 
 /**
  * 演示模式过滤器
- *
- * @author lida
  */
 @Slf4j
 @Component

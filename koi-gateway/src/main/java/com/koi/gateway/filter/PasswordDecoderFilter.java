@@ -31,9 +31,6 @@ import java.util.Map;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-/**
- * @author lida
- */
 @Slf4j
 @Configuration
 public class PasswordDecoderFilter extends AbstractGatewayFilterFactory<PasswordDecoderFilter.Config> {

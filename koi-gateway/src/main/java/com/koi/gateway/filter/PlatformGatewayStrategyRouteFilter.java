@@ -14,9 +14,6 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
 
-/**
- * @author lida
- */
 @Slf4j
 @Primary
 @Component

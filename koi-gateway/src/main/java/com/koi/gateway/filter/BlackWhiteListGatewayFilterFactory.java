@@ -24,8 +24,6 @@ import java.util.List;
 /**
  * XForwardedRemoteAddressResolver
  * 黑白名单过滤器
- *
- * @author lida
  */
 @Slf4j
 @Order(99)

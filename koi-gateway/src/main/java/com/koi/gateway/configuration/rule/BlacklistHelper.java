@@ -5,8 +5,6 @@ import com.alibaba.fastjson2.JSON;
 import com.alibaba.nacos.common.utils.UuidUtils;
 import com.google.common.collect.Lists;
 import com.koi.gateway.rest.domain.BlacklistRule;
-import com.koi.gateway.rest.domain.BlacklistRule;
-import com.koi.gateway.rest.domain.BlacklistRule;
 import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.redis.core.StringRedisTemplate;
@@ -22,9 +20,6 @@ import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-/**
- * @author lida
- */
 @Slf4j
 @Component
 public class BlacklistHelper implements GatewayRule<BlacklistRule> {

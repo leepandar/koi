@@ -10,9 +10,6 @@ import org.springframework.http.server.reactive.ServerHttpResponse;
 import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
 
-/**
- * @author lida
- */
 @Slf4j
 public class MonoHelper {
 

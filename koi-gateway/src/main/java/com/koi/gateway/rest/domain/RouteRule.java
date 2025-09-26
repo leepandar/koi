@@ -9,18 +9,18 @@ import lombok.NoArgsConstructor;
 import java.time.LocalDateTime;
 import java.util.List;
 
-/**
- * @author lida
- */
 @Data
 public class RouteRule {
 
     @NotBlank(message = "ID不能为空")
     private String id;
+
     @NotBlank(message = "名称不能为空")
     private String name;
+
     @NotBlank(message = "URI不能为空")
     private String uri;
+
     private Boolean status;
     private List<Predicate> predicates;
     private List<Filter> filters;

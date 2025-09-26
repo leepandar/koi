@@ -6,12 +6,6 @@ import com.alibaba.fastjson2.JSON;
 import com.koi.gateway.rest.domain.BlacklistRule;
 import com.koi.gateway.rest.domain.CommonRule;
 import com.koi.gateway.rest.domain.LimitRule;
-import com.koi.gateway.rest.domain.BlacklistRule;
-import com.koi.gateway.rest.domain.CommonRule;
-import com.koi.gateway.rest.domain.LimitRule;
-import com.koi.gateway.rest.domain.BlacklistRule;
-import com.koi.gateway.rest.domain.CommonRule;
-import com.koi.gateway.rest.domain.LimitRule;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import org.apache.commons.lang.StringUtils;
@@ -26,9 +20,6 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
-/**
- * @author lida
- */
 public interface GatewayRule<T> {
 
     AntPathMatcher ANT_PATH_MATCHER = new AntPathMatcher();

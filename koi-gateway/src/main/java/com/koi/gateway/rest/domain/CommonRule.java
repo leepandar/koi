@@ -4,9 +4,6 @@ import lombok.Data;
 
 import java.time.LocalDateTime;
 
-/**
- * @author lida
- */
 @Data
 public class CommonRule {
 

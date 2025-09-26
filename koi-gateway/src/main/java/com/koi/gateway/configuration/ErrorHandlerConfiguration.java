@@ -1,7 +1,6 @@
 package com.koi.gateway.configuration;
 
 import com.koi.gateway.configuration.rule.BlacklistHelper;
-import com.koi.gateway.configuration.rule.BlacklistHelper;
 import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.boot.autoconfigure.web.ServerProperties;
 import org.springframework.boot.autoconfigure.web.WebProperties;
@@ -21,8 +20,6 @@ import java.util.List;
 
 /**
  * 覆盖默认的异常处理
- *
- * @author lida
  */
 @Configuration
 @EnableConfigurationProperties({ServerProperties.class, WebProperties.class})

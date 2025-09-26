@@ -12,8 +12,6 @@ import org.springframework.web.reactive.function.server.RouterFunctions;
 
 /**
  * 路由配置信息
- *
- * @author lida
  */
 @Slf4j
 @Configuration

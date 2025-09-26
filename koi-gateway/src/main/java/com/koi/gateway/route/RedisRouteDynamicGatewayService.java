@@ -8,9 +8,6 @@ import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.http.ResponseEntity;
 import reactor.core.publisher.Mono;
 
-/**
- * @author lida
- */
 @RequiredArgsConstructor
 public class RedisRouteDynamicGatewayService {
 

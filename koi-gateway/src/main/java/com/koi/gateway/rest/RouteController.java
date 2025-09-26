@@ -14,8 +14,6 @@ import java.util.List;
 
 /**
  * http://localhost:9000/actuator/gateway/routes
- *
- * @author lida
  */
 @Slf4j
 @RestController

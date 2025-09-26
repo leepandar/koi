@@ -10,8 +10,6 @@ import java.util.Objects;
 
 /**
  * 限流配置
- *
- * @author lida
  */
 @Configuration
 public class KeyResolverConfiguration {

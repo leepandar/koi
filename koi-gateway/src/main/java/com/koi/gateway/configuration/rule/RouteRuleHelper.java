@@ -31,7 +31,6 @@ import static java.util.stream.Collectors.toList;
 import static java.util.stream.Collectors.toMap;
 
 /**
- * @author lida
  * @see org.springframework.cloud.gateway.actuate.GatewayControllerEndpoint
  */
 @Slf4j
