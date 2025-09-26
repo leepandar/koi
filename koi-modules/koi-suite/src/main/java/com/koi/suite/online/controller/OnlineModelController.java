@@ -80,7 +80,7 @@ public class OnlineModelController {
     }
 
     @GetMapping("/detail")
-    @Operation(summary = "模型详情- [lida] - [DONE]", description = "根据参数获取详情")
+    @Operation(summary = "模型详情", description = "根据参数获取详情")
     public OnlineFormDesignerDetailResp detail(@RequestParam String definitionKey) {
         return this.onlineModelService.detail(definitionKey);
     }
