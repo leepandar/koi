@@ -8,11 +8,6 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
-/**
- * 流程实例扩展信息表业务实现层
- *
- * @author lida
- */
 @Slf4j
 @Service
 @RequiredArgsConstructor

@@ -12,11 +12,6 @@ import com.koi.bpm.domain.resp.ProcessTaskCommentResp;
 
 import java.util.List;
 
-/**
- * 流程实例业务层接口
- *
- * @author lida
- */
 public interface ProcessInstanceService {
 
     /**

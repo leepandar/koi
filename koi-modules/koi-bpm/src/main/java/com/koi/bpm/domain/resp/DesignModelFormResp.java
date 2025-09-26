@@ -8,13 +8,11 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-/**
- * @author lida
- */
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@Schema(name = "DesignModelFormResp",description = "模型表单请求参数")
 public class DesignModelFormResp {
 
     @Schema(defaultValue = "脚本")

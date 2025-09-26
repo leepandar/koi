@@ -43,11 +43,6 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-/**
- * 流程实例业务层实现
- *
- * @author lida
- */
 @Slf4j
 @Service
 @RequiredArgsConstructor
@@ -62,6 +57,12 @@ public class ProcessInstanceServiceImpl implements ProcessInstanceService {
     private final ProcessModelService processModelService;
     private final ProcessTaskCommentMapper processTaskCommentMapper;
 
+    /**
+     * 流程实例列表
+     *
+     * @param req 请求参数
+     * @return 查询结果
+     */
     @Override
     public IPage<ProcessInstancePageResp> pageList(ProcessInstancePageReq req) {
         //获取流程定义扩展表信息
@@ -91,7 +92,12 @@ public class ProcessInstanceServiceImpl implements ProcessInstanceService {
         return page;
     }
 
-
+    /**
+     * 激活/挂起流程实例
+     *
+     * @param instanceId instanceId 流程实例ID
+     * @param activate   activate true = 激活
+     */
     @Override
     @DSTransactional(rollbackFor = Exception.class)
     public void suspendOrResumeInstance(Long instanceId, Boolean activate) {
@@ -104,6 +110,12 @@ public class ProcessInstanceServiceImpl implements ProcessInstanceService {
         }
     }
 
+    /**
+     * 查询流程实例详情
+     *
+     * @param id id
+     * @return 查询结果
+     */
     @Override
     public ProcessInstanceDetailResp detail(String id) {
         var instanceExt = Optional.ofNullable(processInstanceExtMapper.selectOne(ProcessInstanceExt::getProcInstId, id)).orElseThrow(() -> CheckedException.badRequest("流程信息不存在"));
@@ -135,6 +147,12 @@ public class ProcessInstanceServiceImpl implements ProcessInstanceService {
                 .nodeList(nodeList).build();
     }
 
+    /**
+     * 通过流程实例获取表单信息
+     *
+     * @param id id
+     * @return 表单信息和数据
+     */
     @Override
     public ProcessInstanceFormPreviewResp formPreview(String id) {
         final ProcessInstanceExt ext = Optional.ofNullable(processInstanceExtMapper.selectOne(ProcessInstanceExt::getProcInstId, id))
@@ -146,6 +164,13 @@ public class ProcessInstanceServiceImpl implements ProcessInstanceService {
 
     }
 
+    /**
+     * 审核信息
+     *
+     * @param procInstId 流程实例ID
+     * @param type       type
+     * @return 审核信息
+     */
     @Override
     public List<ProcessTaskCommentResp> comments(String procInstId, TaskCommentType type) {
         List<ProcessTaskComment> comments = this.processTaskCommentMapper.selectList(ProcessTaskComment::getProcInstId, procInstId,
@@ -157,6 +182,11 @@ public class ProcessInstanceServiceImpl implements ProcessInstanceService {
                 .build()).collect(Collectors.toList());
     }
 
+    /**
+     * 启动流程实例
+     *
+     * @param req req
+     */
     @Override
     @DSTransactional(rollbackFor = Exception.class)
     public StartInstanceResp startProcess(StartInstanceReq req) {
@@ -182,6 +212,11 @@ public class ProcessInstanceServiceImpl implements ProcessInstanceService {
         return result;
     }
 
+    /**
+     * 作废流程实例
+     *
+     * @param instanceId
+     */
     @Override
     @DSTransactional(rollbackFor = Exception.class)
     public void cancel(String instanceId) {

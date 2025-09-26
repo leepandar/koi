@@ -22,11 +22,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-/**
- * 流程类别(ProcessCategory)控制层
- *
- * @author Levin
- */
 @Slf4j
 @Validated
 @RestController
@@ -50,7 +45,6 @@ public class ProcessCategoryController {
     public void create(@RequestBody ProcessCategorySaveReq vo) {
         processCategoryService.create(vo);
     }
-
 
     @Operation(summary = "修改类别", description = "修改流程类别")
     @Parameter(in = ParameterIn.PATH, description = "类别ID", name = "id")

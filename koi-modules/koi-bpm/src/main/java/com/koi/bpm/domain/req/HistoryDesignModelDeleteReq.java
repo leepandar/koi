@@ -8,17 +8,11 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-/**
- * 删除流程模型
- *
- * @author lida
- * @since JDK11
- */
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Schema(name = "DeleteHistoryDesignModelReq")
+@Schema(name = "DeleteHistoryDesignModelReq",description = "删除流程模型")
 public class HistoryDesignModelDeleteReq {
 
     @Schema(title = "历史模型id")

@@ -20,12 +20,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-/**
- * 流程实例控制层
- *
- * @author lida
- */
-
 @Slf4j
 @Validated
 @RestController
@@ -78,6 +72,5 @@ public class ProcessInstanceController {
     public List<ProcessTaskCommentResp> comments(@PathVariable String id, TaskCommentType type) {
         return processInstanceService.comments(id, type);
     }
-
 
 }

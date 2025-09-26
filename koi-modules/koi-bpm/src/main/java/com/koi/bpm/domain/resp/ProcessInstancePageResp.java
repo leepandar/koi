@@ -11,14 +11,11 @@ import java.time.Duration;
 import java.time.Instant;
 import java.util.List;
 
-/**
- * @author lida
- */
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Schema(name = "ProcessInstancePageResp")
+@Schema(name = "ProcessInstancePageResp",description = "流程实例分页返回参数")
 public class ProcessInstancePageResp {
 
     @Schema(description = "流程实例扩展表ID")

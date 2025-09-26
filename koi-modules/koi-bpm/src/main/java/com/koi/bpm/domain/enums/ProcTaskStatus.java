@@ -11,6 +11,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 /**
+ * 流程任务状态
+ *
  * @author lida
  */
 @Getter

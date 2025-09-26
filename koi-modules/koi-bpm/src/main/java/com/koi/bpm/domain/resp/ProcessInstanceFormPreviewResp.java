@@ -18,6 +18,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@Schema(name = "ProcessInstanceFormPreviewResp",description = "流程表单渲染返回参数")
 public class ProcessInstanceFormPreviewResp {
 
     @NotEmpty(message = "表单字段不能为空")

@@ -4,13 +4,8 @@ package com.koi.bpm.domain.req;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
-/**
- * 流程类别条件查询Request
- *
- * @author lida
- */
 @Data
-@Schema(name = "ProcessCategoryQueryReq")
+@Schema(name = "ProcessCategoryQueryReq",description = "流程类别条件查询")
 public class ProcessCategoryQueryReq {
 
     @Schema(description = "类别编码")

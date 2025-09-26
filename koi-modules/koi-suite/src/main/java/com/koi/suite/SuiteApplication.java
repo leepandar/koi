@@ -17,7 +17,7 @@ import org.springframework.stereotype.Repository;
 import java.net.InetAddress;
 
 /**
- * 开发工具套件启动累
+ * 开发工具套件启动类
  *
  * @author lida
  */

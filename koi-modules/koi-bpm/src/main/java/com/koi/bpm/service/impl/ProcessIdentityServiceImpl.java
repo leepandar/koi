@@ -21,9 +21,6 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.function.Supplier;
 
-/**
- * @author lida
- */
 @Slf4j
 @Service
 @RequiredArgsConstructor
@@ -34,6 +31,14 @@ public class ProcessIdentityServiceImpl implements ProcessIdentityService {
     private final AuthorizationService authorizationService;
     private final CamundaBpmProperties camundaBpmProperties;
 
+    private static final List<Resources> DEFAULT_RESOURCES = List.of(Resources.TASK, Resources.PROCESS_DEFINITION, Resources.PROCESS_INSTANCE, Resources.DEPLOYMENT, Resources.HISTORIC_TASK);
+
+    /**
+     * 创建租户
+     *
+     * @param tenantId
+     * @param tenantName
+     */
     public void createTenant(String tenantId, String tenantName) {
         long count = identityService.createTenantQuery().tenantId(tenantId).count();
         if (count > 0) {
@@ -45,6 +50,9 @@ public class ProcessIdentityServiceImpl implements ProcessIdentityService {
         identityService.saveTenant(tenant);
     }
 
+    /**
+     * 设置认证信息
+     */
     public void setAuthentication() {
         var userId = context.userId().toString();
         var tenantId = context.tenantId().toString();
@@ -53,6 +61,13 @@ public class ProcessIdentityServiceImpl implements ProcessIdentityService {
         identityService.setAuthentication(userId, null, List.of(tenantId));
     }
 
+    /**
+     * 执行
+     *
+     * @param supplier
+     * @param <T>
+     * @return
+     */
     @Override
     @DSTransactional(rollbackFor = Exception.class)
     public <T> T execute(Supplier<T> supplier) {
@@ -65,6 +80,12 @@ public class ProcessIdentityServiceImpl implements ProcessIdentityService {
     }
 
 
+    /**
+     * 创建用户
+     *
+     * @param userId
+     * @param nickName
+     */
     public void createUser(String userId, String nickName) {
         final long count = this.identityService.createUserQuery().userId(userId).count();
         if (count > 0) {
@@ -92,8 +113,11 @@ public class ProcessIdentityServiceImpl implements ProcessIdentityService {
         }
     }
 
-    private static final List<Resources> DEFAULT_RESOURCES = List.of(Resources.TASK, Resources.PROCESS_DEFINITION, Resources.PROCESS_INSTANCE, Resources.DEPLOYMENT, Resources.HISTORIC_TASK);
-
+    /**
+     * 保存授权
+     *
+     * @param bpmUserId
+     */
     private void saveAuthorization(String bpmUserId) {
         DEFAULT_RESOURCES.stream().map(res -> {
             Authorization authorization = new AuthorizationEntity(1);

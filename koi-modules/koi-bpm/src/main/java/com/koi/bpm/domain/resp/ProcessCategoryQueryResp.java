@@ -3,15 +3,9 @@ package com.koi.bpm.domain.resp;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
-/**
- * 流程类别查询Response
- *
- * @author lida
- */
 @Data
-@Schema(name = "ProcessCategoryQueryResp")
+@Schema(name = "ProcessCategoryQueryResp",description = "流程类别查询返回参数")
 public class ProcessCategoryQueryResp {
-
 
     @Schema(description = "ID")
     private String id;

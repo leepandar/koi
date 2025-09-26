@@ -9,15 +9,13 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
-/**
- * @author lida
- */
 @Data
 @EqualsAndHashCode(callSuper = true)
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
 @TableName("wp_process_model_form")
+@Schema(name = "ProcessModelForm",description = "流程模型表单")
 public class ProcessModelForm extends SuperEntity<Long> {
 
     @Schema(description = "模型ID")

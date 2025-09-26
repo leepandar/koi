@@ -7,13 +7,8 @@ import lombok.Data;
 import java.time.Instant;
 import java.time.LocalDateTime;
 
-/**
- * 流程模型历史查询Response
- *
- * @author lida
- */
 @Data
-@Schema(name = "DesignModelHistoryResp")
+@Schema(name = "DesignModelHistoryResp",description = "流程模型历史查询返回参数")
 public class DesignModelHistoryResp {
 
     @Schema(name = "historyModelId", description = "历史模型id")

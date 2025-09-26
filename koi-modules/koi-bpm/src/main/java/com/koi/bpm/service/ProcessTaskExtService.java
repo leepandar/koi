@@ -8,11 +8,6 @@ import com.koi.bpm.domain.req.ProcessTaskPageReq;
 import com.koi.bpm.domain.resp.ProcessTaskExtResp;
 import com.koi.bpm.domain.resp.ProcessTaskHistoryResp;
 
-/**
- * 流程任务业务层
- *
- * @author lida
- */
 public interface ProcessTaskExtService {
 
     /**
@@ -23,7 +18,6 @@ public interface ProcessTaskExtService {
      */
     Page<ProcessTaskExtResp> pageList(ProcessTaskPageReq request);
 
-
     /**
      * 历史任务
      *
@@ -32,8 +26,9 @@ public interface ProcessTaskExtService {
      */
     Page<ProcessTaskHistoryResp> hisPageList(ProcessTaskPageReq req);
 
-
     /**
+     * 审批
+     *
      * @param taskId 任务ID
      * @param req    req
      * @param status (title = "审批类型（20：审批通过；-10：审批撤回；-20：审批拒绝）")
@@ -41,6 +36,8 @@ public interface ProcessTaskExtService {
     void approval(String taskId, ApprovalStatus status, ProcessTaskApprovalReq req);
 
     /**
+     * 评论
+     *
      * @param taskId 任务ID
      * @param req    req
      */

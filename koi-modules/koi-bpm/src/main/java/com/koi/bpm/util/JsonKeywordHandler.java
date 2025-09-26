@@ -3,6 +3,8 @@ package com.koi.bpm.util;
 import com.alibaba.fastjson2.JSONObject;
 
 /**
+ * 提取JSON中关键词的值
+ *
  * @author lida
  */
 public interface JsonKeywordHandler {

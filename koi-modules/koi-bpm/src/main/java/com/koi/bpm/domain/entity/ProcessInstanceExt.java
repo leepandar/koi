@@ -12,17 +12,13 @@ import lombok.experimental.SuperBuilder;
 
 import java.time.Instant;
 
-/**
- * 流程实例扩展信息表
- *
- * @author lida
- */
 @Data
 @EqualsAndHashCode(callSuper = true)
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
 @TableName("wp_process_instance_ext")
+@Schema(name = "ProcessInstanceExt",description = "流程实例扩展信息")
 public class ProcessInstanceExt extends SuperEntity<Long> {
 
     @Schema(description = "模型数据")

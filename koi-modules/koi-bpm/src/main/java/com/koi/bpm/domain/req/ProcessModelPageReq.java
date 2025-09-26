@@ -8,16 +8,11 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
-/**
- * 流程模型管理分页查询Request
- *
- * @author lida
- */
 @Data
 @EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
 @AllArgsConstructor
-@Schema(name = "ProcessModelPageReq")
+@Schema(name = "ProcessModelPageReq",description = "流程模型管理分页查询")
 public class ProcessModelPageReq extends PageRequest {
 
     @Schema(description = "模型名称")

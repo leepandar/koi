@@ -5,11 +5,6 @@ import lombok.Data;
 
 import java.time.Instant;
 
-/**
- * 流程模型历史分页查询Response
- *
- * @author lida
- */
 @Data
 @Schema(name = "DesignModelHistoryPageResp", description = "流程模型历史分页查询")
 public class DesignModelHistoryPageResp {

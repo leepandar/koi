@@ -5,15 +5,9 @@ import lombok.Data;
 
 import java.time.Instant;
 
-/**
- * 流程类别分页查询Response
- *
- * @author lida
- */
 @Data
-@Schema(name = "ProcessCategoryPageResp")
+@Schema(name = "ProcessCategoryPageResp",description = "流程类别分页查询返回参数")
 public class ProcessCategoryPageResp {
-
 
     @Schema(description = "类别id")
     private String id;

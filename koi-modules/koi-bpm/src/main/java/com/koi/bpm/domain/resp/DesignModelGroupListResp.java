@@ -8,13 +8,11 @@ import lombok.NoArgsConstructor;
 
 import java.util.List;
 
-/**
- * @author lida
- */
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@Schema(name = "DesignModelFormResp",description = "模型分组请求参数")
 public class DesignModelGroupListResp {
 
     @Schema(description = "类别ID")

@@ -12,24 +12,21 @@ import lombok.experimental.SuperBuilder;
 
 import java.time.Instant;
 
-/**
- * 流程模型历史(DesignModelHistory)Entity
- *
- * @author lida
- */
 @Data
 @EqualsAndHashCode(callSuper = true)
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
 @TableName("wp_process_deploy_history")
+@Schema(name = "ProcessDeployHistory",description = "流程模型历史")
 public class ProcessDeployHistory extends SuperEntity<Long> {
-
 
     @Schema(description = "租户ID")
     private Long tenantId;
+
     @Schema(description = "租户编码")
     private String tenantCode;
+
     @Schema(description = "租户名字")
     private String tenantName;
 

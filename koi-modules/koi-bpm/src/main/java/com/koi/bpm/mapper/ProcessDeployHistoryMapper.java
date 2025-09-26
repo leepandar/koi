@@ -5,11 +5,6 @@ import com.koi.common.db.mybatisplus.ext.SuperMapper;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
-/**
- * 流程模型历史(ProcessDeployHistory)持久层
- *
- * @author lida
- */
 @Repository
 public interface ProcessDeployHistoryMapper extends SuperMapper<ProcessDeployHistory> {
 

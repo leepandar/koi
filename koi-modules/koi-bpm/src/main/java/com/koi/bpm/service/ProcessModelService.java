@@ -11,13 +11,7 @@ import com.koi.common.db.mybatisplus.ext.SuperService;
 
 import java.util.List;
 
-/**
- * 流程模型管理(DesignModel)业务层接口
- *
- * @author lida
- */
 public interface ProcessModelService extends SuperService<ProcessModel> {
-
 
     /**
      * 流程模型管理保存
@@ -25,7 +19,6 @@ public interface ProcessModelService extends SuperService<ProcessModel> {
      * @param req req
      */
     void create(DesignModelSaveReq req);
-
 
     /**
      * 分页查询
@@ -35,7 +28,6 @@ public interface ProcessModelService extends SuperService<ProcessModel> {
      */
     IPage<ProcessModelPageResp> pageList(ProcessModelPageReq req);
 
-
     /**
      * 通过id查询详情
      *
@@ -44,7 +36,6 @@ public interface ProcessModelService extends SuperService<ProcessModel> {
      */
     ProcessModelDetailResp detail(Long modelId);
 
-
     /**
      * 模型删除
      *
@@ -52,7 +43,6 @@ public interface ProcessModelService extends SuperService<ProcessModel> {
      * @param req ${@link DesignModelDeleteReq} 模型删除
      */
     void deleteByModel(Long id, DesignModelDeleteReq req);
-
 
     /**
      * 通过ID部署流程定义
@@ -84,6 +74,7 @@ public interface ProcessModelService extends SuperService<ProcessModel> {
      * @return 查询结果
      */
     DesignModelFormResp findFormDesign(Long id);
+
     /**
      * 模型分组列表
      *

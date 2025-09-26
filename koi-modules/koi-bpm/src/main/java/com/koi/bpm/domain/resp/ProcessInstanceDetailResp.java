@@ -9,16 +9,11 @@ import lombok.NoArgsConstructor;
 import java.time.Instant;
 import java.util.List;
 
-/**
- * 查看流程功能 展示流程图需要的参数
- *
- * @author lida
- */
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Schema(name = "ProcessInstanceImageResp")
+@Schema(name = "ProcessInstanceImageResp",description = "查看流程功能 展示流程图返回参数")
 public class ProcessInstanceDetailResp {
 
     @Schema(description = "模型二进制数据")

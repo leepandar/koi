@@ -6,12 +6,8 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
-/**
- * 启动流程实例需要的参数
- *
- * @author lida
- */
 @Data
+@Schema(name = "InstanceStartReq",description = "启动流程实例")
 public class InstanceStartReq {
 
     @NotBlank(message = "业务KEY不能为空")

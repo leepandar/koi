@@ -11,11 +11,6 @@ import org.springframework.stereotype.Repository;
 
 import java.util.Collection;
 
-/**
- * 流程模型管理(DesignModel)持久层
- *
- * @author lida
- */
 @Repository
 public interface ProcessModelMapper extends SuperMapper<ProcessModel> {
 

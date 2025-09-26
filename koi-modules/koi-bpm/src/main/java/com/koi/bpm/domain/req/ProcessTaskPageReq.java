@@ -5,12 +5,9 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-/**
- * @author lida
- */
 @Data
 @EqualsAndHashCode(callSuper = true)
-@Schema(name = "ProcessTaskPageReq")
+@Schema(name = "ProcessTaskPageReq",description = "任务分页请求参数")
 public class ProcessTaskPageReq extends PageRequest {
 
     @Schema(description = "审批人", hidden = true)

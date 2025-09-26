@@ -7,15 +7,9 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
-/**
- * 流程类别添加或修改
- *
- * @author lida
- */
 @Data
-@Schema(name = "ProcessCategorySaveReq")
+@Schema(name = "ProcessCategorySaveReq",description = "流程类别添加或修改")
 public class ProcessCategorySaveReq {
-
 
     @Schema(description = "类别编码(唯一)")
     @NotBlank(message = "类别编码(唯一)不能为空")

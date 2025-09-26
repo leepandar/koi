@@ -6,13 +6,8 @@ import lombok.Data;
 
 import java.time.Instant;
 
-/**
- * 流程任务信息
- *
- * @author lida
- */
 @Data
-@Schema(name = "ProcessTaskExtResp")
+@Schema(name = "ProcessTaskExtResp",description = "流程任务信息返回参数")
 public class ProcessTaskExtResp {
 
     @Schema(description = "任务扩展ID")

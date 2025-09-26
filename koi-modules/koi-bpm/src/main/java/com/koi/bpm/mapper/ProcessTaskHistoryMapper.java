@@ -9,9 +9,6 @@ import com.koi.common.db.mybatisplus.ext.SuperMapper;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
-/**
- * @author lida
- */
 @Repository
 public interface ProcessTaskHistoryMapper extends SuperMapper<ProcessTaskHistory> {
 

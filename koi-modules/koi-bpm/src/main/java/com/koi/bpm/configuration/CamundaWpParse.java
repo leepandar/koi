@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @author lida
+ * 类型转换
  */
 public class CamundaWpParse {
 

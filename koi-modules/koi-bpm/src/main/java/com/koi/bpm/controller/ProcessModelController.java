@@ -22,11 +22,6 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.stream.Collectors;
 
-/**
- * 流程模型管理(DesignModel)控制层
- *
- * @author lida
- */
 @Slf4j
 @Validated
 @RestController
@@ -84,13 +79,11 @@ public class ProcessModelController {
         return processModelService.detail(id);
     }
 
-
     @Operation(summary = "流程部署")
     @PostMapping("/{id}/deploy")
     public void deploy(@PathVariable("id") Long id) {
         processModelService.deployById(id);
     }
-
 
     @RedisLock(prefix = "instance")
     @Operation(summary = "启动流程")
@@ -98,7 +91,6 @@ public class ProcessModelController {
     public void start(@RedisParam @PathVariable("id") Long id, @Validated @RequestBody InstanceStartReq req) {
         processModelService.startInstance(id, req);
     }
-
 
     @Operation(summary = "表单设计", description = "保存表单设计")
     @PostMapping(value = "/{id}/form-designs")

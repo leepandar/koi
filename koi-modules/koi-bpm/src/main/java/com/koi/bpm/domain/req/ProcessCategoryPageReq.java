@@ -4,17 +4,12 @@ import com.koi.common.db.mybatisplus.page.PageRequest;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.*;
 
-/**
- * 流程类别分页查询Request
- *
- * @author lida
- */
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
-@Schema(name = "ProcessCategoryPageReq")
+@Schema(name = "ProcessCategoryPageReq",description = "流程类别分页查询")
 public class ProcessCategoryPageReq extends PageRequest {
 
     @Schema(description = "类别名称")

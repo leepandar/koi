@@ -6,15 +6,11 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-/**
- * 流程连线信息
- *
- * @author lida
- */
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@Schema(name = "SequenceFlowResp",description = "流程连线信息返回参数")
 public class SequenceFlowResp {
 
     @Schema(name = "sequenceFlowId", description = "连线ID")

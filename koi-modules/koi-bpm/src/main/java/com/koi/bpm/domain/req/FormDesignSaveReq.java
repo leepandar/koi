@@ -5,11 +5,8 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotEmpty;
 import lombok.Data;
 
-/**
- * @author lida
- */
 @Data
-@Schema(name = "FormDesignSaveReq")
+@Schema(name = "FormDesignSaveReq",description = "表单设计")
 public class FormDesignSaveReq {
 
     @Schema(defaultValue = "脚本")

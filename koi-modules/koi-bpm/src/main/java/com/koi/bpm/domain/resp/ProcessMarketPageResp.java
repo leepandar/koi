@@ -3,9 +3,6 @@ package com.koi.bpm.domain.resp;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
-/**
- * @author lida
- */
 @Data
 @Schema(name = "ProcessMarketPageResp")
 public class ProcessMarketPageResp {

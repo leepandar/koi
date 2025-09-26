@@ -4,14 +4,8 @@ package com.koi.bpm.domain.req;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
-/**
- * 删除流程模型
- *
- * @author lida
- * @since JDK11
- */
 @Data
-@Schema(name = "DesignModelDeleteReq")
+@Schema(name = "DesignModelDeleteReq",description = "删除流程模型")
 public class DesignModelDeleteReq {
 
     @Schema(title = "是否级联，默认false")

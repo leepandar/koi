@@ -6,13 +6,8 @@ import lombok.Data;
 
 import java.time.Instant;
 
-/**
- * 流程模型管理分页查询Response
- *
- * @author lida
- */
 @Data
-@Schema(name = "ProcessModelPageResp")
+@Schema(name = "ProcessModelPageResp",description = "流程模型管理分页查询返回参数")
 public class ProcessModelPageResp {
 
     @Schema(description = "模型ID")

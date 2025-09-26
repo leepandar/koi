@@ -10,17 +10,13 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
-/**
- * 流程类别(ProcessCategory)
- *
- * @author lida
- */
 @Data
 @EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
 @AllArgsConstructor
 @SuperBuilder
 @TableName("wp_process_category")
+@Schema(name = "ProcessCategory",description = "流程类别")
 public class ProcessCategory extends SuperEntity<Long> {
 
     @Schema(description = "租户ID")

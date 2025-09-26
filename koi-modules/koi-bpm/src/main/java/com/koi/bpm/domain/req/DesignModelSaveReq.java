@@ -5,15 +5,9 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
-/**
- * 流程模型管理添加或修改Request
- *
- * @author lida
- */
 @Data
-@Schema(name = "DesignModelSaveReq")
+@Schema(name = "DesignModelSaveReq",description = "流程模型管理添加或修改")
 public class DesignModelSaveReq {
-
 
     @Schema(description = "bpmn 流程图")
     @NotBlank(message = "bpmn 流程图不能为空")

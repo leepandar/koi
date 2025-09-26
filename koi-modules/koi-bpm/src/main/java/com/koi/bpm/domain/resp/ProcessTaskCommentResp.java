@@ -9,15 +9,11 @@ import lombok.NoArgsConstructor;
 import java.time.Instant;
 import java.util.List;
 
-/**
- * 任务
- *
- * @author lida
- */
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
+@Schema(name = "ProcessTaskCommentResp",description = "任务返回参数")
 public class ProcessTaskCommentResp {
 
     @Schema(description = "任务ID")

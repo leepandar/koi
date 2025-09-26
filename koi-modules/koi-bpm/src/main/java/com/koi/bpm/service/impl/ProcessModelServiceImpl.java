@@ -39,11 +39,6 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-/**
- * 流程模型管理(DesignModel)业务层实现
- *
- * @author lida
- */
 @Slf4j
 @Service
 @RequiredArgsConstructor
@@ -57,6 +52,12 @@ public class ProcessModelServiceImpl extends SuperServiceImpl<ProcessModelMapper
     private final AuthenticationContext context;
     private final ProcessIdentityService processIdentityService;
 
+    /**
+     * 分页查询
+     *
+     * @param req ${@link ProcessModelPageReq} 流程模型管理分页查询Vo
+     * @return PageDto<DesignModelPageDto> ${@link IPage< ProcessModelPageResp >} 分页查询结果
+     */
     @Override
     public IPage<ProcessModelPageResp> pageList(ProcessModelPageReq req) {
         return baseMapper.selectPage(req.buildPage(), Wraps.<ProcessModel>lbQ()
@@ -66,6 +67,11 @@ public class ProcessModelServiceImpl extends SuperServiceImpl<ProcessModelMapper
                 .convert(x -> BeanUtil.toBean(x, ProcessModelPageResp.class));
     }
 
+    /**
+     * 流程模型管理保存
+     *
+     * @param req req
+     */
     @Override
     @DSTransactional(rollbackFor = Exception.class)
     public void create(DesignModelSaveReq req) {
@@ -84,6 +90,12 @@ public class ProcessModelServiceImpl extends SuperServiceImpl<ProcessModelMapper
         this.baseMapper.insert(bean);
     }
 
+    /**
+     * 修改模型
+     *
+     * @param id  模型ID
+     * @param req 修改参数
+     */
     @Override
     @DSTransactional(rollbackFor = {Exception.class, Error.class})
     public void modify(Long id, DesignModelSaveReq req) {
@@ -103,13 +115,24 @@ public class ProcessModelServiceImpl extends SuperServiceImpl<ProcessModelMapper
         this.baseMapper.updateById(record);
     }
 
+    /**
+     * 通过id查询详情
+     *
+     * @param modelId ${@link Long} 模型id
+     * @return 模型详情
+     */
     @Override
     public ProcessModelDetailResp detail(Long modelId) {
         ProcessModel processModel = Optional.ofNullable(this.baseMapper.selectById(modelId)).orElseThrow(() -> CheckedException.badRequest("bpm.design.not-exists"));
         return BeanUtil.toBean(processModel, ProcessModelDetailResp.class);
     }
 
-
+    /**
+     * 模型删除
+     *
+     * @param modelId ${@link Long} 模型ID
+     * @param req     ${@link DesignModelDeleteReq} 模型删除
+     */
     @Override
     @DSTransactional(rollbackFor = {Exception.class, Error.class})
     public void deleteByModel(Long modelId, DesignModelDeleteReq req) throws RuntimeException {
@@ -137,7 +160,11 @@ public class ProcessModelServiceImpl extends SuperServiceImpl<ProcessModelMapper
         repositoryService.deleteDeployment(deployment.getId(), req.getCascade(), req.getSkipCustomListeners(), req.getSkipIoMappings());
     }
 
-
+    /**
+     * 通过ID部署流程定义
+     *
+     * @param id 流程模型ID
+     */
     @Override
     @DSTransactional(rollbackFor = Exception.class)
     public void deployById(Long id) {
@@ -170,7 +197,12 @@ public class ProcessModelServiceImpl extends SuperServiceImpl<ProcessModelMapper
         });
     }
 
-
+    /**
+     * 保存表单
+     *
+     * @param id  模型ID
+     * @param req 表单信息
+     */
     @Override
     public void saveFormDesign(Long id, FormDesignSaveReq req) {
         Optional.ofNullable(baseMapper.selectById(id)).orElseThrow(() -> CheckedException.badRequest("bpm.design.not-exists"));
@@ -187,6 +219,12 @@ public class ProcessModelServiceImpl extends SuperServiceImpl<ProcessModelMapper
         }
     }
 
+    /**
+     * 查询设计的表单信息
+     *
+     * @param id id
+     * @return 查询结果
+     */
     @Override
     public DesignModelFormResp findFormDesign(Long id) {
         Optional.ofNullable(baseMapper.selectById(id)).orElseThrow(() -> CheckedException.badRequest("bpm.design.not-exists"));
@@ -200,6 +238,11 @@ public class ProcessModelServiceImpl extends SuperServiceImpl<ProcessModelMapper
                 .build();
     }
 
+    /**
+     * 模型分组列表
+     *
+     * @return 查询结果
+     */
     @Override
     public List<DesignModelGroupListResp> groupList() {
         var list = this.processCategoryMapper.selectList(ProcessCategory::getStatus, 1);
@@ -220,6 +263,12 @@ public class ProcessModelServiceImpl extends SuperServiceImpl<ProcessModelMapper
         }).toList();
     }
 
+    /**
+     * 启动流程实例
+     *
+     * @param id  模型ID
+     * @param req 启动实例
+     */
     @Override
     @DSTransactional(rollbackFor = Exception.class)
     public void startInstance(Long id, InstanceStartReq req) {

@@ -5,13 +5,9 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-/**
- * 流程实例查询参数
- * @author lida
- */
 @Data
 @EqualsAndHashCode(callSuper = true)
-@Schema(name = "ProcessInstancePageReq")
+@Schema(name = "ProcessInstancePageReq",description = "流程实例查询参数")
 public class ProcessInstancePageReq extends PageRequest {
 
     @Schema(description = "流程定义key")

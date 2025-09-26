@@ -16,17 +16,16 @@ import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
-/**
- * 流程类别(ProcessCategory)业务层实现
- *
- * @author lida
- */
 @Slf4j
 @Service
 @RequiredArgsConstructor
 public class ProcessCategoryServiceImpl extends SuperServiceImpl<ProcessCategoryMapper, ProcessCategory> implements ProcessCategoryService {
 
-
+    /**
+     * 保存
+     *
+     * @param vo ${@link ProcessCategorySaveReq} 流程类别保存
+     */
     @Override
     @DSTransactional(rollbackFor = Exception.class)
     public void create(ProcessCategorySaveReq req) {
@@ -39,6 +38,12 @@ public class ProcessCategoryServiceImpl extends SuperServiceImpl<ProcessCategory
         this.baseMapper.insert(record);
     }
 
+    /**
+     * 通过id更新
+     *
+     * @param req ${@link ProcessCategorySaveReq} 流程类别更新
+     * @param id  ${@link String} 类别id
+     */
     @Override
     @DSTransactional(rollbackFor = {Exception.class, Error.class})
     public void modify(Long id, ProcessCategorySaveReq req) {

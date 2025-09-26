@@ -17,7 +17,7 @@ import java.util.Date;
 @EqualsAndHashCode
 @SuperBuilder(toBuilder = true)
 @NoArgsConstructor
-@Schema
+@Schema(name = "ProcessTaskResp",description = "任务信息返回参数")
 public class ProcessTaskResp {
 
     @Schema(description = "任务ID")

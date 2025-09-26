@@ -3,6 +3,8 @@ package com.koi.bpm.util;
 import com.alibaba.fastjson2.JSONObject;
 
 /**
+ * 占位符解析器
+ *
  * @author lida
  */
 public class GenericTokenParser {

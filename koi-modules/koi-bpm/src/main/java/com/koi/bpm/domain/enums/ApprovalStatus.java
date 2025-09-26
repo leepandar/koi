@@ -11,6 +11,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 /**
+ * 审批状态
+ *
  * @author lida
  */
 @Getter

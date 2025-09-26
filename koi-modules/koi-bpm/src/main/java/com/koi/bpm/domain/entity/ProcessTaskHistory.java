@@ -10,17 +10,13 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
-/**
- * 流程任务扩展信息表
- *
- * @author lida
- */
 @Data
 @EqualsAndHashCode(callSuper = true)
 @SuperBuilder(toBuilder = true)
 @NoArgsConstructor
 @AllArgsConstructor
 @TableName("wp_process_task_his")
+@Schema(name = "ProcessTaskHistory",description = "流程任务历史信息")
 public class ProcessTaskHistory extends SuperEntity<Long> {
 
     @Schema(description = "租户ID")

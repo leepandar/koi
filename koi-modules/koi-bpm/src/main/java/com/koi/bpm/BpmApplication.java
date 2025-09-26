@@ -37,7 +37,6 @@ public class BpmApplication {
         String host = InetAddress.getLocalHost().getHostAddress();
         String port = env.getProperty("server.port");
         log.info("""
-                        
                         ----------------------------------------------------------
                         \tApplication '{}' is running! Access URLs:
                         \tDoc: \thttp://{}:{}/doc.html

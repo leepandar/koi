@@ -12,18 +12,13 @@ import lombok.experimental.SuperBuilder;
 
 import java.time.Instant;
 
-
-/**
- * 流程模型管理
- *
- * @author lida
- */
 @Data
 @EqualsAndHashCode(callSuper = true)
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
 @TableName("wp_process_model")
+@Schema(name = "ProcessModel",description = "流程模型")
 public class ProcessModel extends SuperEntity<Long> {
 
     @Schema(description = "模型编号")

@@ -6,14 +6,11 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-/**
- * @author lida
- */
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Schema(name = "DesignModelListResp")
+@Schema(name = "DesignModelListResp",description = "流程模型列表返回参数")
 public class DesignModelListResp {
 
     @Schema(description = "模型ID")

@@ -9,17 +9,13 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
-/**
- * 流程任务扩展信息表
- *
- * @author lida
- */
 @Data
 @EqualsAndHashCode(callSuper = true)
 @SuperBuilder(toBuilder = true)
 @NoArgsConstructor
 @AllArgsConstructor
 @TableName("wp_process_task_ext")
+@Schema(name = "ProcessTaskExt",description = "流程任务扩展信息")
 public class ProcessTaskExt extends SuperEntity<Long> {
 
     @Schema(description = "租户ID")

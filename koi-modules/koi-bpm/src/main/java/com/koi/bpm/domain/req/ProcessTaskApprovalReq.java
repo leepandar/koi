@@ -6,14 +6,9 @@ import lombok.Data;
 
 import java.util.List;
 
-/**
- * 完成任务请求参数
- *
- * @author lida
- */
 @Data
+@Schema(name = "ProcessTaskApprovalReq",description = "完成任务请求参数")
 public class ProcessTaskApprovalReq {
-
 
     @Schema(title = "附件")
     private List<String> attachments;

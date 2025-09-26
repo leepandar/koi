@@ -13,6 +13,8 @@ import lombok.NoArgsConstructor;
 import java.util.Objects;
 
 /**
+ * 任务处理状态
+ *
  * @author lida
  */
 @Getter

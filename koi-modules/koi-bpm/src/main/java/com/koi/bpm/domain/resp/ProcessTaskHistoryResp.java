@@ -5,11 +5,8 @@ import lombok.Data;
 
 import java.time.Instant;
 
-/**
- * @author lida
- */
 @Data
-@Schema(name = "ProcessTaskHistoryResp")
+@Schema(name = "ProcessTaskHistoryResp",description = "任务历史信息返回参数")
 public class ProcessTaskHistoryResp {
 
     @Schema(description = "主键ID")

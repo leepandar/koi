@@ -6,15 +6,9 @@ import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-
-/**
- * 流程模型历史分页查询Request
- *
- * @author lida
- */
 @Data
 @EqualsAndHashCode(callSuper = true)
-@Schema(name = "DesignModelHistoryPageReq")
+@Schema(name = "DesignModelHistoryPageReq",description = "流程模型历史分页查询")
 public class DesignModelHistoryPageReq extends PageRequest {
 
     @Schema(description = "模型id")

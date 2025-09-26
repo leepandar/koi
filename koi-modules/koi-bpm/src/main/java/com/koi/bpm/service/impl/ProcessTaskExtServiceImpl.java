@@ -28,11 +28,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
-/**
- * 流程任务业务实现层
- *
- * @author lida
- */
 @Slf4j
 @Service
 @RequiredArgsConstructor
@@ -45,6 +40,12 @@ public class ProcessTaskExtServiceImpl implements ProcessTaskExtService {
     private final AuthenticationContext context;
     private final ProcessTaskCommentMapper processTaskCommentMapper;
 
+    /**
+     * 查询自己的代办任务
+     *
+     * @param req 分页条件
+     * @return 任务信息
+     */
     @Override
     public Page<ProcessTaskExtResp> pageList(ProcessTaskPageReq req) {
         req.setApproverId(context.userId());
@@ -53,7 +54,12 @@ public class ProcessTaskExtServiceImpl implements ProcessTaskExtService {
         return processTaskExtMapper.pageList(req.buildPage(), req);
     }
 
-
+    /**
+     * 历史任务
+     *
+     * @param req req
+     * @return 查询结果
+     */
     @Override
     public Page<ProcessTaskHistoryResp> hisPageList(ProcessTaskPageReq req) {
         if (req.getApproverId() == null) {
@@ -62,6 +68,13 @@ public class ProcessTaskExtServiceImpl implements ProcessTaskExtService {
         return processTaskHistoryMapper.pageList(req.buildPage(), req);
     }
 
+    /**
+     * 审批
+     *
+     * @param taskId 任务ID
+     * @param req    req
+     * @param status (title = "审批类型（20：审批通过；-10：审批撤回；-20：审批拒绝）")
+     */
     @Override
     @DSTransactional(rollbackFor = Exception.class)
     public void approval(String taskId, ApprovalStatus status, ProcessTaskApprovalReq req) {
@@ -83,6 +96,12 @@ public class ProcessTaskExtServiceImpl implements ProcessTaskExtService {
                 .build());
     }
 
+    /**
+     * 评论
+     *
+     * @param taskId 任务ID
+     * @param req    req
+     */
     @Override
     @DSTransactional(rollbackFor = Exception.class)
     public void comment(String taskId, ProcessTaskApprovalReq req) {
@@ -98,11 +117,22 @@ public class ProcessTaskExtServiceImpl implements ProcessTaskExtService {
                 .build());
     }
 
+    /**
+     * 拾取任务
+     *
+     * @param taskId 任务ID
+     */
     @Override
     public void claimTask(String taskId) {
         taskService.claim(taskId, String.valueOf(context.userId()));
     }
 
+    /**
+     * 转办任务
+     *
+     * @param taskId 任务ID
+     * @param req    req
+     */
     @Override
     @DSTransactional(rollbackFor = Exception.class)
     public void transfer(String taskId, ProcessTaskAssigneeReq req) {
@@ -124,6 +154,12 @@ public class ProcessTaskExtServiceImpl implements ProcessTaskExtService {
                 .remark(remark).build());
     }
 
+    /**
+     * 委派任务
+     *
+     * @param taskId 任务ID
+     * @param req    req
+     */
     @Override
     @DSTransactional(rollbackFor = Exception.class)
     public void delegate(String taskId, ProcessTaskAssigneeReq req) {
